@@ -122,7 +122,9 @@ function blockToLines(text) {
   // Repair glued words at lost line breaks: lowercase-Cyrillic directly
   // followed by uppercase-Cyrillic never occurs naturally in Russian.
   return out
-    .map(l => l.replace(/([а-яё])([А-ЯЁ])/g, '$1. $2'))
+    .map(l => l
+      .replace(/([а-яё])([А-ЯЁ])/g, '$1. $2')      // lost line break between words
+      .replace(/([а-яёa-z]):([А-ЯЁA-Z])/g, '$1: $2')) // missing space after colon
     .filter(l => l.length > 1);
 }
 
@@ -135,12 +137,17 @@ function extractItemsFromBlock(html) {
 const ING_PAT = /^(ингредиент|ингридиент|состав|продукт|вам понадоб|нам понадоб)/i;
 const STEP_PAT = /^(приготовлен|способ|инструкц|пошагов|как готов|шаги|метод)/i;
 const SKIP_PAT = /^(совет|примечани|note|tip|важно|внимани|подача|подавать)/i;
+// A line that opens a "tips / tricks" section (header for one or more tips)
+const TIPS_HEADER = /^(маленьк\S*\s+хитрост|хитрост|совет|полезн\S*\s+совет|на\s+заметку|примечани|рекомендац)\S*\s*:?\s*$/i;
+function isTipsHeader(line) {
+  return line.length < 45 && TIPS_HEADER.test(normalizeTitle(line));
+}
 
 function classify(title) {
   const t = normalizeTitle(title);
   if (ING_PAT.test(t)) return 'ing';
   if (STEP_PAT.test(t)) return 'step';
-  if (SKIP_PAT.test(t)) return 'skip';
+  if (SKIP_PAT.test(t) || TIPS_HEADER.test(t)) return 'skip';
   return 'other';
 }
 
@@ -193,8 +200,9 @@ function parseStructuredHTML(html, postTitle) {
       stepSections.push(section);
       current = { kind: 'step', section, level: seg.level };
     } else if (kind === 'skip') {
-      const body = stripHtml(seg.body).trim();
-      if (body) notes.push({ label: normalizeTitle(seg.title), text: body });
+      const tipItems = extractItemsFromBlock(seg.body);
+      if (tipItems.length > 1) notes.push({ label: normalizeTitle(seg.title), items: tipItems });
+      else if (tipItems.length === 1) notes.push({ label: normalizeTitle(seg.title), text: tipItems[0] });
       current = null;
     } else {
       // OTHER: sub-group / content-blob / sub-recipe name / post title / intro
@@ -259,11 +267,13 @@ function parseStructuredHTML(html, postTitle) {
 const STEP_NUM = /^\d+[\.\)]\s+\S/;
 const STEP_WORD = /^шаг\s+\d+/i;
 const ING_INLINE = /^(ингредиент|ингридиент|состав|продукт)/i;
-const STEP_INLINE = /^(приготовлен|способ|инструкц|как готов|метод)/i;
+const STEP_INLINE = /^(приготовлен|пошагов|способ|инструкц|как готов|метод)/i;
 
 const QTY_RE = /^[\d½¼¾⅓⅔⅛]+([.,\-–]\s*[\d½¼¾⅓⅔⅛]+)?\s*(г|гр|кг|мл|л|шт|ст|ч|зуб|стак|пуч|горст|кусоч|щепот|дольк|банк|пачк|уп|г\.|мл\.)?/i;
+// Ingredient lines also commonly carry the amount at the END: "Лук — 1 шт."
+const QTY_TAIL = /[—–\-]\s*([\d½¼¾⅓⅔⅛]+|по вкусу|для жарки|щепотк)/i;
 function hasQty(l) {
-  return QTY_RE.test(l) || /^[\-•▢*]/.test(l);
+  return QTY_RE.test(l) || /^[\-•▢*]/.test(l) || QTY_TAIL.test(l);
 }
 
 function parseContent(rawHtml) {
@@ -319,7 +329,40 @@ function parseContent(rawHtml) {
     if (foundStep) intro = intro.slice(0, 1);
   }
 
-  return { intro: intro.join(' ').trim(), ingredients, steps };
+  const { steps: cleanSteps, notes } = splitOutTips(steps);
+  return { intro: intro.join(' ').trim(), ingredients, steps: cleanSteps, notes };
+}
+
+// Pull a trailing "tips / tricks" section out of a step list into a note block,
+// so it isn't mis-rendered as a sub-step of the last numbered step.
+const TIP_INLINE = /^(совет|важно|примечани\S*|хитрост\S*|на заметку|рекомендац\S*)\s*:\s*(.+)/i;
+// Closing pleasantries duplicate the template footer — drop them from steps
+const CLOSING = /^(приятн\S*\s+аппетит|bon\s+app|наслажд)/i;
+function splitOutTips(steps) {
+  const notes = [];
+  let body = steps.filter(l => !CLOSING.test(l));
+
+  // 1) A "tips section" header followed by tip lines
+  const idx = body.findIndex(isTipsHeader);
+  if (idx !== -1) {
+    const label = normalizeTitle(body[idx]).replace(/[:\s]+$/, '');
+    const items = body.slice(idx + 1).filter(l => l.length > 2);
+    if (items.length) notes.push({ label, items });
+    body = body.slice(0, idx);
+  }
+
+  // 2) Trailing single tips lines ("Совет: …", "Важно: …") at the very end
+  const tail = [];
+  while (body.length) {
+    const m = body[body.length - 1].match(TIP_INLINE);
+    if (!m) break;
+    const label = m[1][0].toUpperCase() + m[1].slice(1).toLowerCase();
+    tail.unshift({ label, text: m[2] });
+    body = body.slice(0, -1);
+  }
+  notes.push(...tail);
+
+  return { steps: body, notes };
 }
 
 // ---------- Step grouping ----------
@@ -377,9 +420,13 @@ function introHtmlOf(intro) {
 }
 function notesHtmlOf(notes) {
   if (!notes || notes.length === 0) return '';
-  return notes.map(n =>
-    `<div style="margin: 14px 0; padding: 12px 16px; background: #fff8e6; border-left: 4px solid #f0a030; border-radius: 0 8px 8px 0;"><strong>💡 ${n.label || 'Совет'}:</strong> ${n.text}</div>`
-  ).join('\n');
+  return notes.map(n => {
+    const body = (n.items && n.items.length)
+      ? `<ul style="margin: 8px 0 0; padding-left: 18px;">` +
+        n.items.map(it => `<li style="padding: 2px 0;">${it}</li>`).join('') + `</ul>`
+      : (n.text ? ` ${n.text}` : '');
+    return `<div style="margin: 14px 0; padding: 12px 16px; background: #fff8e6; border-left: 4px solid #f0a030; border-radius: 0 8px 8px 0;"><strong>💡 ${n.label || 'Совет'}:</strong>${body}</div>`;
+  }).join('\n');
 }
 
 const ING_CARD_OPEN = `<div style="background: #fff8f5; border-radius: 12px; padding: 20px 24px; margin: 24px 0; border: 1px solid #f0d0c0;">
@@ -493,10 +540,10 @@ function formatPost(rawContent, title) {
       mode: `structured (ing:${structured.ingSections.length}, step:${structured.stepSections.length}, notes:${structured.notes.length})`,
     };
   }
-  const { intro, ingredients, steps } = parseContent(original);
+  const { intro, ingredients, steps, notes } = parseContent(original);
   return {
-    html: buildHtml(images, intro, ingredients, steps, [], original),
-    mode: `plain (ing:${ingredients.length}, step:${steps.length})`,
+    html: buildHtml(images, intro, ingredients, steps, notes || [], original),
+    mode: `plain (ing:${ingredients.length}, step:${steps.length}, notes:${(notes||[]).length})`,
   };
 }
 
