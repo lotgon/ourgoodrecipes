@@ -1,0 +1,12 @@
+# Секреты — НЕ коммитить
+blogger_token.json
+*token*.json
+
+# Временные файлы
+preview_*.html
+
+# Бэкап постов (большой, генерируется из API)
+posts_backup.json
+
+# Node
+node_modules/
