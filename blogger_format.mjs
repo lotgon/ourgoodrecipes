@@ -102,6 +102,19 @@ function normalizeTitle(t) {
   return t.replace(/^[^\p{L}\d]+/u, '').trim();
 }
 
+// Normalize a string to bare letters/digits for fuzzy title matching
+function normForMatch(s) {
+  return s.toLowerCase().replace(/[^\p{L}\d]+/gu, ' ').trim();
+}
+// A line that just repeats the post title (so it shouldn't also sit in the intro).
+// Only an exact match or a fragment OF the title — never a line that contains the
+// title plus extra text, so we never drop real intro content.
+function isTitleLine(line, titleNorm) {
+  if (!titleNorm) return false;
+  const n = normForMatch(line);
+  return !!n && (n === titleNorm || (n.length > 4 && titleNorm.includes(n)));
+}
+
 // Import artifacts that are not recipe content: source attributions, bare URLs,
 // "see here"-style link leftovers, and junk pasted from the Ginger browser
 // extension. These are unambiguous, so they're safe to drop from any list.
@@ -118,6 +131,9 @@ function isJunkLine(l) {
   // a bare "see here"-style link leftover (must point somewhere — avoids eating
   // a real instruction like "Смотрите за огнём")
   if (/^(посмотреть|подробнее)/i.test(l) && /(здесь|тут|ссылк|сайт|http)/i.test(l)) return true;
+  // a bare section-header leftover that the section parser doesn't consume
+  // (NB: don't list words used for mode-switching — "приготовление", "состав", …)
+  if (/^(готовка|готовим|работа)\s*[:!.]?\s*$/i.test(l)) return true;
   return false;
 }
 // Drop junk lines from a multi-line text blob (used for intro paragraphs)
@@ -292,7 +308,7 @@ function parseStructuredHTML(html, postTitle) {
 
 const STEP_NUM = /^\d+[\.\)]\s+\S/;
 const STEP_WORD = /^шаг\s+\d+/i;
-const ING_INLINE = /^(ингредиент|ингридиент|состав|продукт)/i;
+const ING_INLINE = /^(ингредиент|ингридиент|состав|продукт|потребуется|понадоб|припас)/i;
 const STEP_INLINE = /^(приготовлен|пошагов|способ|инструкц|как готов|метод)/i;
 
 const QTY_RE = /^[\d½¼¾⅓⅔⅛]+([.,\-–]\s*[\d½¼¾⅓⅔⅛]+)?\s*(г|гр|кг|мл|л|шт|ст|ч|зуб|стак|пуч|горст|кусоч|щепот|дольк|банк|пачк|уп|г\.|мл\.)?/i;
@@ -350,7 +366,7 @@ function isInstructionSentence(l) {
 
 // Many posts use real list markup: <ul> for ingredients, <ol> for steps.
 // That is far more reliable than text heuristics, so try it first.
-function parseListBased(html) {
+function parseListBased(html, titleNorm = '') {
   const clean = stripCodeFences(html);
   const liText = block => [...block.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
     .map(m => stripHtml(m[1]).replace(/\s+/g, ' ').trim()).filter(l => l.length > 1 && !isJunkLine(l));
@@ -365,15 +381,16 @@ function parseListBased(html) {
   if (firstList >= 0) {
     intro = stripHtml(clean.slice(0, firstList)).split('\n').map(s => s.trim())
       .filter(Boolean)
-      .filter(l => !ING_INLINE.test(normalizeTitle(l)) && !STEP_INLINE.test(normalizeTitle(l)) && !isJunkLine(l))
+      .filter(l => !ING_INLINE.test(normalizeTitle(l)) && !STEP_INLINE.test(normalizeTitle(l)) && !isJunkLine(l) && !isTitleLine(l, titleNorm))
       .join(' ').replace(/\s+/g, ' ').trim();
   }
   return { intro, ingredients, steps, hasBoth: ingredients.length > 0 && steps.length > 0 };
 }
 
-function parseContent(rawHtml) {
+function parseContent(rawHtml, postTitle = '') {
+  const titleNorm = normForMatch(postTitle);
   // Reliable path: clean <ul>=ingredients + <ol>=steps markup
-  const listed = parseListBased(rawHtml);
+  const listed = parseListBased(rawHtml, titleNorm);
   if (listed.hasBoth) {
     const { steps, notes } = splitOutTips(listed.steps);
     return { intro: listed.intro, ingredients: listed.ingredients, steps, notes };
@@ -422,7 +439,7 @@ function parseContent(rawHtml) {
     if (mode === 'ingredients' && !hasQty(line) &&
         ingredients.length >= 2 && line.split(/\s+/).length >= 6) mode = 'steps';
 
-    if (mode === 'intro') intro.push(line);
+    if (mode === 'intro') { if (!isTitleLine(line, titleNorm)) intro.push(line); }
     // Strip a leading list marker only — a bullet (-•▢*) or a numbered-list
     // prefix ("1." / "2)"). Must NOT eat a quantity glued to a dash ("-15 г"):
     // strip the bullet but keep the number.
@@ -670,7 +687,7 @@ function formatPost(rawContent, title, postId) {
       mode: `structured (ing:${structured.ingSections.length}, step:${structured.stepSections.length}, notes:${structured.notes.length})`,
     };
   }
-  const { intro, ingredients, steps, notes } = parseContent(original);
+  const { intro, ingredients, steps, notes } = parseContent(original, title);
   return {
     html: buildHtml(images, intro, ingredients, steps, notes || [], original),
     mode: `plain (ing:${ingredients.length}, step:${steps.length}, notes:${(notes||[]).length})`,
