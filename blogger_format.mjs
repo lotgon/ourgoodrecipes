@@ -285,6 +285,17 @@ function hasQty(l) {
 function startsWithQty(l) {
   return QTY_RE.test(l) || /^[\-•▢*]/.test(l);
 }
+// Quantity by unit (ignores a bare leading number, unlike QTY_RE)
+function hasUnitQty(l) {
+  return QTY_TAIL.test(l) || QTY_MID.test(l) || /по вкусу/i.test(l);
+}
+// A numbered line ("1. …") — is it a step, or just a numbered ingredient?
+function numberedIsStep(line) {
+  const rest = line.replace(/^\d+[\.\)]\s*/, '');
+  if (isInstruction(rest)) return true;          // "1. Обжарьте…"
+  if (hasUnitQty(rest)) return false;            // "2. яйца — 4 шт."
+  return rest.split(/\s+/).length >= 4;          // "1. В томатной пасте…" (sentence)
+}
 
 // A cooking instruction (prose recipes with no headers/numbers). Whole-word verb
 // forms only — must not match nouns like "запеканка" (which contains "запека").
@@ -366,7 +377,9 @@ function parseContent(rawHtml) {
 
     if (ING_INLINE.test(t) && line.length < 50) { mode = 'ingredients'; continue; }
     if (STEP_INLINE.test(t) && line.length < 50) { mode = 'steps'; continue; }
-    if ((STEP_NUM.test(line) || STEP_WORD.test(line)) && mode !== 'intro') mode = 'steps';
+    if ((STEP_NUM.test(line) || STEP_WORD.test(line)) && mode !== 'intro') {
+      if (mode === 'steps' || numberedIsStep(line)) mode = 'steps';
+    }
 
     // Leaving intro: an instruction sentence starts steps; otherwise a quantity
     // line starts the ingredient list. Instruction wins (handles "Добавьте 60 г").
@@ -374,18 +387,20 @@ function parseContent(rawHtml) {
       if (isInstructionSentence(line) && !startsWithQty(line)) mode = 'steps';
       else if (hasQty(line)) mode = 'ingredients';
     }
-    // Within ingredients: an instruction sentence (not a quantity line) ends the
-    // ingredient list and starts the steps.
-    if (mode === 'ingredients' && !startsWithQty(line) && isInstructionSentence(line)) mode = 'steps';
-    // A blank line after ingredients, followed by an instruction, starts the steps
-    if (mode === 'ingredients' && blankSinceIng && isInstructionSentence(line)) { mode = 'steps'; }
+    // Within ingredients: an instruction sentence with NO quantity ends the
+    // ingredient list and starts the steps. (A line with a quantity — even one
+    // containing a verb in a parenthetical — stays an ingredient.)
+    if (mode === 'ingredients' && !hasQty(line) && isInstructionSentence(line)) mode = 'steps';
+    // A blank line after ingredients, followed by a quantity-free instruction,
+    // starts the steps (a quantity line stays an ingredient).
+    if (mode === 'ingredients' && blankSinceIng && !hasQty(line) && isInstructionSentence(line)) { mode = 'steps'; }
     blankSinceIng = false;
     // A long sentence with no quantity (once we have ingredients) is a step
     if (mode === 'ingredients' && !hasQty(line) &&
         ingredients.length >= 2 && line.split(/\s+/).length >= 6) mode = 'steps';
 
     if (mode === 'intro') intro.push(line);
-    else if (mode === 'ingredients') ingredients.push(line.replace(/^[\-•▢*]\s*/, ''));
+    else if (mode === 'ingredients') ingredients.push(line.replace(/^[\-•▢*\d]+[\.\)]?\s*/, ''));
     else steps.push(line);
   }
 
@@ -604,10 +619,24 @@ function isAlreadyFormatted(content) {
     content.includes('border-top: 3px dashed');
 }
 
+// Hand-curated ingredient/step lists for the few posts too messy to auto-parse
+// (metadata noise, glued multi-column tables, ingredients without quantities).
+let OVERRIDES = {};
+try { OVERRIDES = JSON.parse(readFileSync(join(DIR, 'manual_overrides.json'), 'utf8')); } catch {}
+
 // Format one post's raw content into styled HTML. Returns { html, mode }.
-function formatPost(rawContent, title) {
+function formatPost(rawContent, title, postId) {
   const original = getOriginal(rawContent);     // pristine source (handles re-runs)
   const images = extractImages(original);
+
+  const ov = postId && OVERRIDES[postId];
+  if (ov) {
+    return {
+      html: buildHtml(images, ov.intro || '', ov.ingredients || [], ov.steps || [], ov.notes || [], original),
+      mode: `manual override (ing:${(ov.ingredients||[]).length}, step:${(ov.steps||[]).length})`,
+    };
+  }
+
   const structured = parseStructuredHTML(original, title);
   if (structured.hasStructure) {
     return {
@@ -689,7 +718,7 @@ async function main() {
     if (!onlyId && !onlyIds && !all && isAlreadyFormatted(post.content)) { skipped++; continue; }
 
     try {
-      const { html, mode } = formatPost(post.content, post.title);
+      const { html, mode } = formatPost(post.content, post.title, post.id);
       console.log(`[${i+1}/${posts.length}] "${post.title}" — ${mode}`);
 
       if (!dryRun) {
