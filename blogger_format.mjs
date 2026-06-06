@@ -740,4 +740,9 @@ async function main() {
   if (errors.length) console.log('Errors:', JSON.stringify(errors, null, 2));
 }
 
-main().catch(console.error);
+// Run only when invoked directly (so the parser can be imported for diagnostics)
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  main().catch(console.error);
+}
+
+export { formatPost, parseContent, parseStructuredHTML, getOriginal, OVERRIDES };
