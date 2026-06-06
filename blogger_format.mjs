@@ -400,7 +400,10 @@ function parseContent(rawHtml) {
         ingredients.length >= 2 && line.split(/\s+/).length >= 6) mode = 'steps';
 
     if (mode === 'intro') intro.push(line);
-    else if (mode === 'ingredients') ingredients.push(line.replace(/^[\-•▢*\d]+[\.\)]?\s*/, ''));
+    // Strip a leading list marker only — a bullet (-•▢*) or a numbered-list
+    // prefix ("1." / "2)"). Must NOT eat a quantity glued to a dash ("-15 г"):
+    // strip the bullet but keep the number.
+    else if (mode === 'ingredients') ingredients.push(line.replace(/^(?:[\-•▢*]\s*|\d+[.\)]\s+)/, ''));
     else steps.push(line);
   }
 
