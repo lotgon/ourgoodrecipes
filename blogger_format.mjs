@@ -28,7 +28,10 @@ async function getAccessToken() {
   return d.access_token;
 }
 
-async function updatePost(token, postId, title, content) {
+async function updatePost(token, postId, title, content, labels) {
+  // A PUT replaces the whole post, so labels MUST be sent back or they get wiped.
+  const body = { id: postId, title, content };
+  if (labels && labels.length) body.labels = labels;
   const r = await fetch(
     `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/${postId}`,
     {
@@ -37,7 +40,7 @@ async function updatePost(token, postId, title, content) {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id: postId, title, content }),
+      body: JSON.stringify(body),
     }
   );
   const d = await r.json();
@@ -765,7 +768,7 @@ async function main() {
       console.log(`[${i+1}/${posts.length}] "${post.title}" — ${mode}`);
 
       if (!dryRun) {
-        await updatePost(token, post.id, post.title, html);
+        await updatePost(token, post.id, post.title, html, post.labels);
         console.log(`  ✓ Updated`);
         await new Promise(r => setTimeout(r, 700));
       } else if (onlyIds || onlyId) {
