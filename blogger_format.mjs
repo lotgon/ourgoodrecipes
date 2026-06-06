@@ -102,6 +102,29 @@ function normalizeTitle(t) {
   return t.replace(/^[^\p{L}\d]+/u, '').trim();
 }
 
+// Import artifacts that are not recipe content: source attributions, bare URLs,
+// "see here"-style link leftovers, and junk pasted from the Ginger browser
+// extension. These are unambiguous, so they're safe to drop from any list.
+// NB: JS \b does not work after Cyrillic letters, so we don't rely on it here.
+function isJunkLine(l) {
+  l = l.trim();
+  // bare URL or Ginger-extension junk (matched anywhere in the line)
+  if (/^https?:\/\/|^www\.|enable ginger|cannot connect to ginger|edit in ginger|disable in this text field/i.test(l)) return true;
+  // explicit attribution leftovers
+  if (/^(рецепт\S*\s+взят|взят\S*\s+(с|из|от)|по мотивам)/i.test(l)) return true;
+  // "Оригинал[ьный] рецепт … тут/здесь/посмотреть/<url>" — a source pointer, not a step
+  if (/^(оригинал|источник|original|recipe source)/i.test(l) &&
+      /(https?:\/\/|www\.|тут|здесь|посмотрет|взят|сайт|ссылк|\.com|\.ru|:\s*$)/i.test(l)) return true;
+  // a bare "see here"-style link leftover (must point somewhere — avoids eating
+  // a real instruction like "Смотрите за огнём")
+  if (/^(посмотреть|подробнее)/i.test(l) && /(здесь|тут|ссылк|сайт|http)/i.test(l)) return true;
+  return false;
+}
+// Drop junk lines from a multi-line text blob (used for intro paragraphs)
+function dropJunk(text) {
+  return text.split('\n').map(s => s.trim()).filter(s => s && !isJunkLine(s)).join('\n');
+}
+
 // Split a block of text into clean item lines, handling glued emoji/«Шаг N» lists
 function blockToLines(text) {
   let lines = text.split('\n').map(s => s.trim()).filter(Boolean);
@@ -128,7 +151,7 @@ function blockToLines(text) {
       .replace(/([а-яё])([А-ЯЁ])/g, '$1. $2')          // lost line break between words
       .replace(/([а-яё][.!?])([А-ЯЁ])/g, '$1 $2')      // missing space after sentence end
       .replace(/([а-яёa-z]):([А-ЯЁA-Z])/g, '$1: $2'))  // missing space after colon
-    .filter(l => l.length > 1);
+    .filter(l => l.length > 1 && !isJunkLine(l));
 }
 
 function extractItemsFromBlock(html) {
@@ -254,7 +277,7 @@ function parseStructuredHTML(html, postTitle) {
 
   // If there are multiple sub-recipes, give the first (unlabeled) ones the recipe name
   const anyLabel = [...ingSections, ...stepSections].some(s => s.label);
-  let intro = introParts.filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+  let intro = introParts.filter(Boolean).map(dropJunk).filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
   if (anyLabel) {
     const firstName = postTitle && postTitle.length < 45 ? postTitle : null;
     if (firstName) {
@@ -330,7 +353,7 @@ function isInstructionSentence(l) {
 function parseListBased(html) {
   const clean = stripCodeFences(html);
   const liText = block => [...block.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
-    .map(m => stripHtml(m[1]).replace(/\s+/g, ' ').trim()).filter(l => l.length > 1);
+    .map(m => stripHtml(m[1]).replace(/\s+/g, ' ').trim()).filter(l => l.length > 1 && !isJunkLine(l));
 
   const steps = [];
   for (const m of clean.matchAll(/<ol[^>]*>([\s\S]*?)<\/ol>/gi)) steps.push(...liText(m[1]));
@@ -342,7 +365,7 @@ function parseListBased(html) {
   if (firstList >= 0) {
     intro = stripHtml(clean.slice(0, firstList)).split('\n').map(s => s.trim())
       .filter(Boolean)
-      .filter(l => !ING_INLINE.test(normalizeTitle(l)) && !STEP_INLINE.test(normalizeTitle(l)))
+      .filter(l => !ING_INLINE.test(normalizeTitle(l)) && !STEP_INLINE.test(normalizeTitle(l)) && !isJunkLine(l))
       .join(' ').replace(/\s+/g, ' ').trim();
   }
   return { intro, ingredients, steps, hasBoth: ingredients.length > 0 && steps.length > 0 };
@@ -748,4 +771,4 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   main().catch(console.error);
 }
 
-export { formatPost, parseContent, parseStructuredHTML, getOriginal, OVERRIDES };
+export { formatPost, parseContent, parseStructuredHTML, getOriginal, OVERRIDES, isJunkLine };
