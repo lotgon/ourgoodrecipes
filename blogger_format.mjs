@@ -85,6 +85,8 @@ function stripHtml(html) {
     .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&nbsp;/g, ' ')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
@@ -123,8 +125,9 @@ function blockToLines(text) {
   // followed by uppercase-Cyrillic never occurs naturally in Russian.
   return out
     .map(l => l
-      .replace(/([а-яё])([А-ЯЁ])/g, '$1. $2')      // lost line break between words
-      .replace(/([а-яёa-z]):([А-ЯЁA-Z])/g, '$1: $2')) // missing space after colon
+      .replace(/([а-яё])([А-ЯЁ])/g, '$1. $2')          // lost line break between words
+      .replace(/([а-яё][.!?])([А-ЯЁ])/g, '$1 $2')      // missing space after sentence end
+      .replace(/([а-яёa-z]):([А-ЯЁA-Z])/g, '$1: $2'))  // missing space after colon
     .filter(l => l.length > 1);
 }
 
@@ -271,12 +274,77 @@ const STEP_INLINE = /^(приготовлен|пошагов|способ|инс
 
 const QTY_RE = /^[\d½¼¾⅓⅔⅛]+([.,\-–]\s*[\d½¼¾⅓⅔⅛]+)?\s*(г|гр|кг|мл|л|шт|ст|ч|зуб|стак|пуч|горст|кусоч|щепот|дольк|банк|пачк|уп|г\.|мл\.)?/i;
 // Ingredient lines also commonly carry the amount at the END: "Лук — 1 шт."
-const QTY_TAIL = /[—–\-]\s*([\d½¼¾⅓⅔⅛]+|по вкусу|для жарки|щепотк)/i;
+// Require spaces around the dash so ranges like "1-2" / "20-25" don't match.
+const QTY_TAIL = /\s[—–-]\s+([\d½¼¾⅓⅔⅛]+|по вкусу|для жарки|щепотк)/i;
+// Quantity anywhere in the line: "творог 500 гр." (amount not at the start).
+// Unicode lookahead for the word end — JS \b does not work with Cyrillic.
+const QTY_MID = /[\d½¼¾⅓⅔⅛]+([.,]\d+)?\s*(грамм[а-яё]*|гр|кг|мл|л|шт[а-яё]*|стак[а-яё]*|зуб[а-яё]*|пуч[а-яё]*|горст[а-яё]*|пакетик[а-яё]*|ст\.?\s*л|ч\.?\s*л)(?![\p{L}])/iu;
 function hasQty(l) {
-  return QTY_RE.test(l) || /^[\-•▢*]/.test(l) || QTY_TAIL.test(l);
+  return QTY_RE.test(l) || /^[\-•▢*]/.test(l) || QTY_TAIL.test(l) || QTY_MID.test(l);
+}
+function startsWithQty(l) {
+  return QTY_RE.test(l) || /^[\-•▢*]/.test(l);
+}
+
+// A cooking instruction (prose recipes with no headers/numbers). Whole-word verb
+// forms only — must not match nouns like "запеканка" (which contains "запека").
+const STEP_VERB = new RegExp('(?<![\\p{L}])(' + [
+  'смешайте','смешать','смешиваем','добавьте','добавить','добавляем','добавляйте',
+  'перемешайте','перемешать','перемешиваем','положите','положить','кладём','кладем',
+  'возьмите','выпекать','выпекаем','выпекайте','испеките','нарежьте','нарезать','нарезаем','режем','режьте',
+  'обжарьте','обжарить','обжариваем','жарим','жарьте','жарить','разогрейте','разогреть',
+  'влейте','влить','вливаем','взбейте','взбить','взбиваем','залейте','залить','заливаем',
+  'посыпьте','посыпать','распределите','распределить','поставьте','ставим',
+  'готовим','готовьте','готовить','варим','варите','варить','сварите','тушим','тушите','тушить',
+  'запекаем','запекайте','запекать','смажьте','смазать','вымешивайте','вымесить',
+  'раскатайте','раскатать','снимите','снять','остудите','остудить','подавайте','подавать',
+  'накройте','накрыть','доведите','довести','посолите','посолить','поперчите','натрите','натереть',
+  'очистите','очистить','промойте','промыть','замесите','замесить','замочите',
+  'соедините','соединить','выложите','выложить','выкладываем','сформируйте','сформировать',
+  'поместите','поместить','укладывайте','перетопите','засыпьте','всыпьте','выровняйте','проткните',
+  'выпарить','выпарите','выпарь','отварите','отварить','обваляйте','перетрите','натрите',
+  'режем','жарим','смешиваем','добавляем','варим','тушим','запекаем','выкладываем','кладём','кладем',
+  'мешаем','перемешиваем','солим','перчим','измельчите','измельчить','взбиваем','остужаем',
+].join('|') + ')(?![\\p{L}])', 'iu');
+function isInstruction(l) {
+  return STEP_VERB.test(l);
+}
+// Instruction strong enough to start/break the steps section: a verb in a sentence
+function isInstructionSentence(l) {
+  return isInstruction(l) && l.split(/\s+/).length >= 3;
+}
+
+// Many posts use real list markup: <ul> for ingredients, <ol> for steps.
+// That is far more reliable than text heuristics, so try it first.
+function parseListBased(html) {
+  const clean = stripCodeFences(html);
+  const liText = block => [...block.matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
+    .map(m => stripHtml(m[1]).replace(/\s+/g, ' ').trim()).filter(l => l.length > 1);
+
+  const steps = [];
+  for (const m of clean.matchAll(/<ol[^>]*>([\s\S]*?)<\/ol>/gi)) steps.push(...liText(m[1]));
+  const ingredients = [];
+  for (const m of clean.matchAll(/<ul[^>]*>([\s\S]*?)<\/ul>/gi)) ingredients.push(...liText(m[1]));
+
+  const firstList = clean.search(/<[ou]l[\s>]/i);
+  let intro = '';
+  if (firstList >= 0) {
+    intro = stripHtml(clean.slice(0, firstList)).split('\n').map(s => s.trim())
+      .filter(Boolean)
+      .filter(l => !ING_INLINE.test(normalizeTitle(l)) && !STEP_INLINE.test(normalizeTitle(l)))
+      .join(' ').replace(/\s+/g, ' ').trim();
+  }
+  return { intro, ingredients, steps, hasBoth: ingredients.length > 0 && steps.length > 0 };
 }
 
 function parseContent(rawHtml) {
+  // Reliable path: clean <ul>=ingredients + <ol>=steps markup
+  const listed = parseListBased(rawHtml);
+  if (listed.hasBoth) {
+    const { steps, notes } = splitOutTips(listed.steps);
+    return { intro: listed.intro, ingredients: listed.ingredients, steps, notes };
+  }
+
   const text = stripHtml(stripCodeFences(rawHtml));
   // Keep blank lines as boundary markers; glue-split non-blank lines
   const lines = [];
@@ -300,10 +368,17 @@ function parseContent(rawHtml) {
     if (STEP_INLINE.test(t) && line.length < 50) { mode = 'steps'; continue; }
     if ((STEP_NUM.test(line) || STEP_WORD.test(line)) && mode !== 'intro') mode = 'steps';
 
-    // Enter ingredients from intro at first quantity/bullet line
-    if (mode === 'intro' && hasQty(line)) mode = 'ingredients';
-    // A blank line after ingredients, followed by prose, marks the steps section
-    if (mode === 'ingredients' && blankSinceIng && !hasQty(line)) { mode = 'steps'; }
+    // Leaving intro: an instruction sentence starts steps; otherwise a quantity
+    // line starts the ingredient list. Instruction wins (handles "Добавьте 60 г").
+    if (mode === 'intro') {
+      if (isInstructionSentence(line) && !startsWithQty(line)) mode = 'steps';
+      else if (hasQty(line)) mode = 'ingredients';
+    }
+    // Within ingredients: an instruction sentence (not a quantity line) ends the
+    // ingredient list and starts the steps.
+    if (mode === 'ingredients' && !startsWithQty(line) && isInstructionSentence(line)) mode = 'steps';
+    // A blank line after ingredients, followed by an instruction, starts the steps
+    if (mode === 'ingredients' && blankSinceIng && isInstructionSentence(line)) { mode = 'steps'; }
     blankSinceIng = false;
     // A long sentence with no quantity (once we have ingredients) is a step
     if (mode === 'ingredients' && !hasQty(line) &&
