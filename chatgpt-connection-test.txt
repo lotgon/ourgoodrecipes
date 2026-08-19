@@ -1,0 +1,4 @@
+ChatGPT GitHub connection test.
+
+If you can see this file, the GitHub connector has write access to the repository.
+Created on 2026-08-20.
