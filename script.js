@@ -3,7 +3,6 @@ const buttons = Array.from(document.querySelectorAll('.ingredient-chip'));
 const cards = Array.from(document.querySelectorAll('.recipe-card'));
 const count = document.getElementById('recipeCount');
 const empty = document.getElementById('emptyState');
-const clear = document.getElementById('clearFilter');
 let selected = 'all';
 
 function render() {
@@ -30,15 +29,6 @@ buttons.forEach(function(button) {
     });
     render();
   });
-});
-
-clear.addEventListener('click', function() {
-  selected = 'all';
-  searchInput.value = '';
-  buttons.forEach(function(button) {
-    button.classList.toggle('active', button.dataset.filter === 'all');
-  });
-  render();
 });
 
 searchInput.addEventListener('input', render);
