@@ -31,3 +31,4 @@ jobs:
             git commit -m "Import recipes and images from Blogger"
             git push
           fi
+# Trigger import after migration setup.
