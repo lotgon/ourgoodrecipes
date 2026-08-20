@@ -13,10 +13,9 @@
       <div class="brand">OUR GOOD RECIPES</div>
       <h1>Полезная еда: меньше соли, без глютена</h1>
       <p class="hero-copy">Домашние рецепты, которые мы действительно обсуждали и готовили. Главная задача — ничего не потерять и быстро находить блюда по продуктам и памяти о рецепте.</p>
-
       <div class="search-box">
         <span aria-hidden="true">⌕</span>
-        <input id="recipeSearch" type="search" placeholder="Найти рецепт или ингредиент…" autocomplete="off" aria-label="Поиск рецептов">
+        <input id="recipeSearch" type="search" placeholder="Найти среди приготовленных рецептов…" autocomplete="off" aria-label="Поиск рецептов">
       </div>
     </div>
   </header>
@@ -24,109 +23,75 @@
   <main class="wrap">
     <section class="ingredient-section" aria-labelledby="ingredientTitle">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">Выберите основной продукт</p>
-          <h2 id="ingredientTitle">Что хочется приготовить?</h2>
-        </div>
+        <div><p class="section-kicker">Выберите основной продукт</p><h2 id="ingredientTitle">Что хочется приготовить?</h2></div>
         <button class="clear-filter" id="clearFilter" type="button">Показать всё</button>
       </div>
-
       <div class="ingredient-filters" id="ingredientFilters">
         <button class="ingredient-chip active" type="button" data-filter="all"><span class="ingredient-icon">🍽️</span><span>Все</span></button>
         <button class="ingredient-chip" type="button" data-filter="avocado"><span class="ingredient-icon">🥑</span><span>Авокадо</span></button>
         <button class="ingredient-chip" type="button" data-filter="eggplant"><span class="ingredient-icon">🍆</span><span>Баклажан</span></button>
         <button class="ingredient-chip" type="button" data-filter="dumplings"><span class="ingredient-icon">🥟</span><span>Пельмени</span></button>
-        <button class="ingredient-chip" type="button" data-filter="blueberry"><span class="ingredient-icon">🫐</span><span>Черника</span></button>
       </div>
     </section>
 
     <section class="recipes-section">
-      <div class="recipes-heading">
-        <h2>Каталог рецептов</h2>
-        <span id="recipeCount">5 рецептов</span>
-      </div>
-
+      <div class="recipes-heading"><h2>Каталог приготовленных рецептов</h2><span id="recipeCount">4 рецепта</span></div>
       <div class="recipe-list" id="recipeList">
         <article class="recipe-card" data-main="dumplings" data-search="лёгкий суп пельмени овощи хамон картофель кабачок перец помидор чеснок">
-          <div class="recipe-visual" aria-hidden="true">🥟</div>
-          <div class="recipe-content">
+          <div class="recipe-visual" aria-hidden="true">🥟</div><div class="recipe-content">
             <div class="recipe-badges"><span>Пельмени</span><span>Суп</span><span>Проверен</span></div>
-            <h3>Лёгкий суп с пельменями, овощами и хамоном</h3>
-            <p>Лёгкий домашний суп с овощами, тремя пельменями и небольшим количеством хамона.</p>
+            <h3>Лёгкий суп с пельменями, овощами и хамоном</h3><p>Лёгкий домашний суп с овощами, тремя пельменями и небольшим количеством хамона.</p>
             <div class="recipe-meta"><span>Опубликован: 21.08.2026</span><span>Обновлён: 21.08.2026</span></div>
-            <details class="recipe-details">
-              <summary>Открыть рецепт</summary>
-              <div class="recipe-grid">
-                <section class="panel ingredients"><h4>Ингредиенты</h4><ul>
-                  <li><span>Красный лук</span><strong>⅓ крупной</strong></li><li><span>Картофель</span><strong>1 шт.</strong></li><li><span>Сладкий перец</span><strong>½ шт.</strong></li><li><span>Кабачок</span><strong>½ шт.</strong></li><li><span>Пельмени</span><strong>≈57 г / 3 шт.</strong></li><li><span>Хамон</span><strong>5–10 г</strong></li><li><span>Помидор</span><strong>1 небольшой</strong></li><li><span>Чеснок</span><strong>2 зубчика</strong></li><li><span>Лавровый лист</span><strong>2 шт.</strong></li><li><span>Орегано</span><strong>по вкусу</strong></li><li><span>Вода</span><strong>0,8–1 л</strong></li>
-                </ul></section>
-                <section class="panel steps"><h4>Заметки</h4><ol><li>Рецепт был приготовлен как лёгкий вариант супа.</li><li>Количество хамона уменьшили до 5–10 г, чтобы вкус оставался, а суп был легче.</li></ol></section>
-              </div>
-            </details>
+            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid">
+              <section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Красный лук</span><strong>⅓ крупной</strong></li><li><span>Картофель</span><strong>1 шт.</strong></li><li><span>Сладкий перец</span><strong>½ шт.</strong></li><li><span>Кабачок</span><strong>½ шт.</strong></li><li><span>Пельмени</span><strong>≈57 г / 3 шт.</strong></li><li><span>Хамон</span><strong>5–10 г</strong></li><li><span>Помидор</span><strong>1 небольшой</strong></li><li><span>Чеснок</span><strong>2 зубчика</strong></li><li><span>Лавровый лист</span><strong>2 шт.</strong></li><li><span>Орегано</span><strong>по вкусу</strong></li><li><span>Вода</span><strong>0,8–1 л</strong></li></ul></section>
+              <section class="panel steps"><h4>Заметки</h4><ol><li>Рецепт был приготовлен как лёгкий вариант супа.</li><li>Количество хамона уменьшили до 5–10 г, чтобы вкус оставался, а суп был легче.</li></ol></section>
+            </div></details>
           </div>
         </article>
 
         <article class="recipe-card" data-main="avocado" data-search="салат авокадо моцарелла помидоры базилик хлеб винный уксус">
-          <div class="recipe-visual" aria-hidden="true">🥑</div>
-          <div class="recipe-content">
+          <div class="recipe-visual" aria-hidden="true">🥑</div><div class="recipe-content">
             <div class="recipe-badges"><span>Авокадо</span><span>Моцарелла</span><span>Проверен</span></div>
-            <h3>Салат с авокадо, моцареллой, помидорами и базиликом</h3>
-            <p>Простой свежий салат с хлебом и винным уксусом вместо лимона.</p>
+            <h3>Салат с авокадо, моцареллой, помидорами и базиликом</h3><p>Простой свежий салат с хлебом и винным уксусом вместо лимона.</p>
             <div class="recipe-meta"><span>Опубликован: 21.08.2026</span><span>Обновлён: 21.08.2026</span></div>
-            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid">
-              <section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Авокадо</span></li><li><span>Моцарелла</span></li><li><span>Помидоры</span></li><li><span>Свежий базилик</span></li><li><span>Хлеб</span></li><li><span>Винный уксус</span><strong>по вкусу</strong></li></ul></section>
-              <section class="panel steps"><h4>Заметки</h4><ol><li>Это приготовленный и понравившийся вариант.</li><li>Лимона не было, поэтому для кислотности использовали винный уксус.</li></ol></section>
-            </div></details>
+            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Авокадо</span></li><li><span>Моцарелла</span></li><li><span>Помидоры</span></li><li><span>Свежий базилик</span></li><li><span>Хлеб</span></li><li><span>Винный уксус</span><strong>по вкусу</strong></li></ul></section><section class="panel steps"><h4>Заметки</h4><ol><li>Это приготовленный и понравившийся вариант.</li><li>Лимона не было, поэтому для кислотности использовали винный уксус.</li></ol></section></div></details>
           </div>
         </article>
 
         <article class="recipe-card" data-main="avocado" data-search="салат авокадо яйцо огурец сухарики хамон">
-          <div class="recipe-visual" aria-hidden="true">🥑</div>
-          <div class="recipe-content">
+          <div class="recipe-visual" aria-hidden="true">🥑</div><div class="recipe-content">
             <div class="recipe-badges"><span>Авокадо</span><span>Хамон</span><span>Проверен</span></div>
-            <h3>Салат с авокадо, яйцом, огурцом, сухариками и хамоном</h3>
-            <p>Сытный салат из авокадо, яйца и огурца с сухариками и хамоном.</p>
+            <h3>Салат с авокадо, яйцом, огурцом, сухариками и хамоном</h3><p>Сытный салат из авокадо, яйца и огурца с сухариками и хамоном.</p>
             <div class="recipe-meta"><span>Опубликован: 21.08.2026</span><span>Обновлён: 21.08.2026</span></div>
-            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid">
-              <section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Авокадо</span></li><li><span>Яйцо</span></li><li><span>Огурец</span></li><li><span>Сухарики</span></li><li><span>Хамон</span></li></ul></section>
-              <section class="panel steps"><h4>Заметки</h4><ol><li>Приготовленный вариант.</li><li>Хамон — обязательная часть именно этого варианта салата.</li></ol></section>
-            </div></details>
+            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Авокадо</span></li><li><span>Яйцо</span></li><li><span>Огурец</span></li><li><span>Сухарики</span></li><li><span>Хамон</span></li></ul></section><section class="panel steps"><h4>Заметки</h4><ol><li>Приготовленный вариант.</li><li>Хамон — обязательная часть именно этого варианта салата.</li></ol></section></div></details>
           </div>
         </article>
 
         <article class="recipe-card" data-main="eggplant" data-search="курица баклажан баклажаны брокколи сыр запеканка">
-          <div class="recipe-visual" aria-hidden="true">🍆</div>
-          <div class="recipe-content">
+          <div class="recipe-visual" aria-hidden="true">🍆</div><div class="recipe-content">
             <div class="recipe-badges"><span>Баклажан</span><span>Курица</span><span>Нужно уточнить</span></div>
-            <h3>Курица с баклажанами, брокколи и сыром</h3>
-            <p>Баклажаны кружочками, сверху курица и масса из измельчённой брокколи с сыром.</p>
+            <h3>Курица с баклажанами, брокколи и сыром</h3><p>Баклажаны кружочками, сверху курица и масса из измельчённой брокколи с сыром.</p>
             <div class="recipe-meta"><span>Опубликован: 21.08.2026</span><span>Обновлён: 21.08.2026</span></div>
-            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid">
-              <section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Баклажаны</span><strong>кружочками</strong></li><li><span>Курица</span></li><li><span>Брокколи</span><strong>измельчённая</strong></li><li><span>Сыр</span></li><li><span>Специи</span><strong>уточнить</strong></li></ul></section>
-              <section class="panel steps"><h4>Приготовление</h4><ol><li>Нарезать баклажаны кружочками.</li><li>Предварительно приготовить баклажаны около 10–12 минут.</li><li>Выложить сверху курицу.</li><li>На курицу распределить массу из измельчённой брокколи и сыра.</li><li>Допечь всё вместе до готовности.</li></ol><p><strong>Нужно восстановить:</strong> температуру, точный сыр, специи и финальное время приготовления.</p></section>
-            </div></details>
-          </div>
-        </article>
-
-        <article class="recipe-card" data-main="blueberry" data-search="овсяный тарт черника сметана овсяная мука выпечка">
-          <div class="recipe-visual" aria-hidden="true">🫐</div>
-          <div class="recipe-content">
-            <div class="recipe-badges"><span>Черника</span><span>Выпечка</span><span>Проверен</span></div>
-            <h3>Овсяный тарт с черникой</h3>
-            <p>Нежный овсяный тарт с черникой и сметанной начинкой.</p>
-            <div class="recipe-meta"><span>Опубликован: 20.08.2026</span><span>Обновлён: 21.08.2026</span><span>⏱ 20–25 мин</span><span>🌡 175 °C</span></div>
-            <details class="recipe-details">
-              <summary>Открыть рецепт</summary>
-              <div class="recipe-grid">
-                <section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Сливочное масло</span><strong>100 г</strong></li><li><span>Сахар</span><strong>60 г + 40 г</strong></li><li><span>Овсяная мука</span><strong>130 г</strong></li><li><span>Овсяные хлопья</span><strong>40 г</strong></li><li><span>Разрыхлитель</span><strong>1 ч. л.</strong></li><li><span>Сметана</span><strong>200 г</strong></li><li><span>Яйцо</span><strong>1 шт.</strong></li><li><span>Черника</span><strong>300 г</strong></li></ul></section>
-                <section class="panel steps"><h4>Приготовление</h4><ol><li>Размягчите сливочное масло, добавьте 60 г сахара и перемешайте.</li><li>Отдельно смешайте овсяную муку, хлопья и разрыхлитель.</li><li>Вмешайте сухую смесь в масло с сахаром в два приёма.</li><li>Распределите тесто по форме, сформировав бортики.</li><li>Для начинки смешайте сметану, яйцо и 40 г сахара.</li><li>Выложите чернику и залейте сметанной начинкой.</li><li>Выпекайте при 175 °C примерно 20–25 минут.</li></ol></section>
-              </div>
-            </details>
+            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Баклажаны</span><strong>кружочками</strong></li><li><span>Курица</span></li><li><span>Брокколи</span><strong>измельчённая</strong></li><li><span>Сыр</span></li><li><span>Специи</span><strong>уточнить</strong></li></ul></section><section class="panel steps"><h4>Приготовление</h4><ol><li>Нарезать баклажаны кружочками.</li><li>Предварительно приготовить баклажаны около 10–12 минут.</li><li>Выложить сверху курицу.</li><li>На курицу распределить массу из измельчённой брокколи и сыра.</li><li>Допечь всё вместе до готовности.</li></ol><p><strong>Нужно восстановить:</strong> температуру, точный сыр, специи и финальное время приготовления.</p></section></div></details>
           </div>
         </article>
       </div>
-
       <div class="empty-state" id="emptyState" hidden><div>🥬</div><h3>Пока рецептов нет</h3><p>Для этого продукта мы ещё ничего не добавили.</p></div>
+    </section>
+
+    <section class="recipes-section try-section" aria-labelledby="tryTitle">
+      <div class="recipes-heading"><div><p class="section-kicker">На будущее</p><h2 id="tryTitle">Попробовать приготовить</h2></div><span>1 рецепт</span></div>
+      <p class="hero-copy">Эти рецепты ещё не проверены нами и специально не участвуют в обычном поиске.</p>
+      <div class="recipe-list">
+        <article class="try-card recipe-card-static">
+          <div class="recipe-visual" aria-hidden="true">🫐</div><div class="recipe-content">
+            <div class="recipe-badges"><span>Черника</span><span>Выпечка</span><span>Попробовать</span></div>
+            <h3>Овсяный тарт с черникой</h3><p>Овсяный тарт с черникой и сметанной начинкой — рецепт сохранён для будущего приготовления.</p>
+            <div class="recipe-meta"><span>Опубликован: 20.08.2026</span><span>Обновлён: 21.08.2026</span><span>⏱ 20–25 мин</span><span>🌡 175 °C</span></div>
+            <details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul><li><span>Сливочное масло</span><strong>100 г</strong></li><li><span>Сахар</span><strong>60 г + 40 г</strong></li><li><span>Овсяная мука</span><strong>130 г</strong></li><li><span>Овсяные хлопья</span><strong>40 г</strong></li><li><span>Разрыхлитель</span><strong>1 ч. л.</strong></li><li><span>Сметана</span><strong>200 г</strong></li><li><span>Яйцо</span><strong>1 шт.</strong></li><li><span>Черника</span><strong>300 г</strong></li></ul></section><section class="panel steps"><h4>Приготовление</h4><ol><li>Размягчить сливочное масло, добавить 60 г сахара и перемешать.</li><li>Отдельно смешать овсяную муку, хлопья и разрыхлитель.</li><li>Вмешать сухую смесь в масло с сахаром в два приёма.</li><li>Распределить тесто по форме, сформировав бортики.</li><li>Для начинки смешать сметану, яйцо и 40 г сахара.</li><li>Выложить чернику и залить сметанной начинкой.</li><li>Выпекать при 175 °C примерно 20–25 минут.</li></ol></section></div></details>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
 
