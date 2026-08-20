@@ -1,0 +1,33 @@
+name: Import Blogger recipes
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/import-blogger.mjs'
+      - '.github/workflows/import-blogger.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Import recipes and images
+        run: node scripts/import-blogger.mjs
+      - name: Commit imported data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recipes/blogger images/blogger
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Import recipes and images from Blogger"
+            git push
+          fi
