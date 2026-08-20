@@ -3,68 +3,126 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Домашние рецепты семьи — удобно читать с телефона и компьютера.">
-  <title>Our Good Recipes</title>
+  <meta name="description" content="Домашние рецепты с меньшим количеством соли, безглютеновыми вариантами и акцентом на цельные продукты.">
+  <title>Our Good Recipes — полезная еда</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div>
-        <div class="eyebrow">OUR GOOD RECIPES</div>
-        <h1>Наши рецепты</h1>
-        <p class="subtitle">Домашняя коллекция без лишнего — удобно готовить прямо с телефона.</p>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div class="brand">OUR GOOD RECIPES</div>
+      <h1>Полезная еда: меньше соли, без глютена</h1>
+      <p class="hero-copy">Домашние рецепты с акцентом на щадящий рацион, цельные продукты и удобный выбор блюда по тому, что хочется приготовить сегодня.</p>
+
+      <div class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="recipeSearch" type="search" placeholder="Найти рецепт или ингредиент…" autocomplete="off" aria-label="Поиск рецептов">
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="recipe-card" id="oat-blueberry-tart">
-      <div class="recipe-heading">
+    <section class="ingredient-section" aria-labelledby="ingredientTitle">
+      <div class="section-heading">
         <div>
-          <div class="tag">Выпечка</div>
-          <h2>Овсяный тарт с черникой</h2>
-          <p>Овсяный тарт с черникой и нежной сметанной начинкой.</p>
+          <p class="section-kicker">Выберите основной продукт</p>
+          <h2 id="ingredientTitle">Что хочется приготовить?</h2>
         </div>
-        <div class="recipe-meta" aria-label="Краткая информация">
-          <span>🌡️ 175 °C</span>
-          <span>⏱️ 20–25 мин</span>
-        </div>
+        <button class="clear-filter" id="clearFilter" type="button">Показать всё</button>
       </div>
 
-      <div class="recipe-grid">
-        <section class="panel ingredients">
-          <h3>Ингредиенты</h3>
-          <ul>
-            <li><span>Сливочное масло</span><strong>100 г</strong></li>
-            <li><span>Сахар</span><strong>60 г + 40 г</strong></li>
-            <li><span>Овсяная мука</span><strong>130 г</strong></li>
-            <li><span>Овсяные хлопья</span><strong>40 г</strong></li>
-            <li><span>Разрыхлитель</span><strong>1 ч. л.</strong></li>
-            <li><span>Сметана</span><strong>200 г</strong></li>
-            <li><span>Яйцо</span><strong>1 шт.</strong></li>
-            <li><span>Черника</span><strong>300 г</strong></li>
-          </ul>
-        </section>
+      <div class="ingredient-filters" id="ingredientFilters">
+        <button class="ingredient-chip active" type="button" data-filter="all">
+          <span class="ingredient-icon">🍽️</span><span>Все</span>
+        </button>
+        <button class="ingredient-chip" type="button" data-filter="eggplant">
+          <span class="ingredient-icon">🍆</span><span>Баклажан</span>
+        </button>
+        <button class="ingredient-chip" type="button" data-filter="chicken">
+          <span class="ingredient-icon">🍗</span><span>Курица</span>
+        </button>
+        <button class="ingredient-chip" type="button" data-filter="fish">
+          <span class="ingredient-icon">🐟</span><span>Рыба</span>
+        </button>
+        <button class="ingredient-chip" type="button" data-filter="zucchini">
+          <span class="ingredient-icon">🥒</span><span>Кабачок</span>
+        </button>
+        <button class="ingredient-chip" type="button" data-filter="feta">
+          <span class="ingredient-icon">🧀</span><span>Фета</span>
+        </button>
+        <button class="ingredient-chip" type="button" data-filter="blueberry">
+          <span class="ingredient-icon">🫐</span><span>Черника</span>
+        </button>
+      </div>
+    </section>
 
-        <section class="panel steps">
-          <h3>Приготовление</h3>
-          <ol>
-            <li>Размягчите 100 г сливочного масла до кремообразного состояния. Добавьте 60 г сахара и перемешайте.</li>
-            <li>Отдельно смешайте 130 г овсяной муки, 40 г овсяных хлопьев и 1 ч. л. разрыхлителя.</li>
-            <li>Вмешайте половину сухой смеси в масло с сахаром, затем добавьте оставшуюся половину.</li>
-            <li>Равномерно распределите тесто по форме для пирога, сформировав бортики.</li>
-            <li>Для начинки смешайте 200 г сметаны, 1 яйцо и 40 г сахара.</li>
-            <li>Выложите 300 г черники в форму и равномерно залейте сметанной начинкой.</li>
-            <li>Выпекайте при 175 °C примерно 20–25 минут.</li>
-          </ol>
-        </section>
+    <section class="recipes-section">
+      <div class="recipes-heading">
+        <h2>Рецепты</h2>
+        <span id="recipeCount">1 рецепт</span>
+      </div>
+
+      <div class="recipe-list" id="recipeList">
+        <article class="recipe-card" data-main="blueberry" data-search="овсяный тарт черника сметана овсяная мука выпечка">
+          <div class="recipe-visual" aria-hidden="true">🫐</div>
+          <div class="recipe-content">
+            <div class="recipe-badges">
+              <span>Черника</span>
+              <span>Выпечка</span>
+            </div>
+            <h3>Овсяный тарт с черникой</h3>
+            <p>Нежный овсяный тарт с черникой и сметанной начинкой.</p>
+            <div class="recipe-meta">
+              <span>⏱ 20–25 мин</span>
+              <span>🌡 175 °C</span>
+            </div>
+
+            <details class="recipe-details">
+              <summary>Открыть рецепт</summary>
+              <div class="recipe-grid">
+                <section class="panel ingredients">
+                  <h4>Ингредиенты</h4>
+                  <ul>
+                    <li><span>Сливочное масло</span><strong>100 г</strong></li>
+                    <li><span>Сахар</span><strong>60 г + 40 г</strong></li>
+                    <li><span>Овсяная мука</span><strong>130 г</strong></li>
+                    <li><span>Овсяные хлопья</span><strong>40 г</strong></li>
+                    <li><span>Разрыхлитель</span><strong>1 ч. л.</strong></li>
+                    <li><span>Сметана</span><strong>200 г</strong></li>
+                    <li><span>Яйцо</span><strong>1 шт.</strong></li>
+                    <li><span>Черника</span><strong>300 г</strong></li>
+                  </ul>
+                </section>
+                <section class="panel steps">
+                  <h4>Приготовление</h4>
+                  <ol>
+                    <li>Размягчите сливочное масло, добавьте 60 г сахара и перемешайте.</li>
+                    <li>Отдельно смешайте овсяную муку, хлопья и разрыхлитель.</li>
+                    <li>Вмешайте сухую смесь в масло с сахаром в два приёма.</li>
+                    <li>Распределите тесто по форме, сформировав бортики.</li>
+                    <li>Для начинки смешайте сметану, яйцо и 40 г сахара.</li>
+                    <li>Выложите чернику и залейте сметанной начинкой.</li>
+                    <li>Выпекайте при 175 °C примерно 20–25 минут.</li>
+                  </ol>
+                </section>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <div>🥬</div>
+        <h3>Пока рецептов нет</h3>
+        <p>Для этого продукта мы ещё ничего не добавили.</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">Our Good Recipes</div>
+    <div class="wrap">Our Good Recipes · простая домашняя еда</div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
