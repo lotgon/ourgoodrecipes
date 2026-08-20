@@ -2,6 +2,8 @@
   "id": "avocado-mozzarella-tomato-basil-salad",
   "title": "Салат с авокадо, моцареллой, помидорами и базиликом",
   "status": "tested",
+  "publishedAt": "2026-08-21",
+  "updatedAt": "2026-08-21",
   "mainIngredients": ["авокадо", "моцарелла", "помидоры"],
   "ingredients": [
     "Авокадо",
