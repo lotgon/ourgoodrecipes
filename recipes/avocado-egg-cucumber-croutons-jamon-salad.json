@@ -2,6 +2,8 @@
   "id": "avocado-egg-cucumber-croutons-jamon-salad",
   "title": "Салат с авокадо, яйцом, огурцом, сухариками и хамоном",
   "status": "tested",
+  "publishedAt": "2026-08-21",
+  "updatedAt": "2026-08-21",
   "mainIngredients": ["авокадо", "яйцо", "огурец", "хамон"],
   "ingredients": [
     "Авокадо",
