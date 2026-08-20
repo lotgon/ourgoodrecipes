@@ -1,0 +1,40 @@
+{
+  "id": "blogger-4380000463514273512",
+  "title": "Гнезда кабачков с мясом",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "4380000463514273512",
+    "url": "https://ourgoodrecipes.blogspot.com/2019/07/blog-post.html"
+  },
+  "publishedAt": "2019-07-14",
+  "updatedAt": "2026-06-07",
+  "labels": [
+    "Вторые блюда"
+  ],
+  "mainIngredients": [],
+  "intro": "",
+  "ingredients": [
+    "кабачки (на «морковной» тёрке)",
+    "немного фарша",
+    "кинза",
+    "сыр",
+    "лук",
+    "яйцо"
+  ],
+  "steps": [
+    "Смешиваем кабачки с яйцом.",
+    "Берём немного кабачков, опускаем в муку и выкладываем пол-гнезда.",
+    "Посередине кладём фарш с луком, чтобы под котлетой было пустое место.",
+    "На котлету кладём кинзу и потом сыр."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/gnezda-kabachkov-s-myasom-273512/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPUtB-XSS_n56g8qu0Qleb0uqkW9qcBQau5J7LW5Zk8e_D_H90B5fgsBkSjtnyhh7MI672bq2450bvr6FF-AV8o8g2Md1-N3mZ56BEjGqIbGciVvB09tM96vmMlJVKuvBA7sDoblvOJao/s320/20190713_194104.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

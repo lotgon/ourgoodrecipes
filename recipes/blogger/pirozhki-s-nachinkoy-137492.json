@@ -1,0 +1,34 @@
+{
+  "id": "blogger-6045686365473137492",
+  "title": "Пирожки с начинкой",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "6045686365473137492",
+    "url": "https://ourgoodrecipes.blogspot.com/2012/03/200.html"
+  },
+  "publishedAt": "2012-03-01",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Закуски"
+  ],
+  "mainIngredients": [],
+  "intro": "Пирожки на сметанном тесте с начинкой.",
+  "ingredients": [
+    "Сливочное масло — 200 г",
+    "Мука — 2 стакана",
+    "Сметана — 160 г",
+    "Яйцо — 1 шт.",
+    "Соль",
+    "Начинка на выбор: грибы с луком или капуста"
+  ],
+  "steps": [
+    "Тесто: всё перемешайте и поставьте на час в холодильник.",
+    "В качестве начинки используйте грибы с луком или капусту."
+  ],
+  "notes": [],
+  "images": [],
+  "originalImageUrls": [],
+  "possibleDuplicateOf": null
+}

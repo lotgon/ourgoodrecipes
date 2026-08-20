@@ -1,0 +1,38 @@
+{
+  "id": "blogger-5628628983605316434",
+  "title": "Вермишель с лососем и горохом",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "5628628983605316434",
+    "url": "https://ourgoodrecipes.blogspot.com/2020/04/blog-post_21.html"
+  },
+  "publishedAt": "2020-04-21",
+  "updatedAt": "2026-06-07",
+  "labels": [
+    "Вторые блюда",
+    "рыба"
+  ],
+  "mainIngredients": [],
+  "intro": "Лук",
+  "ingredients": [
+    "филе лосося порезанное брусочками",
+    "г горошка",
+    "г сливок",
+    "мл воды"
+  ],
+  "steps": [
+    "Жарим лук 5 минут.",
+    "Добавляем лосося, 140 г горошка, 140 сливок и 50 мл воды и жарим еще 3-4 минуты. Перчим.",
+    "Добавляем вермишель(фусили желательно)."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/vermishel-s-lososem-i-gorohom-316434/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhF6_08Dwic-3qpFSKKy-cbU1DjusLqTq0QiemvHT6O8RisgHhJppG8G1K6VH-SbBHTq-N4eAlNabrSqlslFM02Uz03S09UjkuF7RoC5MyTzRHNi5lWtHJ9DnwOcPmtIUAhUPwUtIYu8V0/s320/IMG_20191203_193935.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

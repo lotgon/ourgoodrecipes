@@ -1,0 +1,45 @@
+{
+  "id": "blogger-8557483729080958760",
+  "title": "Кисло-сладкий кролик",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "8557483729080958760",
+    "url": "https://ourgoodrecipes.blogspot.com/2020/08/blog-post_61.html"
+  },
+  "publishedAt": "2020-08-04",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Вторые блюда"
+  ],
+  "mainIngredients": [],
+  "intro": "",
+  "ingredients": [
+    "1 разделанный кролик (1.2 кг)",
+    "1 красная луковица",
+    "5 спелых красных черри",
+    "1 свежий красный чили",
+    "5 листиков лаврого листа",
+    "50 г орехов",
+    "50 г миндаля",
+    "0.5 ч. л. измельченной гвоздики",
+    "150 мл красного вина",
+    "100 мл. бальзамического уксуса (тягучего)",
+    "1 ст. л. меда"
+  ],
+  "steps": [
+    "Жарим кролика на большой сковородке до золотистого цвета на среднем огне.",
+    "Добавляем все ингридиенты кроме соуса и тушим 15 минут.",
+    "Добавляем ингридиенты из соуса и готовим еще 30 минут.",
+    "Подают комнатной температуры с кускусом или вермишелью."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/kislo-sladkiy-krolik-958760/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgexEutkpLUs1ZF8Su25R-j4cIa0ig1Ar1_QFzlz2igOWg4F9qo9gmzRKyPN6vfisgCWgND0N32rnRnw8jq7LgHWzF_DpYcyiBj-GD60Mwp9lUcPSrXefZXGr_eB7XeWN29OrkRwgx6wnQ/w328-h246/IMG_20200721_191728.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

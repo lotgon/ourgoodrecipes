@@ -1,0 +1,39 @@
+{
+  "id": "blogger-449593556992165096",
+  "title": "Салат из свеклы и скумбрии",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "449593556992165096",
+    "url": "https://ourgoodrecipes.blogspot.com/2019/03/blog-post_51.html"
+  },
+  "publishedAt": "2019-03-12",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Салаты"
+  ],
+  "mainIngredients": [],
+  "intro": "",
+  "ingredients": [
+    "филе слабосоленной скумбрии",
+    "запеченной средней свеклы, порезанные пластинками",
+    "г салата- микс",
+    "ст. л. сока лимона",
+    "ч. л. горчицы",
+    "ст. л. оливкого масло",
+    "ч. л. винного уксуса",
+    "черный перец"
+  ],
+  "steps": [
+    "Все перемешиваем, готовим отдельно заправку и добавляем в салат."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/salat-iz-svekly-i-skumbrii-165096/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuIFqBiUIe0pVeO2Ic6thHVXW7BkdiQ2GoAXVCUUWCFDbgnn21sxkDe4NW9xL2ylHlU-lEMEemI5kS-RLEmgal-jTgH8_KRj2-9xQDQMy-sV_cK3Dq-l7QdyfbzkH-nNPiRKdcN85yvFM/s200/20190310_134121.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

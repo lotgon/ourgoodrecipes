@@ -1,0 +1,44 @@
+{
+  "id": "blogger-4438995129920142335",
+  "title": "Банановые маффины",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "4438995129920142335",
+    "url": "https://ourgoodrecipes.blogspot.com/2022/01/blog-post.html"
+  },
+  "publishedAt": "2022-01-06",
+  "updatedAt": "2026-06-07",
+  "labels": [
+    "Десерт",
+    "Завтрак",
+    "выпечка"
+  ],
+  "mainIngredients": [],
+  "intro": "Банановые маффины на рисовой муке.",
+  "ingredients": [
+    "Оливковое масло — 20 г",
+    "Бананы — 200 г",
+    "Мёд — 30 г (или 15 г сиропа топинамбура)",
+    "Яичный белок — 40 г",
+    "Рисовая мука — 200 г",
+    "Разрыхлитель — 5 г"
+  ],
+  "steps": [
+    "Взбейте белок венчиком до образования пузырьков.",
+    "Добавьте оливковое масло и мёд (сироп), перемешайте.",
+    "Разомните бананы вилкой и добавьте в белковую смесь.",
+    "Добавьте муку и разрыхлитель, перемешайте.",
+    "Выложите тесто в формочки.",
+    "Выпекайте при 170 °C 15–20 минут (духовку заранее разогрейте)."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/bananovye-maffiny-142335/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkYAjUvzr7iOsaq8MQ6kh2b2s0hu3VirrwN5Ta2ffDrMxb5LlYsts7daa0b44Lwm0Aw5nunyId1XDK7WhLU0gGw1HZwampz1C3gBxON3zO949lgzmOez7e3xsJUp8ZF6qE_W9UZt7PGkc/s1600/1641486432812424-0.png"
+  ],
+  "possibleDuplicateOf": null
+}

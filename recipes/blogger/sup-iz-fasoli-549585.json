@@ -1,0 +1,44 @@
+{
+  "id": "blogger-6259734902152549585",
+  "title": "Суп из фасоли",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "6259734902152549585",
+    "url": "https://ourgoodrecipes.blogspot.com/2019/03/blog-post_12.html"
+  },
+  "publishedAt": "2019-03-12",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Суп",
+    "скороварка"
+  ],
+  "mainIngredients": [],
+  "intro": "",
+  "ingredients": [
+    "1 луковица",
+    "3 зубочка чеснока",
+    "1 красный перец",
+    "2 морковки порезанные кружочками",
+    "2 стебля сельдерея",
+    "1 чашку фасоли",
+    "1 большой помидор",
+    "3 веточки тимьяна",
+    "бульон"
+  ],
+  "steps": [
+    "В скороварке обжариваем лук и чеснок 1-2 минуты.",
+    "Добавляем порезанный перец, морковку и сельдерей (мелко порезанный) и жарим еще 6 минут",
+    "Добавляем фасол, помидоры, тимъян, лавровый лист и бульон. Перемешиваем",
+    "Включаем на высокое давление на 30 минут."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/sup-iz-fasoli-549585/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRYd-5Rsoi7q5ijXyp75nmdUWyV4ubIfA4bhBOiteLeKwL-P8I7SB1bEQoBCSY69vWQE-MI3AT0qOdmyER1j4Xpm4zhVf8pNx2q_le4tLjFN-Z2V6de_csxxTcSosjDAAKi6FQorCdSU4/s320/20190312_133629.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

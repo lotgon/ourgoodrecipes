@@ -1,0 +1,43 @@
+{
+  "id": "blogger-7972123575849173774",
+  "title": "Лосось с фруктовым сальсо",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "7972123575849173774",
+    "url": "https://ourgoodrecipes.blogspot.com/2018/06/blog-post.html"
+  },
+  "publishedAt": "2018-06-04",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "рыба"
+  ],
+  "mainIngredients": [],
+  "intro": "Рецепт хорош для всех видов диет (кроме вегетерианской, но это скорее уже религия).",
+  "ingredients": [
+    "г филе лосося с кожей",
+    "ананас = 1/2 стакана",
+    "клубника = 1/4 стакана",
+    "красный лук = 1/4 стакана",
+    "острый зеленый перец, без косточек и мелко порезанный",
+    "чайную ложку свежей мяты(порезанную)",
+    "чайную ложку свежего кориандра (порезанную)",
+    "чайных ложки лимона",
+    "чайную ложки лайма"
+  ],
+  "steps": [
+    "Готовим соус: изменяльчаем все что написано выше, перемешиваем и даем настояться чем нить закрыв 20-30 минут.",
+    "Лосось намазываем оливковым маслом и черным перцем. Кладем кожей вниз на гриль - 3 минуты. Поворачиваем на 45 градусов и жарим 3 минуты. Еще поворачиваем и жарим 2 минуты.",
+    "Кладем лосось на тарелку и накрываем соусом сальса.",
+    "Вкусно и полезно."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/losos-s-fruktovym-salso-173774/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgchaTIzk2HRK6u-5OB43mNMKB7q5XT61wAbLQpecxPmS90hecPH7VZ-dasTz2XUfvM0Lby4bZPfYVa4B551afZp2Bg8SJlhNsZ6a0_9mF9p_JQ3sMfceCXdFRRd_aOzHsPhA1MPbG4cSU/s320/20180604_200544.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

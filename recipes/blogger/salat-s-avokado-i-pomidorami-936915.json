@@ -1,0 +1,33 @@
+{
+  "id": "blogger-5267918453875936915",
+  "title": "Салат с авокадо и помидорами",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "5267918453875936915",
+    "url": "https://ourgoodrecipes.blogspot.com/2016/01/blog-post_21.html"
+  },
+  "publishedAt": "2016-01-21",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Салаты"
+  ],
+  "mainIngredients": [],
+  "intro": "Быстрый салат с авокадо и помидорами. На одну персону.",
+  "ingredients": [
+    "Авокадо — 1 средний",
+    "Помидоры черри — 2–3 шт.",
+    "Яйцо — 1 мелкое",
+    "Чеснок — 1 зубчик",
+    "Соль, перец"
+  ],
+  "steps": [
+    "Крупно порежьте авокадо, помидоры черри и яйцо.",
+    "Раздавите зубчик чеснока, добавьте, посолите и поперчите. Перемешайте."
+  ],
+  "notes": [],
+  "images": [],
+  "originalImageUrls": [],
+  "possibleDuplicateOf": null
+}

@@ -1,0 +1,40 @@
+{
+  "id": "blogger-2163770924603255370",
+  "title": "Броколи вкусно!",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "2163770924603255370",
+    "url": "https://ourgoodrecipes.blogspot.com/2020/08/blog-post.html"
+  },
+  "publishedAt": "2020-08-04",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Вегетерианская кухня"
+  ],
+  "mainIngredients": [],
+  "intro": "Брокколи в сметанно-яичном тесте.",
+  "ingredients": [
+    "Брокколи — 1 отварная головка",
+    "Сметана — 4 ст. л.",
+    "Яйца — 2 шт.",
+    "Куркума — 1 ст. л.",
+    "Острый красный перец",
+    "Подсолнечные или тыквенные семечки",
+    "Жирный сыр"
+  ],
+  "steps": [
+    "Нарежьте брокколи на соцветия и жарьте 6–10 минут.",
+    "Приготовьте тесто в блендере: 4 ст. л. сметаны, 2 яйца, 1 ст. л. куркумы, острый красный перец.",
+    "Вылейте тесто в сковороду с брокколи, добавьте много семечек и жарьте пару минут. Посыпьте жирным сыром."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/brokoli-vkusno-255370/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaF0C6_KDTnnJkOfJ3jyn6FKJfarw4nUYqc1_nbj4ZTYdg6ML7gXL9F4K2ekBBJY-7uslJ_AXXq8w2ZnngQiyHXVhbZ2xY18QcTTE4KwKZ4Aj0nOuOt8RGjJg9RAYXpoWcy6gfa4aJgnM/s320/IMG_20200823_110829.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

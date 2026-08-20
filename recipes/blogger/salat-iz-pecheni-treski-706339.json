@@ -1,0 +1,33 @@
+{
+  "id": "blogger-8173842980762706339",
+  "title": "Салат из печени трески",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "8173842980762706339",
+    "url": "https://ourgoodrecipes.blogspot.com/2016/01/blog-post_80.html"
+  },
+  "publishedAt": "2016-01-21",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Салаты"
+  ],
+  "mainIngredients": [],
+  "intro": "Салат из консервированной печени трески. На одного человека.",
+  "ingredients": [
+    "Яйцо — 1 шт.",
+    "Печень трески — 60 г",
+    "Помидоры черри — 2–3 шт.",
+    "Петрушка — много",
+    "Масло из банки — немного"
+  ],
+  "steps": [
+    "Мелко порежьте яйцо и петрушку, помидоры черри — средними кусочками.",
+    "Смешайте с 60 г печени трески и небольшим количеством масла из банки."
+  ],
+  "notes": [],
+  "images": [],
+  "originalImageUrls": [],
+  "possibleDuplicateOf": null
+}

@@ -1,0 +1,44 @@
+{
+  "id": "blogger-2734888010201778429",
+  "title": "Беляши.",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "2734888010201778429",
+    "url": "https://ourgoodrecipes.blogspot.com/2020/12/blog-post.html"
+  },
+  "publishedAt": "2020-12-05",
+  "updatedAt": "2026-06-07",
+  "labels": [
+    "Без глютена",
+    "Вторые блюда",
+    "выпечка"
+  ],
+  "mainIngredients": [],
+  "intro": "Беляши на безглютеновом тесте. На 8 штук.",
+  "ingredients": [
+    "Тесто: кефир — 100 г",
+    "Тесто: безглютеновая мука — 160 г (80 + 80)",
+    "Тесто: яйцо — 1 шт.",
+    "Тесто: разрыхлитель — 1 ч. л.",
+    "Начинка: фарш — 150–200 г",
+    "Начинка: лук — 1 луковица",
+    "Начинка: специи",
+    "Масло для жарки"
+  ],
+  "steps": [
+    "Тесто (на 8 штук): смешайте 100 г кефира с 80 г муки. Добавьте 1 яйцо, ещё 80 г муки и 1 ч. л. разрыхлителя, снова перемешайте.",
+    "Начинка: смешайте 150–200 г фарша с 1 измельчённой луковицей и специями.",
+    "Разрежьте тесто на 8 кусочков. Раскатайте, выложите фарш, оставляя 1 см теста по краю. Края поднимите и защипните.",
+    "Жарьте беляши на масле по 8 минут с каждой стороны (сначала мясом вниз). После жарки выложите на салфетку."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/belyashi-778429/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKaUiiE7AISETJF2noyiWDQuJlSCmC1WGBuiJcOEDFp11wCv3l920I_FXm22jlRwuWjRdpBSYUcByMGE03iZxwF-7dagss_0DynDOV1QYmjAk1htFt8XvMbs8iyhyphenhyphens5TWOh4O7Hc_OjY8/s1600/1607186319093447-0.png"
+  ],
+  "possibleDuplicateOf": null
+}

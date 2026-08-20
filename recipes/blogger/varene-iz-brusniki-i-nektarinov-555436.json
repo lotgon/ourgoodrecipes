@@ -1,0 +1,35 @@
+{
+  "id": "blogger-7974234175633555436",
+  "title": "Варенье из брусники и нектаринов",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "7974234175633555436",
+    "url": "https://ourgoodrecipes.blogspot.com/2017/09/blog-post_21.html"
+  },
+  "publishedAt": "2017-09-21",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "варенье"
+  ],
+  "mainIngredients": [],
+  "intro": "",
+  "ingredients": [
+    "500г брусники",
+    "500г нектаринов",
+    "сок 1 апельсина",
+    "900г сахара (мы клали пол порции сахара)",
+    "4 бутона гвоздики",
+    "100мл воды"
+  ],
+  "steps": [
+    "Готовим сироп из воды и сахара",
+    "добавляем бруснику, варим 5 минут",
+    "добавляем все остальное и варим на медленном огне 25 минут"
+  ],
+  "notes": [],
+  "images": [],
+  "originalImageUrls": [],
+  "possibleDuplicateOf": null
+}

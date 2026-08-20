@@ -1,0 +1,30 @@
+{
+  "id": "blogger-6368942443678720222",
+  "title": "Салат из печени трески.",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "6368942443678720222",
+    "url": "https://ourgoodrecipes.blogspot.com/2010/09/blog-post_14.html"
+  },
+  "publishedAt": "2010-09-14",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Салаты"
+  ],
+  "mainIngredients": [],
+  "intro": "",
+  "ingredients": [
+    "Помидоры — много",
+    "Яйцо",
+    "Печень трески"
+  ],
+  "steps": [
+    "Перемешайте помидоры, яйцо и печень трески. Пропорции подбираются несколькими попытками."
+  ],
+  "notes": [],
+  "images": [],
+  "originalImageUrls": [],
+  "possibleDuplicateOf": null
+}

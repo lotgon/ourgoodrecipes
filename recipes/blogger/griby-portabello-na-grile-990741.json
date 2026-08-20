@@ -1,0 +1,38 @@
+{
+  "id": "blogger-1654915710282990741",
+  "title": "Грибы портабелло на гриле",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "1654915710282990741",
+    "url": "https://ourgoodrecipes.blogspot.com/2016/10/blog-post_28.html"
+  },
+  "publishedAt": "2016-10-28",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Вторые блюда",
+    "Закуски"
+  ],
+  "mainIngredients": [],
+  "intro": "То ли закуска, то ли второе блюдо... вообщем чтото среднее.",
+  "ingredients": [
+    "грибы портабелло",
+    "моцарела",
+    "базилик",
+    "чеснок",
+    "помидор"
+  ],
+  "steps": [
+    "Убираем ножку, соскребаем некрасивые прожилки гриба снизу ложкой. Запекаем при 200-220 в духовке сам гриб, обмазав как следует оливковым маслом, перцем и солью. Тем временем, обжариваем на сковородке помидор, чеснок, базилик, моцарелу 2-3 минуты, соль, перец.",
+    "После 15-20 минут или когда грибы почти готовы, достаем и накладываем туда все что было на сковородке. Запекаем для красоты еще 5-10 минут."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/griby-portabello-na-grile-990741/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEid6juwBRxwQVAcXNvsjSDIGFPYeCsQu8II8OPQ98GnDqNVOAOhxPGLKCGq2RdE3tEAR6To8R9Iq_YcGhnO0Cs43lyhomTJ_UH6Mn15o2Om71MIZX4p0q0-_m2P8UcmjjASl7cKfFv_JCE/s320/20170627_192847.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

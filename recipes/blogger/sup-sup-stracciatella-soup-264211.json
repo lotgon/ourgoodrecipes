@@ -1,0 +1,40 @@
+{
+  "id": "blogger-3078877142803264211",
+  "title": "Суп суп (Stracciatella Soup)",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "3078877142803264211",
+    "url": "https://ourgoodrecipes.blogspot.com/2018/02/stracciatella-soup.html"
+  },
+  "publishedAt": "2018-02-12",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Суп"
+  ],
+  "mainIngredients": [],
+  "intro": "Вкусный суп по итальянским мотивам (Stracciatella).",
+  "ingredients": [
+    "Бульон",
+    "Яйца — 4 шт.",
+    "Шпинат — 2 кружки",
+    "Петрушка — 1 ложка",
+    "Сыр пармезан — 70 г"
+  ],
+  "steps": [
+    "Нагрейте бульон.",
+    "Перемешайте 4 яйца, 2 кружки шпината, 1 ложку петрушки и 70 г сыра.",
+    "Медленно влейте смесь в бульон, помешивая, пока яйца не приготовятся (≈1 минута).",
+    "Засыпьте шпинат и сразу подавайте."
+  ],
+  "notes": [
+    {
+      "label": "Совет",
+      "text": "Вкуснее с пропорцией петрушка/шпинат 1:1 и побольше сыра."
+    }
+  ],
+  "images": [],
+  "originalImageUrls": [],
+  "possibleDuplicateOf": null
+}

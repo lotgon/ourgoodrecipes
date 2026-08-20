@@ -1,0 +1,782 @@
+{
+  "importedAt": "2026-08-20T22:14:56.404Z",
+  "count": 101,
+  "duplicateTitles": 0,
+  "recipes": [
+    {
+      "id": "blogger-8159309910430586736",
+      "title": "Recipe 8159309910430586736",
+      "file": "recipes/blogger/recipe-8159309910430586736-586736.json",
+      "images": [
+        "images/blogger/recipe-8159309910430586736-586736/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2457567769810862872",
+      "title": "Recipe 2457567769810862872",
+      "file": "recipes/blogger/recipe-2457567769810862872-862872.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3702736372890679588",
+      "title": "Торт пинчер",
+      "file": "recipes/blogger/tort-pincher-679588.json",
+      "images": [
+        "images/blogger/tort-pincher-679588/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7117252193961242977",
+      "title": "🍔 Бургер с козьим сыром и брусникой",
+      "file": "recipes/blogger/burger-s-kozim-syrom-i-brusnikoy-242977.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5253860175343593448",
+      "title": "Безглютеновые эклеры",
+      "file": "recipes/blogger/bezglyutenovye-eklery-593448.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3569840730429478890",
+      "title": "Безглютеновые пельмени",
+      "file": "recipes/blogger/bezglyutenovye-pelmeni-478890.json",
+      "images": [
+        "images/blogger/bezglyutenovye-pelmeni-478890/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4069193930290397304",
+      "title": "черничный торт",
+      "file": "recipes/blogger/chernichnyy-tort-397304.json",
+      "images": [
+        "images/blogger/chernichnyy-tort-397304/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6752345892337719243",
+      "title": "Тост с авокадо и нутом на завтрак",
+      "file": "recipes/blogger/tost-s-avokado-i-nutom-na-zavtrak-719243.json",
+      "images": [
+        "images/blogger/tost-s-avokado-i-nutom-na-zavtrak-719243/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5661778638729853597",
+      "title": "Маринованный перец с мёдом и чесноком (на 1,5 кг)",
+      "file": "recipes/blogger/marinovannyy-perets-s-medom-i-chesnokom-na-1-5-kg-853597.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8140735523453347210",
+      "title": "Картофель с перцем, творогом и сыром Лестер",
+      "file": "recipes/blogger/kartofel-s-pertsem-tvorogom-i-syrom-lester-347210.json",
+      "images": [
+        "images/blogger/kartofel-s-pertsem-tvorogom-i-syrom-lester-347210/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7930980660920953773",
+      "title": "Запечённые баклажаны с мятой, мёдом и фетой",
+      "file": "recipes/blogger/zapechennye-baklazhany-s-myatoy-medom-i-fetoy-953773.json",
+      "images": [
+        "images/blogger/zapechennye-baklazhany-s-myatoy-medom-i-fetoy-953773/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8527891674517503803",
+      "title": "Без-глютеновые чурросы",
+      "file": "recipes/blogger/bez-glyutenovye-churrosy-503803.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7750670184181847377",
+      "title": "Салат из свеклы номер 2 (с маринованным огурцом)",
+      "file": "recipes/blogger/salat-iz-svekly-nomer-2-s-marinovannym-ogurtsom-847377.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4205680018623210726",
+      "title": "Салат из свеклы №3",
+      "file": "recipes/blogger/salat-iz-svekly-3-210726.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2823266676599562479",
+      "title": "🍩 Безглютеновые пончики с йогуртом и миндальной мукой",
+      "file": "recipes/blogger/bezglyutenovye-ponchiki-s-yogurtom-i-mindalnoy-mukoy-562479.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1319358504665897107",
+      "title": "Дырки доната(Donut holes)",
+      "file": "recipes/blogger/dyrki-donata-donut-holes-897107.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5899329398854773841",
+      "title": "Шпинатный соус для рыбы (хека)",
+      "file": "recipes/blogger/shpinatnyy-sous-dlya-ryby-heka-773841.json",
+      "images": [
+        "images/blogger/shpinatnyy-sous-dlya-ryby-heka-773841/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3887466679188792548",
+      "title": "Запечённая картошка с сырным соусом и брокколи",
+      "file": "recipes/blogger/zapechennaya-kartoshka-s-syrnym-sousom-i-brokkoli-792548.json",
+      "images": [
+        "images/blogger/zapechennaya-kartoshka-s-syrnym-sousom-i-brokkoli-792548/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-735536498470936607",
+      "title": "Миндальный Лимонный Кекс",
+      "file": "recipes/blogger/mindalnyy-limonnyy-keks-936607.json",
+      "images": [
+        "images/blogger/mindalnyy-limonnyy-keks-936607/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4908973369554766860",
+      "title": "Баклажаны по итальянски",
+      "file": "recipes/blogger/baklazhany-po-italyanski-766860.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4438995129920142335",
+      "title": "Банановые маффины",
+      "file": "recipes/blogger/bananovye-maffiny-142335.json",
+      "images": [
+        "images/blogger/bananovye-maffiny-142335/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7324582137373706338",
+      "title": "Харчо с орехами",
+      "file": "recipes/blogger/harcho-s-orehami-706338.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8165197205662590687",
+      "title": "Аджапсандали по-грузински",
+      "file": "recipes/blogger/adzhapsandali-po-gruzinski-590687.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1635299925080411921",
+      "title": "Macarons",
+      "file": "recipes/blogger/macarons-411921.json",
+      "images": [
+        "images/blogger/macarons-411921/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2734888010201778429",
+      "title": "Беляши.",
+      "file": "recipes/blogger/belyashi-778429.json",
+      "images": [
+        "images/blogger/belyashi-778429/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-9032234626701581334",
+      "title": "Картофельные блины с слабосоленной форелью или лососем",
+      "file": "recipes/blogger/kartofelnye-bliny-s-slabosolennoy-forelyu-ili-lososem-581334.json",
+      "images": [
+        "images/blogger/kartofelnye-bliny-s-slabosolennoy-forelyu-ili-lososem-581334/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8259513543417309904",
+      "title": "Окунь в кляре в кисло-сладком соусе",
+      "file": "recipes/blogger/okun-v-klyare-v-kislo-sladkom-souse-309904.json",
+      "images": [
+        "images/blogger/okun-v-klyare-v-kislo-sladkom-souse-309904/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4613424506670301661",
+      "title": "Суп из лисичек с цветной капустой и беконом",
+      "file": "recipes/blogger/sup-iz-lisichek-s-tsvetnoy-kapustoy-i-bekonom-301661.json",
+      "images": [
+        "images/blogger/sup-iz-lisichek-s-tsvetnoy-kapustoy-i-bekonom-301661/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8557483729080958760",
+      "title": "Кисло-сладкий кролик",
+      "file": "recipes/blogger/kislo-sladkiy-krolik-958760.json",
+      "images": [
+        "images/blogger/kislo-sladkiy-krolik-958760/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3500883000235621237",
+      "title": "Суп из говядины с капустой.",
+      "file": "recipes/blogger/sup-iz-govyadiny-s-kapustoy-621237.json",
+      "images": [
+        "images/blogger/sup-iz-govyadiny-s-kapustoy-621237/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2163770924603255370",
+      "title": "Броколи вкусно!",
+      "file": "recipes/blogger/brokoli-vkusno-255370.json",
+      "images": [
+        "images/blogger/brokoli-vkusno-255370/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5628628983605316434",
+      "title": "Вермишель с лососем и горохом",
+      "file": "recipes/blogger/vermishel-s-lososem-i-gorohom-316434.json",
+      "images": [
+        "images/blogger/vermishel-s-lososem-i-gorohom-316434/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5530818321661664488",
+      "title": "Лосось на гриле со шпинатом",
+      "file": "recipes/blogger/losos-na-grile-so-shpinatom-664488.json",
+      "images": [
+        "images/blogger/losos-na-grile-so-shpinatom-664488/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4380000463514273512",
+      "title": "Гнезда кабачков с мясом",
+      "file": "recipes/blogger/gnezda-kabachkov-s-myasom-273512.json",
+      "images": [
+        "images/blogger/gnezda-kabachkov-s-myasom-273512/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7523704298307642344",
+      "title": "Сааг из свинины",
+      "file": "recipes/blogger/saag-iz-svininy-642344.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5156263102918061293",
+      "title": "Пицца из цветной капусты",
+      "file": "recipes/blogger/pitstsa-iz-tsvetnoy-kapusty-061293.json",
+      "images": [
+        "images/blogger/pitstsa-iz-tsvetnoy-kapusty-061293/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-449593556992165096",
+      "title": "Салат из свеклы и скумбрии",
+      "file": "recipes/blogger/salat-iz-svekly-i-skumbrii-165096.json",
+      "images": [
+        "images/blogger/salat-iz-svekly-i-skumbrii-165096/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6259734902152549585",
+      "title": "Суп из фасоли",
+      "file": "recipes/blogger/sup-iz-fasoli-549585.json",
+      "images": [
+        "images/blogger/sup-iz-fasoli-549585/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5002613607606961839",
+      "title": "Классический хлеб для хлебопечки (без глютена)",
+      "file": "recipes/blogger/klassicheskiy-hleb-dlya-hlebopechki-bez-glyutena-961839.json",
+      "images": [
+        "images/blogger/klassicheskiy-hleb-dlya-hlebopechki-bez-glyutena-961839/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8486890088533995417",
+      "title": "Капуста тушенная с ребрышками",
+      "file": "recipes/blogger/kapusta-tushennaya-s-rebryshkami-995417.json",
+      "images": [
+        "images/blogger/kapusta-tushennaya-s-rebryshkami-995417/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-717747444980191377",
+      "title": "Кабачковый пирог",
+      "file": "recipes/blogger/kabachkovyy-pirog-191377.json",
+      "images": [
+        "images/blogger/kabachkovyy-pirog-191377/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-988906829929171197",
+      "title": "Шоколадные маффины",
+      "file": "recipes/blogger/shokoladnye-maffiny-171197.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-835159785768014567",
+      "title": "Безглютеновая мука для выпечки (кексов)",
+      "file": "recipes/blogger/bezglyutenovaya-muka-dlya-vypechki-keksov-014567.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1878312322131950147",
+      "title": "Кхади с рисом и мунг дал (Индия)",
+      "file": "recipes/blogger/khadi-s-risom-i-mung-dal-indiya-950147.json",
+      "images": [
+        "images/blogger/khadi-s-risom-i-mung-dal-indiya-950147/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4739354494222385885",
+      "title": "Креветки с пастой",
+      "file": "recipes/blogger/krevetki-s-pastoy-385885.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8519980486555864619",
+      "title": "Капустные котлетки",
+      "file": "recipes/blogger/kapustnye-kotletki-864619.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4276992767352806576",
+      "title": "Жаренный тофу и баклажан",
+      "file": "recipes/blogger/zharennyy-tofu-i-baklazhan-806576.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7404829374420165557",
+      "title": "Суп \"Холодник\"",
+      "file": "recipes/blogger/sup-holodnik-165557.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7972123575849173774",
+      "title": "Лосось с фруктовым сальсо",
+      "file": "recipes/blogger/losos-s-fruktovym-salso-173774.json",
+      "images": [
+        "images/blogger/losos-s-fruktovym-salso-173774/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7078838119115331616",
+      "title": "Салат полезный, руккола + свекла",
+      "file": "recipes/blogger/salat-poleznyy-rukkola-svekla-331616.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3078877142803264211",
+      "title": "Суп суп (Stracciatella Soup)",
+      "file": "recipes/blogger/sup-sup-stracciatella-soup-264211.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7974234175633555436",
+      "title": "Варенье из брусники и нектаринов",
+      "file": "recipes/blogger/varene-iz-brusniki-i-nektarinov-555436.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5070588831845255719",
+      "title": "Жаренные баклажаны с квиноа, шпинат и фета",
+      "file": "recipes/blogger/zharennye-baklazhany-s-kvinoa-shpinat-i-feta-255719.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-632057457696146798",
+      "title": "Блинчики с яблоками и тыквой без яиц и глютена",
+      "file": "recipes/blogger/blinchiki-s-yablokami-i-tykvoy-bez-yaits-i-glyutena-146798.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8175851430928468457",
+      "title": "Запеченная курица с помидорами и перцем (рецепт Д.Оливера)",
+      "file": "recipes/blogger/zapechennaya-kuritsa-s-pomidorami-i-pertsem-retsept-d-olivera-468457.json",
+      "images": [
+        "images/blogger/zapechennaya-kuritsa-s-pomidorami-i-pertsem-retsept-d-olivera-468457/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8533823673373207100",
+      "title": "Суп из красной рыбы (лосось, форель). В процессе создания.",
+      "file": "recipes/blogger/sup-iz-krasnoy-ryby-losos-forel-v-protsesse-sozdaniya-207100.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8059850149567598174",
+      "title": "Жаренные баклажаны с мясом на воке",
+      "file": "recipes/blogger/zharennye-baklazhany-s-myasom-na-voke-598174.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-7194742123320694583",
+      "title": "Запеченная паста (Conchiglioni rigati) c сыром Mozzarella, свежим базиликом.",
+      "file": "recipes/blogger/zapechennaya-pasta-conchiglioni-rigati-c-syrom-mozzarella-svezhim-bazilikom-694583.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-383509108464646669",
+      "title": "Рыба в томатно тамарином соусе",
+      "file": "recipes/blogger/ryba-v-tomatno-tamarinom-souse-646669.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1654915710282990741",
+      "title": "Грибы портабелло на гриле",
+      "file": "recipes/blogger/griby-portabello-na-grile-990741.json",
+      "images": [
+        "images/blogger/griby-portabello-na-grile-990741/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-395089284597534279",
+      "title": "Салат с тунцом, рукколой, авокадо",
+      "file": "recipes/blogger/salat-s-tuntsom-rukkoloy-avokado-534279.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2951966239010012659",
+      "title": "Свинное филе тушенное с яблоками и луком.",
+      "file": "recipes/blogger/svinnoe-file-tushennoe-s-yablokami-i-lukom-012659.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6579429679007926771",
+      "title": "Жаренный тунец",
+      "file": "recipes/blogger/zharennyy-tunets-926771.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4626685656866640459",
+      "title": "Салат с руккулой, тунцом и белыми бобами.",
+      "file": "recipes/blogger/salat-s-rukkuloy-tuntsom-i-belymi-bobami-640459.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8173842980762706339",
+      "title": "Салат из печени трески",
+      "file": "recipes/blogger/salat-iz-pecheni-treski-706339.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5267918453875936915",
+      "title": "Салат с авокадо и помидорами",
+      "file": "recipes/blogger/salat-s-avokado-i-pomidorami-936915.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6658453560439846484",
+      "title": "Салат с авокадо и форелью",
+      "file": "recipes/blogger/salat-s-avokado-i-forelyu-846484.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-979183314085971546",
+      "title": "Салат с манго, ростками фасоли и жареными орехами кешью",
+      "file": "recipes/blogger/salat-s-mango-rostkami-fasoli-i-zharenymi-orehami-keshyu-971546.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1513202538661453357",
+      "title": "Семга в соусе сальса",
+      "file": "recipes/blogger/semga-v-souse-salsa-453357.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8949241111389086846",
+      "title": "Картошка, просто картошка",
+      "file": "recipes/blogger/kartoshka-prosto-kartoshka-086846.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-8325731395045263328",
+      "title": "Зеркальная паста с тигровыми креветками, томатной сальсой, чесноком и зеленью",
+      "file": "recipes/blogger/zerkalnaya-pasta-s-tigrovymi-krevetkami-tomatnoy-salsoy-chesnokom-i-zelenyu-263328.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3767452922893520622",
+      "title": "Апельсиновое Parfe (мороженное) с тыквенными семечками, мёдом и орехами.",
+      "file": "recipes/blogger/apelsinovoe-parfe-morozhennoe-s-tykvennymi-semechkami-medom-i-orehami-520622.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4417254114713115430",
+      "title": "Салат с карамелизированным инжиром в бальзамическом уксусе, с Proscuitto, сыром Mozzarella и лимонно-медовой заправкой",
+      "file": "recipes/blogger/salat-s-karamelizirovannym-inzhirom-v-balzamicheskom-uksuse-s-proscuitto-syrom-mozzarella--115430.json",
+      "images": [
+        "images/blogger/salat-s-karamelizirovannym-inzhirom-v-balzamicheskom-uksuse-s-proscuitto-syrom-mozzarella--115430/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3099965726082456774",
+      "title": "Лосось с йогурто-укропным соусом",
+      "file": "recipes/blogger/losos-s-yogurto-ukropnym-sousom-456774.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2742018578495633290",
+      "title": "Палтус, филе, жаренный, скушанный.",
+      "file": "recipes/blogger/paltus-file-zharennyy-skushannyy-633290.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2639315269594902025",
+      "title": "Соус &quot;песто&quot;",
+      "file": "recipes/blogger/sous-quot-pesto-quot-902025.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3078490412697036817",
+      "title": "Морская форель с соусом",
+      "file": "recipes/blogger/morskaya-forel-s-sousom-036817.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6743047663438978534",
+      "title": "Сливовый пирог",
+      "file": "recipes/blogger/slivovyy-pirog-978534.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5008767228202662216",
+      "title": "Черничный пирог",
+      "file": "recipes/blogger/chernichnyy-pirog-662216.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6257537603718893620",
+      "title": "Вишневый пирог",
+      "file": "recipes/blogger/vishnevyy-pirog-893620.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5539496934783857358",
+      "title": "Творожная запеканка",
+      "file": "recipes/blogger/tvorozhnaya-zapekanka-857358.json",
+      "images": [
+        "images/blogger/tvorozhnaya-zapekanka-857358/1.jpg"
+      ],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3144502146149685721",
+      "title": "Салат &quot;Цезарь&quot; с семгой(лосось)",
+      "file": "recipes/blogger/salat-quot-tsezar-quot-s-semgoy-losos-685721.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1761747989863786925",
+      "title": "Лазанья с грибами и баклажанами",
+      "file": "recipes/blogger/lazanya-s-gribami-i-baklazhanami-786925.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6045686365473137492",
+      "title": "Пирожки с начинкой",
+      "file": "recipes/blogger/pirozhki-s-nachinkoy-137492.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4716186334501239597",
+      "title": "Апельсиновые блинчики",
+      "file": "recipes/blogger/apelsinovye-blinchiki-239597.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1398037917656729132",
+      "title": "Тушенная говядина в красном вине ( boeuf bourguignon )",
+      "file": "recipes/blogger/tushennaya-govyadina-v-krasnom-vine-boeuf-bourguignon-729132.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6737945404420255535",
+      "title": "Перец, фаршированный рисом и овощами",
+      "file": "recipes/blogger/perets-farshirovannyy-risom-i-ovoschami-255535.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5619650970685877781",
+      "title": "Утиная грудка с яблоками и апельсинами",
+      "file": "recipes/blogger/utinaya-grudka-s-yablokami-i-apelsinami-877781.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-767835455573687210",
+      "title": "Индейка с овощами в фольге",
+      "file": "recipes/blogger/indeyka-s-ovoschami-v-folge-687210.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-168201286353595678",
+      "title": "Соус «Карбонара»",
+      "file": "recipes/blogger/sous-karbonara-595678.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-6368942443678720222",
+      "title": "Салат из печени трески.",
+      "file": "recipes/blogger/salat-iz-pecheni-treski-720222.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-773200562493683335",
+      "title": "Салат под-шубой",
+      "file": "recipes/blogger/salat-pod-shuboy-683335.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5093893737448790047",
+      "title": "Бутерброды с авокадо",
+      "file": "recipes/blogger/buterbrody-s-avokado-790047.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-2345293662417972799",
+      "title": "ПЕРЕЦ МАРИНОВАННЫЙ",
+      "file": "recipes/blogger/perets-marinovannyy-972799.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-4542473399683195554",
+      "title": "Жареные грибы. Тестировалось на лисичках.",
+      "file": "recipes/blogger/zharenye-griby-testirovalos-na-lisichkah-195554.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-692049332890680732",
+      "title": "Мачанка",
+      "file": "recipes/blogger/machanka-680732.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-1506296528703902407",
+      "title": "Лазанья с мясной начинкой",
+      "file": "recipes/blogger/lazanya-s-myasnoy-nachinkoy-902407.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-5429778820967026633",
+      "title": "Салат слоенный, например \"Очарование\"",
+      "file": "recipes/blogger/salat-sloennyy-naprimer-ocharovanie-026633.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-3371761762934128565",
+      "title": "Плов",
+      "file": "recipes/blogger/plov-128565.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-548591204202059841",
+      "title": "Куриное филе жареное в сухарях",
+      "file": "recipes/blogger/kurinoe-file-zharenoe-v-suharyah-059841.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    },
+    {
+      "id": "blogger-9104016487498673999",
+      "title": "Салат куриный с ананасами",
+      "file": "recipes/blogger/salat-kurinyy-s-ananasami-673999.json",
+      "images": [],
+      "possibleDuplicateOf": null
+    }
+  ]
+}

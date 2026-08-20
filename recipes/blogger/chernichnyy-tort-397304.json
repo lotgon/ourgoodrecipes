@@ -1,0 +1,46 @@
+{
+  "id": "blogger-4069193930290397304",
+  "title": "черничный торт",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "4069193930290397304",
+    "url": "https://ourgoodrecipes.blogspot.com/2026/01/blog-post.html"
+  },
+  "publishedAt": "2026-01-01",
+  "updatedAt": "2026-06-07",
+  "labels": [
+    "Десерт",
+    "выпечка"
+  ],
+  "mainIngredients": [],
+  "intro": "Овсяный тарт с черникой и сметанной начинкой.",
+  "ingredients": [
+    "Сливочное масло — 100 г",
+    "Сахар — 60 г (в тесто) + 40 г (в начинку)",
+    "Овсяная мука — 130 г",
+    "Овсяные хлопья — 40 г",
+    "Разрыхлитель — 1 ч. л.",
+    "Сметана — 200 г",
+    "Яйцо — 1 шт.",
+    "Черника — 300 г"
+  ],
+  "steps": [
+    "Смешайте до кремообразного состояния 100 г сливочного масла комнатной температуры. Добавьте 60 г сахара и перемешайте.",
+    "Отдельно смешайте 130 г овсяной муки, 40 г овсяных хлопьев и 1 ч. л. разрыхлителя.",
+    "Вмешайте половину мучной смеси в масло с сахаром, перемешайте, затем добавьте оставшуюся половину.",
+    "Равномерно распределите тесто по форме для пирога, не забывая про бортики.",
+    "Для начинки смешайте 200 г сметаны с 1 яйцом и 40 г сахара.",
+    "Выложите 300 г черники в форму, залейте начинкой поверх ягод и равномерно распределите.",
+    "Выпекайте при 175 °C 20–25 минут."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/chernichnyy-tort-397304/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtO_Euq7qA5nr9yLnuSgO1EiDIZxBUUSOrMWzyrlxzvXd6TOgflpa_qo_3zzDDQCDdhWKEgbRIg3lLHjcQ3WdWOYiPNsHuQDOKLN1GmCqbPEF_bTIcB1GO0bxq_2TGiF3uTYHUzzvcPHPL0B6fbytmTK7XzBEZOeJk-PdZ0N9jncU3eX_JtNdiAclQ5l0/s320/20260315_213225.jpg"
+  ],
+  "possibleDuplicateOf": null
+}

@@ -1,0 +1,39 @@
+{
+  "id": "blogger-3500883000235621237",
+  "title": "Суп из говядины с капустой.",
+  "status": "imported",
+  "source": {
+    "type": "blogger",
+    "blog": "https://ourgoodrecipes.blogspot.com",
+    "postId": "3500883000235621237",
+    "url": "https://ourgoodrecipes.blogspot.com/2020/08/blog-post_4.html"
+  },
+  "publishedAt": "2020-08-04",
+  "updatedAt": "2026-06-06",
+  "labels": [
+    "Суп",
+    "скороварка"
+  ],
+  "mainIngredients": [],
+  "intro": "",
+  "ingredients": [
+    "250 фарш из говядины",
+    "1 луковица",
+    "1 зубчик чеснока",
+    "400 г. порезанных кубиками помидоров",
+    "1 л. воды",
+    "400 г. капусты"
+  ],
+  "steps": [
+    "Жарим одну луковицу и чеснок. Добавляем мясо и жарим еще 2-3 минуты. Добавляем 1 л. воды и 400 г порезнных помидоров. Добавляем черный перец. Ставим в скороварку на 12 минут.",
+    "Открываем, добавляем 400 г порезанной капусты и варим на медленном огне еще 5 минут."
+  ],
+  "notes": [],
+  "images": [
+    "images/blogger/sup-iz-govyadiny-s-kapustoy-621237/1.jpg"
+  ],
+  "originalImageUrls": [
+    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFNaJ1JN3FkKUGj4nUUt5Ng2pDV_DyUYLfS0fZv9I9Kx5Pbw472GZGirxmuudcOi5-WaGId-7zNfJ168dS6JFv47W6y-12aC8AmmnsC5QvoYSJL34uaEG1g2MmP37vGTz7eHtz2Pdk0L0/w197-h262/IMG_20200803_132155.jpg"
+  ],
+  "possibleDuplicateOf": null
+}
