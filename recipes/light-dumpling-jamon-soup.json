@@ -2,6 +2,8 @@
   "id": "light-dumpling-jamon-soup",
   "title": "Лёгкий суп с пельменями, овощами и хамоном",
   "status": "tested",
+  "publishedAt": "2026-08-21",
+  "updatedAt": "2026-08-21",
   "mainIngredients": ["пельмени", "овощи", "хамон"],
   "ingredients": [
     "Красный лук — примерно 1/3 крупной луковицы (около 1/2 средней)",
