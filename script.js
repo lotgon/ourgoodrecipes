@@ -8,6 +8,24 @@ let selected = 'all';
 function getButtons() { return Array.from(document.querySelectorAll('.ingredient-chip')); }
 function getCards() { return Array.from(document.querySelectorAll('.recipe-card')); }
 
+function normalizeStatuses(root) {
+  root.querySelectorAll('.recipe-badges span').forEach(function(span) {
+    if (span.textContent.trim() === 'Проверен') span.textContent = 'Одобрен';
+  });
+}
+
+function setupDetailsLabels(root) {
+  root.querySelectorAll('.recipe-details').forEach(function(details) {
+    const summary = details.querySelector('summary');
+    if (!summary || summary.dataset.bound === 'true') return;
+    summary.dataset.bound = 'true';
+    summary.textContent = details.open ? 'Закрыть рецепт' : 'Открыть рецепт';
+    details.addEventListener('toggle', function() {
+      summary.textContent = details.open ? 'Закрыть рецепт' : 'Открыть рецепт';
+    });
+  });
+}
+
 function moveMetadataIntoDetails(root) {
   const items = Array.from(root.querySelectorAll('.recipe-card, .recipe-card-static'));
   items.forEach(function(card) {
@@ -22,7 +40,7 @@ function moveMetadataIntoDetails(root) {
       const detailsMeta = document.createElement('div');
       detailsMeta.className = 'recipe-meta recipe-meta-details';
       dateSpans.forEach(function(span) { detailsMeta.appendChild(span); });
-      details.insertBefore(detailsMeta, details.children[1] || null);
+      details.appendChild(detailsMeta);
     }
     if (meta.children.length === 0) meta.remove();
   });
@@ -93,7 +111,7 @@ function buildPotatoCard(recipe) {
     return '<li><span>' + item.name + '</span>' + (item.amount ? '<strong>' + item.amount + '</strong>' : '') + '</li>';
   }).join('');
   const stepItems = recipe.steps.map(function(step) { return '<li><strong>' + step.title + '.</strong> ' + step.text + '</li>'; }).join('');
-  article.innerHTML = '<div class="recipe-visual" aria-hidden="true">🥔</div><div class="recipe-content"><div class="recipe-badges"><span>Картофель</span><span>Духовка</span><span>Проверен</span></div><h3>' + recipe.title + '</h3><p>' + recipe.description + '</p><div class="recipe-meta"><span>Опубликован: 23.08.2026</span><span>Обновлён: 23.08.2026</span><span>🌡 230 °C</span></div><details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul>' + ingredientItems + '</ul></section><section class="panel steps"><h4>Приготовление</h4><ol>' + stepItems + '</ol><p><strong>Главный секрет:</strong> ' + recipe.tip + '</p></section></div></details></div>';
+  article.innerHTML = '<div class="recipe-visual" aria-hidden="true">🥔</div><div class="recipe-content"><div class="recipe-badges"><span>Картофель</span><span>Духовка</span><span>Одобрен</span></div><h3>' + recipe.title + '</h3><p>' + recipe.description + '</p><div class="recipe-meta"><span>⏱ 50–55 мин</span><span>Опубликован: 23.08.2026</span><span>Обновлён: 23.08.2026</span></div><details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul>' + ingredientItems + '</ul></section><section class="panel steps"><h4>Приготовление</h4><ol>' + stepItems + '</ol><p><strong>Главный секрет:</strong> ' + recipe.tip + '</p></section></div></details></div>';
   return article;
 }
 
@@ -102,18 +120,20 @@ async function loadPotatoRecipe() {
     const response = await fetch('recipes/crispy-roast-potatoes.json', { cache: 'no-store' });
     if (!response.ok) return;
     const recipe = await response.json();
-    if (!document.querySelector('[data-recipe-id="crispy-roast-potatoes"]')) {
-      recipeList.appendChild(buildPotatoCard(recipe));
-    }
+    if (!document.querySelector('[data-recipe-id="crispy-roast-potatoes"]')) recipeList.appendChild(buildPotatoCard(recipe));
     ensurePotatoFilter();
+    normalizeStatuses(document);
     moveMetadataIntoDetails(document);
+    setupDetailsLabels(document);
     sortNewestFirst();
     render();
   } catch (error) { console.error('Не удалось загрузить рецепт картофеля:', error); }
 }
 
 getButtons().forEach(bindFilter);
+normalizeStatuses(document);
 moveMetadataIntoDetails(document);
+setupDetailsLabels(document);
 sortNewestFirst();
 searchInput.addEventListener('input', render);
 render();
