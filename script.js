@@ -86,7 +86,8 @@ function buildPotatoCard(recipe) {
   const article = document.createElement('article');
   article.className = 'recipe-card';
   article.dataset.main = 'potato';
-  article.dataset.search = 'картофель картошка хрустящая духовка сода крахмал запеченная запечённая';
+  article.dataset.recipeId = 'crispy-roast-potatoes';
+  article.dataset.search = 'картофель картошка хрустящая духовка сода крахмал запеченная запечённая сушёный измельчённый лук';
   const ingredientItems = recipe.ingredients.map(function(value) {
     const item = splitIngredient(value);
     return '<li><span>' + item.name + '</span>' + (item.amount ? '<strong>' + item.amount + '</strong>' : '') + '</li>';
@@ -101,7 +102,9 @@ async function loadPotatoRecipe() {
     const response = await fetch('recipes/crispy-roast-potatoes.json', { cache: 'no-store' });
     if (!response.ok) return;
     const recipe = await response.json();
-    if (!document.querySelector('[data-main="potato"]')) recipeList.appendChild(buildPotatoCard(recipe));
+    if (!document.querySelector('[data-recipe-id="crispy-roast-potatoes"]')) {
+      recipeList.appendChild(buildPotatoCard(recipe));
+    }
     ensurePotatoFilter();
     moveMetadataIntoDetails(document);
     sortNewestFirst();
