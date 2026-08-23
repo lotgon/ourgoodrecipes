@@ -9,8 +9,25 @@ function getButtons() { return Array.from(document.querySelectorAll('.ingredient
 function getCards() { return Array.from(document.querySelectorAll('.recipe-card')); }
 
 function normalizeStatuses(root) {
-  root.querySelectorAll('.recipe-badges span').forEach(function(span) {
-    if (span.textContent.trim() === 'Проверен') span.textContent = 'Одобрен';
+  root.querySelectorAll('.recipe-card, .recipe-card-static').forEach(function(card) {
+    const badges = Array.from(card.querySelectorAll('.recipe-badges span'));
+    let approved = false;
+    badges.forEach(function(span) {
+      const text = span.textContent.trim();
+      if (text === 'Проверен' || text === 'Одобрен') {
+        approved = true;
+        span.remove();
+      }
+    });
+    if (approved) {
+      const visual = card.querySelector('.recipe-visual');
+      if (visual && !visual.querySelector('.approved-ribbon')) {
+        const ribbon = document.createElement('span');
+        ribbon.className = 'approved-ribbon';
+        ribbon.textContent = 'Одобрен';
+        visual.appendChild(ribbon);
+      }
+    }
   });
 }
 
@@ -111,7 +128,7 @@ function buildPotatoCard(recipe) {
     return '<li><span>' + item.name + '</span>' + (item.amount ? '<strong>' + item.amount + '</strong>' : '') + '</li>';
   }).join('');
   const stepItems = recipe.steps.map(function(step) { return '<li><strong>' + step.title + '.</strong> ' + step.text + '</li>'; }).join('');
-  article.innerHTML = '<div class="recipe-visual" aria-hidden="true">🥔</div><div class="recipe-content"><div class="recipe-badges"><span>Картофель</span><span>Духовка</span><span>Одобрен</span></div><h3>' + recipe.title + '</h3><p>' + recipe.description + '</p><div class="recipe-meta"><span>⏱ 50–55 мин</span><span>Опубликован: 23.08.2026</span><span>Обновлён: 23.08.2026</span></div><details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul>' + ingredientItems + '</ul></section><section class="panel steps"><h4>Приготовление</h4><ol>' + stepItems + '</ol><p><strong>Главный секрет:</strong> ' + recipe.tip + '</p></section></div></details></div>';
+  article.innerHTML = '<div class="recipe-visual" aria-hidden="true">🥔<span class="approved-ribbon">Одобрен</span></div><div class="recipe-content"><div class="recipe-badges"><span>Картофель</span><span>Духовка</span></div><h3>' + recipe.title + '</h3><p>' + recipe.description + '</p><div class="recipe-meta"><span>⏱ 50–55 мин</span><span>Опубликован: 23.08.2026</span><span>Обновлён: 23.08.2026</span></div><details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul>' + ingredientItems + '</ul></section><section class="panel steps"><h4>Приготовление</h4><ol>' + stepItems + '</ol><p><strong>Главный секрет:</strong> ' + recipe.tip + '</p></section></div></details></div>';
   return article;
 }
 
