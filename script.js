@@ -1,16 +1,24 @@
 const searchInput = document.getElementById('recipeSearch');
-const buttons = Array.from(document.querySelectorAll('.ingredient-chip'));
-const cards = Array.from(document.querySelectorAll('.recipe-card'));
 const count = document.getElementById('recipeCount');
 const empty = document.getElementById('emptyState');
+const recipeList = document.getElementById('recipeList');
+const ingredientFilters = document.getElementById('ingredientFilters');
 let selected = 'all';
+
+function getButtons() {
+  return Array.from(document.querySelectorAll('.ingredient-chip'));
+}
+
+function getCards() {
+  return Array.from(document.querySelectorAll('.recipe-card'));
+}
 
 function moveMetadataIntoDetails(root) {
   const items = Array.from(root.querySelectorAll('.recipe-card, .recipe-card-static'));
   items.forEach(function(card) {
     const meta = card.querySelector('.recipe-content > .recipe-meta');
     const details = card.querySelector('.recipe-details');
-    if (!meta || !details) return;
+    if (!meta || !details || details.querySelector('.recipe-meta-details')) return;
 
     const dateSpans = Array.from(meta.querySelectorAll('span')).filter(function(span) {
       const text = span.textContent.trim();
@@ -34,7 +42,7 @@ function render() {
   const query = searchInput.value.toLowerCase().trim();
   let visible = 0;
 
-  cards.forEach(function(card) {
+  getCards().forEach(function(card) {
     const byIngredient = selected === 'all' || card.dataset.main === selected;
     const byText = query === '' || card.innerText.toLowerCase().includes(query);
     const show = byIngredient && byText;
@@ -46,16 +54,86 @@ function render() {
   empty.hidden = visible > 0;
 }
 
-buttons.forEach(function(button) {
+function bindFilter(button) {
+  if (button.dataset.bound === 'true') return;
+  button.dataset.bound = 'true';
   button.addEventListener('click', function() {
     selected = button.dataset.filter;
-    buttons.forEach(function(item) {
+    getButtons().forEach(function(item) {
       item.classList.toggle('active', item === button);
     });
     render();
   });
-});
+}
 
+function ensurePotatoFilter() {
+  if (document.querySelector('[data-filter="potato"]')) return;
+  const button = document.createElement('button');
+  button.className = 'ingredient-chip';
+  button.type = 'button';
+  button.dataset.filter = 'potato';
+  button.innerHTML = '<span class="ingredient-icon">🥔</span><span>Картофель</span>';
+  ingredientFilters.appendChild(button);
+  bindFilter(button);
+}
+
+function splitIngredient(value) {
+  const parts = value.split(' — ');
+  return {
+    name: parts.shift() || value,
+    amount: parts.join(' — ')
+  };
+}
+
+function buildPotatoCard(recipe) {
+  const article = document.createElement('article');
+  article.className = 'recipe-card';
+  article.dataset.main = 'potato';
+  article.dataset.search = 'картофель картошка хрустящая духовка сода крахмал запеченная запечённая';
+
+  const ingredientItems = recipe.ingredients.map(function(value) {
+    const item = splitIngredient(value);
+    return '<li><span>' + item.name + '</span>' + (item.amount ? '<strong>' + item.amount + '</strong>' : '') + '</li>';
+  }).join('');
+
+  const stepItems = recipe.steps.map(function(step) {
+    return '<li><strong>' + step.title + '.</strong> ' + step.text + '</li>';
+  }).join('');
+
+  article.innerHTML =
+    '<div class="recipe-visual" aria-hidden="true">🥔</div>' +
+    '<div class="recipe-content">' +
+      '<div class="recipe-badges"><span>Картофель</span><span>Духовка</span><span>Проверен</span></div>' +
+      '<h3>' + recipe.title + '</h3>' +
+      '<p>' + recipe.description + '</p>' +
+      '<div class="recipe-meta"><span>Опубликован: 23.08.2026</span><span>Обновлён: 23.08.2026</span><span>🌡 230 °C</span></div>' +
+      '<details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid">' +
+        '<section class="panel ingredients"><h4>Ингредиенты</h4><ul>' + ingredientItems + '</ul></section>' +
+        '<section class="panel steps"><h4>Приготовление</h4><ol>' + stepItems + '</ol><p><strong>Главный секрет:</strong> ' + recipe.tip + '</p></section>' +
+      '</div></details>' +
+    '</div>';
+
+  return article;
+}
+
+async function loadPotatoRecipe() {
+  try {
+    const response = await fetch('recipes/crispy-roast-potatoes.json', { cache: 'no-store' });
+    if (!response.ok) return;
+    const recipe = await response.json();
+    if (!document.querySelector('[data-main="potato"]')) {
+      recipeList.appendChild(buildPotatoCard(recipe));
+    }
+    ensurePotatoFilter();
+    moveMetadataIntoDetails(document);
+    render();
+  } catch (error) {
+    console.error('Не удалось загрузить рецепт картофеля:', error);
+  }
+}
+
+getButtons().forEach(bindFilter);
 moveMetadataIntoDetails(document);
 searchInput.addEventListener('input', render);
 render();
+loadPotatoRecipe();
