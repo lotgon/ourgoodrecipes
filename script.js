@@ -59,6 +59,14 @@ function moveMetadataIntoDetails(root) {
       dateSpans.forEach(function(span) { detailsMeta.appendChild(span); });
       details.appendChild(detailsMeta);
     }
+    const summary = details.querySelector('summary');
+    const detailsGrid = details.querySelector('.recipe-grid');
+    const detailsMeta = details.querySelector('.recipe-meta-details');
+    if (summary && detailsGrid) {
+      details.appendChild(detailsGrid);
+      details.appendChild(summary);
+      if (detailsMeta) details.appendChild(detailsMeta);
+    }
     if (meta.children.length === 0) meta.remove();
   });
 }
