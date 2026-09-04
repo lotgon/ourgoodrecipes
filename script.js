@@ -178,6 +178,20 @@ async function loadPotatoRecipe() {
   } catch (error) { console.error('Не удалось загрузить рецепт картофеля:', error); }
 }
 
+function addPublicationMetadata(root) {
+  root.querySelectorAll('.recipe-card, .recipe-card-static').forEach(function(card) {
+    const meta = card.querySelector('.recipe-content > .recipe-meta, .recipe-meta-details');
+    if (!meta || meta.querySelector('.publication-author')) return;
+    const published = Array.from(meta.querySelectorAll('span')).find(function(span) { return span.textContent.trim().startsWith('Опубликован:'); });
+    if (!published) return;
+    const author = card.dataset.publishedBy || card.dataset.author || 'Our Good Recipes';
+    const authorSpan = document.createElement('span');
+    authorSpan.className = 'publication-author';
+    authorSpan.textContent = 'Выложил: ' + author;
+    meta.appendChild(authorSpan);
+  });
+}
+
 getButtons().forEach(bindFilter);
-normalizeStatuses(document); ensureFilterPanel(); moveMetadataIntoDetails(document); setupDetailsLabels(document); refreshRatings(); sortNewestFirst();
+normalizeStatuses(document); ensureFilterPanel(); moveMetadataIntoDetails(document); setupDetailsLabels(document); refreshRatings(); sortNewestFirst(); addPublicationMetadata(document);
 searchInput.addEventListener('input', render); render(); loadPotatoRecipe();
