@@ -13,6 +13,56 @@ function getCards() { return Array.from(document.querySelectorAll('.recipe-card,
 function getRatings() { try { return JSON.parse(localStorage.getItem(RATING_KEY) || '{}'); } catch (error) { return {}; } }
 function saveRatings(ratings) { localStorage.setItem(RATING_KEY, JSON.stringify(ratings)); }
 
+function slugifyRecipeId(value) {
+  return String(value || '')
+    .toLowerCase()
+    .trim()
+    .replace(/ё/g, 'е')
+    .replace(/[^a-z0-9а-я]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function ensureRecipeIds(root) {
+  root.querySelectorAll('.recipe-card, .recipe-card-static').forEach(function(card) {
+    if (!card.dataset.recipeId) {
+      const title = card.querySelector('h3');
+      if (title) card.dataset.recipeId = slugifyRecipeId(title.textContent);
+    }
+    if (card.dataset.recipeId && !card.id) card.id = 'recipe-' + card.dataset.recipeId;
+  });
+}
+
+function setRecipeUrl(recipeId, replace) {
+  const url = new URL(window.location.href);
+  if (recipeId) url.searchParams.set('recipe', recipeId);
+  else url.searchParams.delete('recipe');
+  if (url.toString() === window.location.href) return;
+  if (replace) history.replaceState({ recipe: recipeId || null }, '', url);
+  else history.pushState({ recipe: recipeId || null }, '', url);
+}
+
+function applyRecipeFromUrl(shouldScroll) {
+  ensureRecipeIds(document);
+  const recipeId = new URL(window.location.href).searchParams.get('recipe');
+  if (!recipeId) return false;
+  const card = document.querySelector('[data-recipe-id="' + CSS.escape(recipeId) + '"]');
+  if (!card) return false;
+
+  searchInput.value = '';
+  selectedIngredient = 'all';
+  selectedStatus = 'all';
+  selectedRating = 'all';
+  getButtons().forEach(function(button) { button.classList.toggle('active', button.dataset.filter === 'all'); });
+  document.querySelectorAll('[data-status-filter]').forEach(function(button) { button.classList.toggle('active', button.dataset.statusFilter === 'all'); });
+  document.querySelectorAll('[data-rating-filter]').forEach(function(button) { button.classList.toggle('active', button.dataset.ratingFilter === 'all'); });
+  render();
+
+  const details = card.querySelector('.recipe-details');
+  if (details) details.open = true;
+  if (shouldScroll) requestAnimationFrame(function() { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  return true;
+}
+
 function normalizeStatuses(root) {
   root.querySelectorAll('.recipe-card, .recipe-card-static').forEach(function(card) {
     const badges = Array.from(card.querySelectorAll('.recipe-badges span'));
@@ -38,12 +88,23 @@ function normalizeStatuses(root) {
 }
 
 function setupDetailsLabels(root) {
+  ensureRecipeIds(root);
   root.querySelectorAll('.recipe-details').forEach(function(details) {
     const summary = details.querySelector('summary');
     if (!summary || summary.dataset.bound === 'true') return;
     summary.dataset.bound = 'true';
     summary.textContent = details.open ? 'Закрыть рецепт' : 'Открыть рецепт';
-    details.addEventListener('toggle', function() { summary.textContent = details.open ? 'Закрыть рецепт' : 'Открыть рецепт'; });
+    details.addEventListener('toggle', function() {
+      summary.textContent = details.open ? 'Закрыть рецепт' : 'Открыть рецепт';
+      const card = details.closest('.recipe-card, .recipe-card-static');
+      if (!card || !card.dataset.recipeId) return;
+      const currentRecipeId = new URL(window.location.href).searchParams.get('recipe');
+      if (details.open) {
+        if (currentRecipeId !== card.dataset.recipeId) setRecipeUrl(card.dataset.recipeId, false);
+      } else if (currentRecipeId === card.dataset.recipeId) {
+        setRecipeUrl(null, false);
+      }
+    });
   });
 }
 
@@ -161,7 +222,7 @@ function ensurePotatoFilter() {
 function splitIngredient(value) { const parts = value.split(' — '); return { name: parts.shift() || value, amount: parts.join(' — ') }; }
 function buildPotatoCard(recipe) {
   const article = document.createElement('article');
-  article.className = 'recipe-card'; article.dataset.main = 'potato'; article.dataset.recipeId = 'crispy-roast-potatoes'; article.dataset.approved = 'true';
+  article.className = 'recipe-card'; article.dataset.main = 'potato'; article.dataset.recipeId = 'crispy-roast-potatoes'; article.dataset.approved = 'true'; article.id = 'recipe-crispy-roast-potatoes';
   article.dataset.search = 'картофель картошка хрустящая духовка сода крахмал запеченная запечённая сушёный измельчённый лук';
   const ingredientItems = recipe.ingredients.map(function(value) { const item = splitIngredient(value); return '<li><span>' + item.name + '</span>' + (item.amount ? '<strong>' + item.amount + '</strong>' : '') + '</li>'; }).join('');
   const stepItems = recipe.steps.map(function(step) { return '<li><strong>' + step.title + '.</strong> ' + step.text + '</li>'; }).join('');
@@ -174,7 +235,7 @@ async function loadPotatoRecipe() {
     if (!response.ok) return;
     const recipe = await response.json();
     if (!document.querySelector('[data-recipe-id="crispy-roast-potatoes"]')) recipeList.appendChild(buildPotatoCard(recipe));
-    ensurePotatoFilter(); normalizeStatuses(document); moveMetadataIntoDetails(document); setupDetailsLabels(document); refreshRatings(); sortNewestFirst(); render();
+    ensurePotatoFilter(); ensureRecipeIds(document); normalizeStatuses(document); moveMetadataIntoDetails(document); setupDetailsLabels(document); refreshRatings(); sortNewestFirst(); render(); applyRecipeFromUrl(true);
   } catch (error) { console.error('Не удалось загрузить рецепт картофеля:', error); }
 }
 
@@ -192,7 +253,7 @@ function buildTryRecipeCard(recipe, fallbackId) {
   article.dataset.filterTags = 'dessert';
   article.dataset.recipeId = id;
   article.dataset.try = 'true';
-  article.id = id;
+  article.id = 'recipe-' + id;
 
   const ingredients = Array.isArray(recipe.ingredients) ? recipe.ingredients : [];
   const steps = Array.isArray(recipe.steps) ? recipe.steps : [];
@@ -233,6 +294,7 @@ async function loadTryRecipes() {
     }
   }));
 
+  ensureRecipeIds(document);
   normalizeStatuses(document);
   moveMetadataIntoDetails(document);
   setupDetailsLabels(document);
@@ -240,6 +302,7 @@ async function loadTryRecipes() {
   refreshRatings();
   sortNewestFirst();
   render();
+  applyRecipeFromUrl(true);
 }
 
 function addPublicationMetadata(root) {
@@ -257,5 +320,7 @@ function addPublicationMetadata(root) {
 }
 
 getButtons().forEach(bindFilter);
-normalizeStatuses(document); ensureFilterPanel(); moveMetadataIntoDetails(document); setupDetailsLabels(document); refreshRatings(); sortNewestFirst(); addPublicationMetadata(document);
-searchInput.addEventListener('input', render); render(); loadPotatoRecipe(); loadTryRecipes();
+ensureRecipeIds(document); normalizeStatuses(document); ensureFilterPanel(); moveMetadataIntoDetails(document); setupDetailsLabels(document); refreshRatings(); sortNewestFirst(); addPublicationMetadata(document);
+searchInput.addEventListener('input', render);
+window.addEventListener('popstate', function() { applyRecipeFromUrl(true); });
+render(); applyRecipeFromUrl(true); loadPotatoRecipe(); loadTryRecipes();
