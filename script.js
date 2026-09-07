@@ -178,6 +178,70 @@ async function loadPotatoRecipe() {
   } catch (error) { console.error('Не удалось загрузить рецепт картофеля:', error); }
 }
 
+function formatRecipeDate(value) {
+  if (!value) return '';
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return match ? match[3] + '.' + match[2] + '.' + match[1] : value;
+}
+
+function buildTryRecipeCard(recipe, fallbackId) {
+  const id = recipe.id || fallbackId;
+  const article = document.createElement('article');
+  article.className = 'recipe-card';
+  article.dataset.main = 'dessert';
+  article.dataset.filterTags = 'dessert';
+  article.dataset.recipeId = id;
+  article.dataset.try = 'true';
+  article.id = id;
+
+  const ingredients = Array.isArray(recipe.ingredients) ? recipe.ingredients : [];
+  const steps = Array.isArray(recipe.steps) ? recipe.steps : [];
+  const ingredientItems = ingredients.map(function(value) {
+    const item = splitIngredient(String(value));
+    return '<li><span>' + item.name + '</span>' + (item.amount ? '<strong>' + item.amount + '</strong>' : '') + '</li>';
+  }).join('');
+  const stepItems = steps.map(function(step) {
+    if (typeof step === 'string') return '<li>' + step + '</li>';
+    const title = step && step.title ? '<strong>' + step.title + '.</strong> ' : '';
+    return '<li>' + title + (step && step.text ? step.text : '') + '</li>';
+  }).join('');
+  const published = formatRecipeDate(recipe.publishedAt);
+  const updated = formatRecipeDate(recipe.updatedAt);
+  const meta = [published ? '<span>Опубликован: ' + published + '</span>' : '', updated ? '<span>Обновлён: ' + updated + '</span>' : ''].join('');
+  const description = recipe.description || recipe.notes && recipe.notes[0] || 'Рецепт, который ещё предстоит попробовать.';
+
+  article.innerHTML = '<div class="recipe-visual" aria-hidden="true">🍰</div><div class="recipe-content"><div class="recipe-badges"><span>Десерт</span><span>Попробовать</span></div><h3>' + recipe.title + '</h3><p>' + description + '</p>' + (meta ? '<div class="recipe-meta">' + meta + '</div>' : '') + '<details class="recipe-details"><summary>Открыть рецепт</summary><div class="recipe-grid"><section class="panel ingredients"><h4>Ингредиенты</h4><ul>' + ingredientItems + '</ul></section><section class="panel steps"><h4>Приготовление</h4><ol>' + stepItems + '</ol></section></div></details></div>';
+  return article;
+}
+
+async function loadTryRecipes() {
+  const files = [
+    { path: 'recipes/oat-blueberry-tart.json', id: 'oat-blueberry-tart' },
+    { path: 'recipes/oatmeal-cookies-gluten-free.json', id: 'oatmeal-cookies-gluten-free' }
+  ];
+
+  await Promise.all(files.map(async function(file) {
+    try {
+      const response = await fetch(file.path, { cache: 'no-store' });
+      if (!response.ok) return;
+      const recipe = await response.json();
+      const isTry = recipe.status === 'to-try' || recipe.status === 'Попробовать';
+      if (!isTry || document.querySelector('[data-recipe-id="' + file.id + '"]')) return;
+      recipeList.appendChild(buildTryRecipeCard(recipe, file.id));
+    } catch (error) {
+      console.error('Не удалось загрузить рецепт «Попробовать»:', file.path, error);
+    }
+  }));
+
+  normalizeStatuses(document);
+  moveMetadataIntoDetails(document);
+  setupDetailsLabels(document);
+  addPublicationMetadata(document);
+  refreshRatings();
+  sortNewestFirst();
+  render();
+}
+
 function addPublicationMetadata(root) {
   root.querySelectorAll('.recipe-card, .recipe-card-static').forEach(function(card) {
     const meta = card.querySelector('.recipe-content > .recipe-meta, .recipe-meta-details');
@@ -194,4 +258,4 @@ function addPublicationMetadata(root) {
 
 getButtons().forEach(bindFilter);
 normalizeStatuses(document); ensureFilterPanel(); moveMetadataIntoDetails(document); setupDetailsLabels(document); refreshRatings(); sortNewestFirst(); addPublicationMetadata(document);
-searchInput.addEventListener('input', render); render(); loadPotatoRecipe();
+searchInput.addEventListener('input', render); render(); loadPotatoRecipe(); loadTryRecipes();
