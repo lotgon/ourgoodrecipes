@@ -58,7 +58,9 @@ assert.ok(differentTitle.includes('Блины с сыром'));
 
 const withOriginal = await render({title: 'Recipe', ingredients: ['New ingredient'], steps: ['New method'], originalText: 'Old quantity 200 g\n<script>not executable</script>'});
 assert.ok(withOriginal.includes('<details class="recipe-original"'));
-assert.ok(!withOriginal.includes('<details open'));
+assert.ok(withOriginal.includes('<h2>Новая версия</h2>'));
+assert.ok(withOriginal.includes('class="recipe-original" open'));
+assert.ok(withOriginal.includes('Старая версия — оригинал'));
 assert.ok(withOriginal.includes('Old quantity 200 g'));
 assert.ok(withOriginal.includes('&lt;script&gt;not executable&lt;/script&gt;'));
 assert.ok(!withOriginal.includes('<script>'));

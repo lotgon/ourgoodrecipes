@@ -63,6 +63,7 @@
           (!useSourceText && description ? '<p>' + esc(description) + '</p>' : '') +
         '</div>' +
         images.map(path => '<img loading="lazy" style="max-width:100%;height:auto;border-radius:16px" src="../' + esc(path) + '" alt="' + esc(title) + '">').join('') +
+        (recipe.originalText ? '<h2>Новая версия</h2>' : '') +
         '<div class="recipe-grid">' +
           (!useSourceText && ingredients.length ? '<section class="panel ingredients"><h2>Ингредиенты</h2><ul>' + ingredients.map(formatIngredient).join('') + '</ul></section>' : '') +
           '<section class="panel steps"' + (useSourceText || !ingredients.length ? ' style="grid-column:1 / -1"' : '') + '>' +
@@ -70,7 +71,7 @@
             (!useSourceText && notes.length ? '<div class="recipe-page-notes"><h3>Заметки</h3><ul>' + notes.map(formatNote).join('') + '</ul></div>' : '') +
           '</section>' +
         '</div>' +
-        (recipe.originalText ? '<details class="recipe-original" style="margin-top:24px"><summary>Оригинал для сверки</summary><p>Исходный текст сохранён отдельно от оформленного рецепта.</p>' +
+        (recipe.originalText ? '<details class="recipe-original" open style="margin-top:24px"><summary>Старая версия — оригинал</summary><p>Исходный текст сохранён для сравнения с новой версией.</p>' +
           (recipe.verification?.findings?.length ? '<ul>' + recipe.verification.findings.map(value => '<li>' + esc(value) + '</li>').join('') + '</ul>' : '') +
           '<div style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(recipe.originalText) + '</div></details>' : '') +
       '</article>';
