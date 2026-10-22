@@ -47,5 +47,11 @@
   "verification": {
     "status": "matched",
     "findings": []
-  }
+  },
+  "originalLinks": [
+    {
+      "text": "бурого риса",
+      "url": "https://ourgoodrecipes.blogspot.com/2019/01/blog-post_14.html"
+    }
+  ]
 }

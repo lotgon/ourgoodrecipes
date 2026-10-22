@@ -47,9 +47,12 @@
     const notes = Array.isArray(recipe.notes) ? recipe.notes : [];
     const description = recipe.description || recipe.intro || '';
     let sourceText = typeof recipe.sourceText === 'string' ? recipe.sourceText.trim() : '';
+    const sameEdition = !steps.length && !!sourceText && sourceText === (recipe.originalText || '').trim();
     const sourceLines = sourceText.split(/\r?\n/);
     if (sourceLines[0].trim() === title.trim()) sourceText = sourceLines.slice(1).join('\n').trim();
     const useSourceText = !steps.length && !!sourceText;
+    const originalLinks = (Array.isArray(recipe.originalLinks) ? recipe.originalLinks : []).filter(link => link && typeof link.url === 'string' && /^https?:\/\//i.test(link.url));
+    const linksHtml = originalLinks.length ? '<nav aria-label="Ссылки из оригинала"><h3>Ссылки из оригинала</h3><ul>' + originalLinks.map(link => '<li><a href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer">' + esc(link.text || link.url) + '</a></li>').join('') + '</ul></nav>' : '';
     const status = recipe.status === 'to-try' || recipe.status === 'Попробовать' ? 'Попробовать' : (recipe.status === 'imported' ? 'Из старого блога' : (recipe.status || ''));
     const images = (recipe.images || []).filter(path => typeof path === 'string' && /^images\/blogger\/[a-zA-Z0-9_./-]+$/.test(path) && !path.includes('..'));
 
@@ -63,7 +66,7 @@
           (!useSourceText && description ? '<p>' + esc(description) + '</p>' : '') +
         '</div>' +
         images.map(path => '<img loading="lazy" style="max-width:100%;height:auto;border-radius:16px" src="../' + esc(path) + '" alt="' + esc(title) + '">').join('') +
-        (recipe.originalText ? '<h2>Новая версия</h2>' : '') +
+        (sameEdition ? '<h2>Архивная версия</h2><p>Отдельной новой версии пока нет: оба сохранённых текста совпадают.</p>' : (recipe.originalText ? '<h2>Новая версия</h2>' : '')) +
         '<div class="recipe-grid">' +
           (!useSourceText && ingredients.length ? '<section class="panel ingredients"><h2>Ингредиенты</h2><ul>' + ingredients.map(formatIngredient).join('') + '</ul></section>' : '') +
           '<section class="panel steps"' + (useSourceText || !ingredients.length ? ' style="grid-column:1 / -1"' : '') + '>' +
@@ -71,9 +74,10 @@
             (!useSourceText && notes.length ? '<div class="recipe-page-notes"><h3>Заметки</h3><ul>' + notes.map(formatNote).join('') + '</ul></div>' : '') +
           '</section>' +
         '</div>' +
-        (recipe.originalText ? '<details class="recipe-original" open style="margin-top:24px"><summary>Старая версия — оригинал</summary><p>Исходный текст сохранён для сравнения с новой версией.</p>' +
+        (sameEdition ? linksHtml : '') +
+        (recipe.originalText && !sameEdition ? '<details class="recipe-original" open style="margin-top:24px"><summary>Старая версия — оригинал</summary><p>Исходный текст сохранён для сравнения с новой версией.</p>' +
           (recipe.verification?.findings?.length ? '<ul>' + recipe.verification.findings.map(value => '<li>' + esc(value) + '</li>').join('') + '</ul>' : '') +
-          '<div style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(recipe.originalText) + '</div></details>' : '') +
+          '<div style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(recipe.originalText) + '</div>' + linksHtml + '</details>' : '') +
       '</article>';
   }
 

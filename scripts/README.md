@@ -1,4 +1,4 @@
-`import-blogger.mjs` imports the legacy Blogger collection into `recipes/blogger/` and downloads post images into `images/blogger/`.
+`import-blogger.mjs` is retired: it refuses to run before any network or file operations, protecting reviewed recipes. The legacy GitHub workflow has no push trigger or write permission and only explains this retirement when manually dispatched. Use the offline Takeout importer below.
 
 For an offline Google Takeout archive, run:
 
@@ -11,6 +11,8 @@ This selects only recipe blog ID `4333353184444059143` and its `ourgoodrecipes` 
 Redesigned posts often append an older copy after `— оригинальный текст (черновик) —`. The importer selects one edition for `sourceText`; complete structured recipes display only their ingredients, steps and notes. Fallback text replaces structured sections instead of repeating them. A recipe without a method in the source is marked honestly. Repeated ingredients in separate salad layers are intentional and are not automatically deduplicated. Full unmodified HTML stays in the local backup.
 
 Checks: `python scripts/test-import-takeout.py` and `node scripts/test-recipe-page.mjs`.
+
+Also run `node scripts/test-legacy-import.mjs` and `node scripts/test-blogger-filters.mjs`. Identical fallback and original editions display once with an explanation; both saved fields remain intact. Original reference links are preserved separately in `originalLinks` and rendered as HTTP(S) links without altering either recipe text. Blogger product filters use conservative tags derived from titles and labels.
 
 The earlier edition is essential evidence: `originalText` preserves the text after the draft marker separately and is available in a collapsed “Оригинал для сверки” block. `sourceText` is only a display fallback, never the source of truth for quantity verification. Do not delete original evidence or equate rendering tests with content verification. When no earlier edition exists, `originalTextOrigin` is `archived-post` rather than `pre-redesign`.
 

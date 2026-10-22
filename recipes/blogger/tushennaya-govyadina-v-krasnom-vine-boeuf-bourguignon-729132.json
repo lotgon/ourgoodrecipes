@@ -60,5 +60,11 @@
     "findings": [
       "Восстановлены авторская атрибуция и ссылка на французский вариант."
     ]
-  }
+  },
+  "originalLinks": [
+    {
+      "text": "http://www.foodandwine.com/recipes/beef-stew-in-red-wine-sauce",
+      "url": "http://www.foodandwine.com/recipes/beef-stew-in-red-wine-sauce"
+    }
+  ]
 }

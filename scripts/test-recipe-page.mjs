@@ -65,6 +65,20 @@ assert.ok(withOriginal.includes('Old quantity 200 g'));
 assert.ok(withOriginal.includes('&lt;script&gt;not executable&lt;/script&gt;'));
 assert.ok(!withOriginal.includes('<script>'));
 
+const singleEdition = await render({title: 'Same', sourceText: 'Same\nUnique recipe body', originalText: 'Same\nUnique recipe body', steps: [], originalLinks: [{text: 'Source', url: 'https://example.org/?a=1&b=2'}, {text: 'Bad', url: 'javascript:alert(1)'}]});
+assert.equal(singleEdition.split('Unique recipe body').length - 1, 1);
+assert.ok(singleEdition.includes('Отдельной новой версии пока нет'));
+assert.ok(!singleEdition.includes('Старая версия — оригинал'));
+assert.ok(!singleEdition.includes('<h2>Новая версия</h2>'));
+assert.ok(singleEdition.includes('href="https://example.org/?a=1&amp;b=2"'));
+assert.ok(!singleEdition.includes('javascript:'));
+
+const differentEditions = await render({title: 'Two editions', sourceText: 'New fallback', originalText: 'Old fallback', originalLinks: [{text: 'Old source', url: 'http://example.org/'}]});
+assert.ok(differentEditions.includes('New fallback'));
+assert.ok(differentEditions.includes('Old fallback'));
+assert.ok(differentEditions.includes('<h2>Новая версия</h2>'));
+assert.ok(differentEditions.includes('href="http://example.org/"'));
+
 const manifest = JSON.parse(readFileSync(new URL('../recipes/blogger/_manifest.json', import.meta.url), 'utf8'));
 for (const entry of manifest.recipes) {
   const recipe = JSON.parse(readFileSync(new URL('../' + entry.file, import.meta.url), 'utf8'));

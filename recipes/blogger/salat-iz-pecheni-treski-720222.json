@@ -33,5 +33,6 @@
   "verification": {
     "status": "matched",
     "findings": []
-  }
+  },
+  "originalLinks": []
 }

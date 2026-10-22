@@ -39,5 +39,31 @@
   "verification": {
     "status": "matched",
     "findings": []
-  }
+  },
+  "originalLinks": [
+    {
+      "text": "Утиная грудка",
+      "url": "http://www.povarenok.ru/recipes/ingredient/3746"
+    },
+    {
+      "text": "Яблоко",
+      "url": "http://www.povarenok.ru/recipes/ingredient/2192"
+    },
+    {
+      "text": "Апельсин",
+      "url": "http://www.povarenok.ru/recipes/ingredient/76"
+    },
+    {
+      "text": "Белое сухое вино",
+      "url": "http://www.povarenok.ru/recipes/ingredient/3720"
+    },
+    {
+      "text": "Мука",
+      "url": "http://www.povarenok.ru/recipes/ingredient/1156"
+    },
+    {
+      "text": "Специи",
+      "url": "http://www.povarenok.ru/recipes/ingredient/1701"
+    }
+  ]
 }

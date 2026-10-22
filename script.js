@@ -218,6 +218,21 @@ loadPotatoRecipe();
 loadTryRecipes();
 loadBloggerRecipes();
 
+function bloggerIngredientTags(entry) {
+  const text = [entry.title || '', ...(entry.labels || [])].join(' ').toLowerCase().replace(/ё/g, 'е');
+  const words = text.match(/[\p{L}]+/gu) || [];
+  const patterns = {
+    broccoli: /^(?:брокколи|броколи|broccoli)$/,
+    avocado: /^(?:авокадо|avocado)$/,
+    eggplant: /^(?:баклажан(?:ы|а|ов|ами|ах|ом|у|е)?|eggplants?|aubergines?)$/,
+    tofu: /^(?:тофу|tofu)$/,
+    beef: /^(?:говядин(?:а|ы|е|у|ой|ою)|говяж(?:ий|ья|ье|ьи|ьего|ьей|ьим|ьими)|beef|boeuf)$/,
+    rice: /^(?:рис|риса|рисом|рису|рисе|rice)$/,
+    potato: /^(?:картофел(?:ь|я|ем|ю|е)|картофельн(?:ый|ая|ое|ые|ого|ой|ым|ыми)|картошк(?:а|и|у|ой|е)|potatoes|potato)$/
+  };
+  return Object.keys(patterns).filter(tag => words.some(word => patterns[tag].test(word)));
+}
+
 async function loadBloggerRecipes() {
   try {
     const response = await fetch('recipes/blogger/_manifest.json');
@@ -231,6 +246,7 @@ async function loadBloggerRecipes() {
       article.className = 'recipe-card';
       article.dataset.recipeId = entry.id;
       article.dataset.main = 'all';
+      article.dataset.filterTags = bloggerIngredientTags(entry).join(' ');
       article.dataset.search = [entry.title, ...(entry.labels || [])].join(' ').toLowerCase();
       const visual = document.createElement('div'); visual.className = 'recipe-visual';
       const imagePath = (entry.images || []).find(path => /^images\/blogger\/[a-zA-Z0-9_./-]+$/.test(path) && !path.includes('..'));

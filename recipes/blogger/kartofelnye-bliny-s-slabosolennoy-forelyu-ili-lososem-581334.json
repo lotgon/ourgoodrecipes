@@ -35,5 +35,15 @@
   "verification": {
     "status": "matched",
     "findings": []
-  }
+  },
+  "originalLinks": [
+    {
+      "text": "Ингридиенты:",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWjUvrFaSBIGx0ONcmbOJD0fEMHhIT64AMTUPdq41ckysUuXCgldsDLbQ5LhYIaIhgxuc26T2ady_OvX3zq0DKKmuw99uVXu32GwfStTOa09JaBLJ1ssU1iGgaXxE9m4UzbiORrsMd9Eo/s2048/IMG_20200712_200928.jpg"
+    },
+    {
+      "text": "Картофельные блиныслабосоленая рыбамягкий сыр",
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWjUvrFaSBIGx0ONcmbOJD0fEMHhIT64AMTUPdq41ckysUuXCgldsDLbQ5LhYIaIhgxuc26T2ady_OvX3zq0DKKmuw99uVXu32GwfStTOa09JaBLJ1ssU1iGgaXxE9m4UzbiORrsMd9Eo/s2048/IMG_20200712_200928.jpg"
+    }
+  ]
 }

@@ -1,34 +1,18 @@
-name: Import Blogger recipes
+name: Legacy Blogger import (disabled)
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'scripts/import-blogger.mjs'
-      - '.github/workflows/import-blogger.yml'
 
-permissions:
-  contents: write
+permissions: {}
 
 jobs:
-  import:
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Import recipes and images
-        run: node scripts/import-blogger.mjs
-      - name: Commit imported data
+      - name: Explain the supported import path
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add recipes/blogger images/blogger
-          if git diff --cached --quiet; then
-            echo "No changes"
-          else
-            git commit -m "Import recipes and images from Blogger"
-            git push
-          fi
-# Trigger import after migration setup.
+          echo "The legacy live-feed importer is disabled to protect reviewed recipes."
+          echo "Download a Google Takeout archive and run locally:"
+          echo "  python scripts/import-takeout.py C:/path/to/takeout.zip"
+          echo "Review the resulting changes before committing. See scripts/README.md."
+          exit 1

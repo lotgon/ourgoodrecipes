@@ -27,5 +27,6 @@
     "findings": [
       "Полный исходный текст сохранён в sourceText и используется как fallback без потерь."
     ]
-  }
+  },
+  "originalLinks": []
 }

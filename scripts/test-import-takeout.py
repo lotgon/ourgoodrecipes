@@ -15,6 +15,13 @@ spec.loader.exec_module(importer)
 
 
 class ImportTest(unittest.TestCase):
+    def test_original_links_are_separate_and_safe(self):
+        raw = '<a href="https://new.example/">New</a><p>— оригинальный текст (черновик) —</p><a href="/source?a=1&amp;b=2">Old <b>source</b></a><a href="javascript:alert(1)">Bad</a><a href="https://image.example/"><img src="x"></a>'
+        self.assertEqual(importer.original_links(raw, 'https://blog.example/post'),
+                         [{'text': 'Old source', 'url': 'https://blog.example/source?a=1&b=2'}])
+        self.assertEqual(importer.original_links('<a href="https://example.org/">Source</a>', 'https://blog.example/'),
+                         [{'text': 'Source', 'url': 'https://example.org/'}])
+
     def test_redesign_selects_one_complete_edition(self):
         marker = '\n— оригинальный текст (черновик) —\n'
         self.assertEqual(importer.single_recipe_text('New quantities and steps' + marker + 'Old recipe'),

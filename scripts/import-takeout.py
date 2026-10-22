@@ -34,6 +34,42 @@ def single_recipe_text(text):
     return formatted
 
 
+class Links(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.current = None
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'a':
+            self.current = {'url': dict(attrs).get('href', ''), 'text': ''}
+
+    def handle_data(self, data):
+        if self.current is not None:
+            self.current['text'] += data
+
+    def handle_endtag(self, tag):
+        if tag == 'a' and self.current is not None:
+            self.links.append(self.current)
+            self.current = None
+
+
+def original_links(raw, base_url):
+    # Do not alter originalText: links are supplementary evidence, kept separately.
+    original_html = re.split(r'[—–-]\s*оригинальный\s+текст\s*\(черновик\)\s*[—–-]', raw, maxsplit=1, flags=re.I)[-1]
+    parser = Links()
+    parser.feed(original_html)
+    links = []
+    for link in parser.links:
+        url = urllib.parse.urljoin(base_url, link['url'].strip())
+        label = ' '.join(link['text'].split())
+        if label and link['url'].strip() and urllib.parse.urlsplit(url).scheme.lower() in ('http', 'https'):
+            value = {'text': label, 'url': url}
+            if value not in links:
+                links.append(value)
+    return links
+
+
 class Text(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -164,6 +200,7 @@ def run(archive_path):
             # Keep it independently of the cleaned display text and curated fields.
             recipe['originalText'] = DRAFT_MARKER.split(full_text, maxsplit=1)[-1].strip()
             recipe['originalTextOrigin'] = 'pre-redesign' if DRAFT_MARKER.search(full_text) else 'archived-post'
+            recipe['originalLinks'] = original_links(raw, recipe.get('source', {}).get('url') or 'https://ourgoodrecipes.blogspot.com/')
             audit = audits.get(recipe['id'])
             original_hash = hashlib.sha256(recipe['originalText'].encode('utf-8')).hexdigest()
             content_hash = hashlib.sha256(json.dumps({k: recipe.get(k) for k in ['intro', 'ingredients', 'steps', 'notes']}, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()

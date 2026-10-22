@@ -41,5 +41,11 @@
   "verification": {
     "status": "matched",
     "findings": []
-  }
+  },
+  "originalLinks": [
+    {
+      "text": "тут",
+      "url": "https://www.blogger.com/%C2%A0http://www.foodnetwork.com/recipes/giada-de-laurentiis/grilled-portobello-mushrooms-with-tomatoes-and-fresh-mozzarella-recipe.html"
+    }
+  ]
 }

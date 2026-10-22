@@ -48,5 +48,11 @@
     "findings": [
       "Убрано распространение количества 6 шт. на филе: в оригинале 6 относится только к бёдрам."
     ]
-  }
+  },
+  "originalLinks": [
+    {
+      "text": "здесь",
+      "url": "http://www.jamieoliver.com/recipes/chicken-recipes/hit-n-run-traybaked-chicken/#"
+    }
+  ]
 }

@@ -54,5 +54,15 @@
   "verification": {
     "status": "matched",
     "findings": []
-  }
+  },
+  "originalLinks": [
+    {
+      "text": "плов",
+      "url": "http://click02.begun.ru/click.jsp?url=BFj0vEZKS0qiVa9*VbmcdXz6ihuzGyVkYfZxOceDcOOsQZk9LGJI2DWApyYSnni6U6l3UQh6gYFeu2ZKf9mrgKq5bAgKXbZHViUk4Jy95gKo3Wg4Q2QNfhJTgh2NlfCoX*Fkz*XMDmdmT-l76LBJCNedH8QABYhHGo6Yg5Y*EEsbg6Zb9R*uuD0nAO2sTDDMldkYp*RywfAYvLVAKnOwX6358iHZ2qjUUlk3V*FGCnwCzfytGm4wvwhfe-8Mg7c-LyG*4REY2VOPyjQAuLqSX*uB*vu7fJA7*HZtjkOr*s70wSxpH9fTD3hBk2u7e78ixhu1rv03aVzd2UZtLkOr8dQ1vx0Wb3eplj1f-6xHKUdLtIazhF*MOmnD1JmVXsoKQtMlkL-C4AyWK1eJDzUcYWdCJh6MZzC*77YU-sBgbnDcGAxKb7nkYx4e0oRPTw8RM-vrHIM8yE6VsGeAYZWbfcf8hrjDGQBavUd1Go9uYxxNhrQWpPqYI8Rnlvd6P4djAPS37kZ7jWXVNj9y7leR3Q3UcRCjonSZNNcRbX3bjJG92Kp54HuZO2PRNBly7lihVqtAADlUVxCW52zd06dWq5ugopYwVRofprZYfQ"
+    },
+    {
+      "text": "http://www.delaysam.ru/kulinariya/kulinariya18.html",
+      "url": "http://www.delaysam.ru/kulinariya/kulinariya18.html"
+    }
+  ]
 }
