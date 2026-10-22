@@ -10,3 +10,7 @@ posts_backup.json
 
 # Node
 node_modules/
+
+# Full Takeout backup includes unpublished drafts and account settings.
+.local-backups/
+__pycache__/

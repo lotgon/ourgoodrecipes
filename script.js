@@ -40,7 +40,7 @@ function ensureRecipeIds(root) {
   });
 }
 
-function recipePageUrl(id) { return 'recipes/' + encodeURIComponent(id) + '.html'; }
+function recipePageUrl(id) { return /^blogger-\d+$/.test(id) ? 'recipes/blogger.html?id=' + encodeURIComponent(id) : 'recipes/' + encodeURIComponent(id) + '.html'; }
 
 function setupRecipeNavigation(root) {
   ensureRecipeIds(root);
@@ -149,7 +149,7 @@ function render() {
   getCards().forEach(function(card) {
     const id = card.dataset.recipeId || ''; const rating = Number(ratings[id] || 0); const tags = (card.dataset.filterTags || '').split(/\s+/);
     const byIngredient = selectedIngredient === 'all' || card.dataset.main === selectedIngredient || tags.includes(selectedIngredient);
-    const byText = query === '' || card.innerText.toLowerCase().includes(query);
+    const byText = query === '' || (card.innerText + ' ' + (card.dataset.search || '')).toLowerCase().includes(query);
     const byStatus = selectedStatus === 'all' || (selectedStatus === 'approved' && card.dataset.approved === 'true') || (selectedStatus === 'try' && card.dataset.try === 'true');
     const byRating = selectedRating === 'all' || (selectedRating === 'none' ? rating === 0 : rating >= Number(selectedRating));
     const show = byIngredient && byText && byStatus && byRating; card.hidden = !show; if (show) visible += 1;
@@ -216,3 +216,41 @@ finalizeCatalog();
 searchInput.addEventListener('input', render);
 loadPotatoRecipe();
 loadTryRecipes();
+loadBloggerRecipes();
+
+async function loadBloggerRecipes() {
+  try {
+    const response = await fetch('recipes/blogger/_manifest.json');
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const manifest = await response.json();
+    const normalized = value => String(value || '').toLowerCase().replace(/ё/g, 'е').replace(/[^\p{L}\d]+/gu, ' ').trim();
+    const existingTitles = new Set(getCards().map(card => normalized(card.querySelector('h3')?.textContent)));
+    for (const entry of manifest.recipes || []) {
+      if (!/^blogger-\d+$/.test(entry.id) || existingTitles.has(normalized(entry.title))) continue;
+      const article = document.createElement('article');
+      article.className = 'recipe-card';
+      article.dataset.recipeId = entry.id;
+      article.dataset.main = 'all';
+      article.dataset.search = [entry.title, ...(entry.labels || [])].join(' ').toLowerCase();
+      const visual = document.createElement('div'); visual.className = 'recipe-visual';
+      const imagePath = (entry.images || []).find(path => /^images\/blogger\/[a-zA-Z0-9_./-]+$/.test(path) && !path.includes('..'));
+      if (imagePath) {
+        const image = document.createElement('img'); image.src = imagePath; image.alt = entry.title; image.loading = 'lazy';
+        image.style.cssText = 'width:100%;height:100%;object-fit:cover'; visual.appendChild(image);
+      } else { visual.textContent = '🍽️'; }
+      const content = document.createElement('div'); content.className = 'recipe-content';
+      const badges = document.createElement('div'); badges.className = 'recipe-badges';
+      const badge = document.createElement('span'); badge.textContent = 'Из старого блога'; badges.appendChild(badge);
+      for (const label of (entry.labels || [])) { const tag = document.createElement('span'); tag.textContent = label; badges.appendChild(tag); }
+      const title = document.createElement('h3'); title.textContent = entry.title;
+      const meta = document.createElement('div'); meta.className = 'recipe-meta';
+      if (entry.publishedAt) { const date = document.createElement('span'); date.textContent = 'Опубликован: ' + formatRecipeDate(entry.publishedAt.slice(0, 10)); meta.appendChild(date); }
+      content.append(badges, title, meta); article.append(visual, content); recipeList.appendChild(article);
+    }
+    finalizeCatalog();
+  } catch (error) {
+    console.error('Не удалось загрузить рецепты старого блога:', error);
+    const message = document.createElement('p'); message.textContent = 'Не удалось загрузить рецепты старого блога. Обновите страницу, чтобы попробовать ещё раз.';
+    recipeList.after(message);
+  }
+}

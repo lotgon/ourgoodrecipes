@@ -1,1 +1,1 @@
-Blogger migration tooling is being prepared. This file is temporary and can be removed after import.
+Blogger Takeout imported on 2026-10-22: 101 published posts connected to the site catalog. Existing curated recipe fields are preserved; original text is retained for completeness. The selected local backup also contains 8 drafts, 2 pages, 2 comments, themes, settings and 23 original album images. These private backup files are excluded from Git. See scripts/README.md and scripts/takeout-import-report.json for repeatable import instructions and missing-image details.

@@ -1,0 +1,25 @@
+{
+  "archive": "takeout-20261022T162057Z-1-001.zip",
+  "sha256": "1a979b29a1bd54b020785a245386cbc85e1705330f7c182c82f93a0241cc1b2c",
+  "blogId": "4333353184444059143",
+  "entries": {
+    "POST:LIVE": 101,
+    "POST:DRAFT": 8,
+    "COMMENT:LIVE": 2,
+    "PAGE:LIVE": 2
+  },
+  "catalogCount": 101,
+  "albumPhotosBackedUp": 23,
+  "textFallbackPostIds": [
+    "2457567769810862872",
+    "8159309910430586736",
+    "9032234626701581334"
+  ],
+  "missingImages": [
+    {
+      "postId": "8949241111389086846",
+      "url": "https://2.bp.blogspot.com/-8XYCgNZKIh4/VdDlwxKk2pI/AAAAAAAAHwQ/3Ip-XQYtjcI/w426-h316/15%2B-%2B1"
+    }
+  ],
+  "policy": "Existing curated fields preserved. Drafts, pages, comments and settings are in ignored local backup."
+}
