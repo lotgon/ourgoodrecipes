@@ -83,6 +83,8 @@ def run(archive_path):
         if isinstance(data.get('source'), dict) and data['source'].get('postId'):
             existing[str(data['source']['postId'])] = (file, data)
     overrides = json.loads((ROOT / 'manual_overrides.json').read_text(encoding='utf-8'))
+    audit_path = ROOT / 'scripts/recipe-content-audit.json'
+    audits = {row['id']: row for row in json.loads(audit_path.read_text(encoding='utf-8')).get('recipes', [])} if audit_path.exists() else {}
     backup = ROOT / '.local-backups' / archive_path.stem
     prefixes = [f'Takeout/Blogger/Blogs/{BLOG}/',
                 f'Takeout/Blogger/Comments/{BLOG}/',
@@ -158,6 +160,15 @@ def run(archive_path):
             recipe.setdefault('labels', [c.get('term') for c in entry.findall('a:category', NS)
                                          if c.get('term')])
             recipe['sourceText'] = source_text
+            # The old edition is evidence, not disposable duplicate content.
+            # Keep it independently of the cleaned display text and curated fields.
+            recipe['originalText'] = DRAFT_MARKER.split(full_text, maxsplit=1)[-1].strip()
+            recipe['originalTextOrigin'] = 'pre-redesign' if DRAFT_MARKER.search(full_text) else 'archived-post'
+            audit = audits.get(recipe['id'])
+            original_hash = hashlib.sha256(recipe['originalText'].encode('utf-8')).hexdigest()
+            content_hash = hashlib.sha256(json.dumps({k: recipe.get(k) for k in ['intro', 'ingredients', 'steps', 'notes']}, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()
+            audit_current = audit and audit.get('originalSha256') == original_hash and audit.get('contentSha256') == content_hash
+            recipe['verification'] = {'status': audit['status'], 'findings': audit['findings']} if audit_current else {'status': 'pending', 'findings': []}
             # Audited source contains only these three ingredients, no method.
             if post_id == '9032234626701581334' and not recipe.get('steps'):
                 recipe['sourceText'] = ''

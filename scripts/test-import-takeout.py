@@ -2,6 +2,7 @@
 import contextlib
 import importlib.util
 import io
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -53,11 +54,25 @@ class ImportTest(unittest.TestCase):
             for key in ('title', 'ingredients', 'steps'):
                 self.assertEqual(data[key], recipe[key])
             self.assertEqual(data['sourceText'], 'Original text')
+            self.assertEqual(data['originalText'], 'Original text')
             self.assertTrue((root / data['images'][0]).is_file())
             manifest = json.loads((output / '_manifest.json').read_text())
             self.assertEqual(manifest['count'], 1)
             self.assertFalse(any(p.name == 'Other' for p in (root / '.local-backups').rglob('*')))
             self.assertNotIn('Private draft', first.decode())
+            audit = {'recipes': [{'id': 'blogger-1', 'status': 'matched', 'findings': [],
+                     'originalSha256': hashlib.sha256(data['originalText'].encode('utf-8')).hexdigest(),
+                     'contentSha256': hashlib.sha256(json.dumps({k: data.get(k) for k in ['intro', 'ingredients', 'steps', 'notes']}, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()}]}
+            importer.write_json(root / 'scripts/recipe-content-audit.json', audit)
+            with contextlib.redirect_stdout(io.StringIO()):
+                importer.run(archive)
+            current = json.loads((output / 'existing.json').read_text(encoding='utf-8'))
+            self.assertEqual(current['verification']['status'], 'matched')
+            current['steps'] = ['Changed after review']
+            importer.write_json(output / 'existing.json', current)
+            with contextlib.redirect_stdout(io.StringIO()):
+                importer.run(archive)
+            self.assertEqual(json.loads((output / 'existing.json').read_text(encoding='utf-8'))['verification']['status'], 'pending')
 
 
 if __name__ == '__main__':

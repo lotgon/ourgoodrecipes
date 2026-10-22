@@ -58,6 +58,8 @@
         '<div class="recipe-page-heading">' +
           (status ? '<span class="recipe-page-status">' + esc(status) + '</span>' : '') +
           '<h1>' + esc(title) + '</h1>' +
+          (recipe.verification?.status === 'needs-review' ? '<p>В исходной записи есть неоднозначности. Перед приготовлением проверьте оригинал и замечания ниже.</p>' : '') +
+          (recipe.verification?.status === 'pending' ? '<p>Этот вариант ещё не сверен с оригиналом.</p>' : '') +
           (!useSourceText && description ? '<p>' + esc(description) + '</p>' : '') +
         '</div>' +
         images.map(path => '<img loading="lazy" style="max-width:100%;height:auto;border-radius:16px" src="../' + esc(path) + '" alt="' + esc(title) + '">').join('') +
@@ -68,6 +70,9 @@
             (!useSourceText && notes.length ? '<div class="recipe-page-notes"><h3>Заметки</h3><ul>' + notes.map(formatNote).join('') + '</ul></div>' : '') +
           '</section>' +
         '</div>' +
+        (recipe.originalText ? '<details class="recipe-original" style="margin-top:24px"><summary>Оригинал для сверки</summary><p>Исходный текст сохранён отдельно от оформленного рецепта.</p>' +
+          (recipe.verification?.findings?.length ? '<ul>' + recipe.verification.findings.map(value => '<li>' + esc(value) + '</li>').join('') + '</ul>' : '') +
+          '<div style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(recipe.originalText) + '</div></details>' : '') +
       '</article>';
   }
 

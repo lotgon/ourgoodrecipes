@@ -56,6 +56,13 @@ assert.ok(!incomplete.includes('<ol></ol>'));
 const differentTitle = await render({ title: 'Блины', sourceText: 'Блины с сыром\nРецепт' });
 assert.ok(differentTitle.includes('Блины с сыром'));
 
+const withOriginal = await render({title: 'Recipe', ingredients: ['New ingredient'], steps: ['New method'], originalText: 'Old quantity 200 g\n<script>not executable</script>'});
+assert.ok(withOriginal.includes('<details class="recipe-original"'));
+assert.ok(!withOriginal.includes('<details open'));
+assert.ok(withOriginal.includes('Old quantity 200 g'));
+assert.ok(withOriginal.includes('&lt;script&gt;not executable&lt;/script&gt;'));
+assert.ok(!withOriginal.includes('<script>'));
+
 const manifest = JSON.parse(readFileSync(new URL('../recipes/blogger/_manifest.json', import.meta.url), 'utf8'));
 for (const entry of manifest.recipes) {
   const recipe = JSON.parse(readFileSync(new URL('../' + entry.file, import.meta.url), 'utf8'));

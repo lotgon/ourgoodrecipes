@@ -12,4 +12,8 @@ Redesigned posts often append an older copy after `— оригинальный 
 
 Checks: `python scripts/test-import-takeout.py` and `node scripts/test-recipe-page.mjs`.
 
+The earlier edition is essential evidence: `originalText` preserves the text after the draft marker separately and is available in a collapsed “Оригинал для сверки” block. `sourceText` is only a display fallback, never the source of truth for quantity verification. Do not delete original evidence or equate rendering tests with content verification. When no earlier edition exists, `originalTextOrigin` is `archived-post` rather than `pre-redesign`.
+
+`recipe-content-audit.json` records a content comparison of all 101 archived recipes: corrected fields, findings and unresolved ambiguities. `needs-review` means the original itself is ambiguous or incomplete; do not guess the answer. This report checks fidelity to the archive, not culinary correctness. Revisit it if the archive or curated recipes change.
+
 The complete selected backup, including eight unpublished drafts, pages, comments, theme and settings, is stored under ignored `.local-backups/<archive-name>/`. Other blogs and the Google profile are not extracted. Keep the original ZIP separately. The public import audit is `scripts/takeout-import-report.json`.

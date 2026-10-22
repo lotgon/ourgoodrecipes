@@ -1,0 +1,1302 @@
+{
+  "reviewedOn": "2026-10-22",
+  "scope": "Comparison of 101 published recipe records with the earlier text preserved in the Blogger Takeout. This checks transcription fidelity, not culinary correctness. Original ambiguities remain explicitly flagged.",
+  "counts": {
+    "corrected": 37,
+    "matched": 40,
+    "needs-review": 24
+  },
+  "changedRecipes": 58,
+  "recipes": [
+    {
+      "id": "blogger-1319358504665897107",
+      "status": "matched",
+      "findings": [],
+      "title": "Дырки доната(Donut holes)",
+      "file": "recipes/blogger/dyrki-donata-donut-holes-897107.json",
+      "changedFields": [],
+      "originalSha256": "52f321cc2f1560e2f4fa3914cc4f9ca445d985d2af1c488342615ae0af634474",
+      "contentSha256": "7ec76564ea0563dd7d6f52489ca7554842111f6c625ed5107f05a6f5bc6faa3e"
+    },
+    {
+      "id": "blogger-1398037917656729132",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены авторская атрибуция и ссылка на французский вариант."
+      ],
+      "title": "Тушенная говядина в красном вине ( boeuf bourguignon )",
+      "file": "recipes/blogger/tushennaya-govyadina-v-krasnom-vine-boeuf-bourguignon-729132.json",
+      "changedFields": [
+        "intro",
+        "notes"
+      ],
+      "originalSha256": "53ab5a08ccd32947e9b573701457468fa88f31461bbddc0c72c3110ed7be9232",
+      "contentSha256": "643c966a9eb2a9e74b41cd27f8cc03f1f3a59982e953f87060b1e93c74fe28f7"
+    },
+    {
+      "id": "blogger-1506296528703902407",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены размер луковиц и моркови, необязательность моркови и мускатного ореха, авторский способ смешивания бешамеля и оговорка о количестве."
+      ],
+      "title": "Лазанья с мясной начинкой",
+      "file": "recipes/blogger/lazanya-s-myasnoy-nachinkoy-902407.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "3ce437bfacbcf1b9313ef26421da4f356047b72a621e8dcfeed3ef1abc61e4d5",
+      "contentSha256": "71757a2f3bc563d0b98cedf74d9a78de00d43e152e7f01c46088d63092a18ce1"
+    },
+    {
+      "id": "blogger-1513202538661453357",
+      "status": "matched",
+      "findings": [],
+      "title": "Семга в соусе сальса",
+      "file": "recipes/blogger/semga-v-souse-salsa-453357.json",
+      "changedFields": [],
+      "originalSha256": "a63ae3850be7c2fe71777c5fc416524309866e3094e70f4eb9238829193a2334",
+      "contentSha256": "93ccabdf667cf9097f6c8a16bc3bcef2b421c7dfb5518060c01aa8f6bdf26163"
+    },
+    {
+      "id": "blogger-1635299925080411921",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлены температура масла, скорость и последовательность взбивания, медленное смешивание, вариант бумаги и средний огонь фруктового геля.",
+        "Тип красителя был заменён с исходного «желатиновый» на «гелевый» без подтверждения. Восстановлено исходное слово; тип требует уточнения."
+      ],
+      "title": "Macarons",
+      "file": "recipes/blogger/macarons-411921.json",
+      "changedFields": [
+        "ingredients",
+        "steps"
+      ],
+      "originalSha256": "a10d48c175a1895ce05088d8580bbe784bacab0e5b92a4417608aff9320d62ab",
+      "contentSha256": "704427b470d643542ee70952a7740f780fcff7ca01104eea402bc079ebeac7de"
+    },
+    {
+      "id": "blogger-1654915710282990741",
+      "status": "matched",
+      "findings": [],
+      "title": "Грибы портабелло на гриле",
+      "file": "recipes/blogger/griby-portabello-na-grile-990741.json",
+      "changedFields": [],
+      "originalSha256": "38d8fba8ad8acbac53a86d028fc098789708942ccea5610d1f175161f99231b3",
+      "contentSha256": "5420535f61070a68918553f8a11cc6030b4cdddf7ff61e45fa681a82bfd7dfd3"
+    },
+    {
+      "id": "blogger-168201286353595678",
+      "status": "corrected",
+      "findings": [
+        "Восстановлена допустимая замена пармезана обычным твёрдым сыром."
+      ],
+      "title": "Соус «Карбонара»",
+      "file": "recipes/blogger/sous-karbonara-595678.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "1c3377e09ad925e74afc29c0ce0b3584000ad434015f8ccfeb981bd3b43936d2",
+      "contentSha256": "0e73ded1a86bac88330c16a40679d60a83ed1b912baa15297fe361025c1dff73"
+    },
+    {
+      "id": "blogger-1761747989863786925",
+      "status": "corrected",
+      "findings": [
+        "Уточнены средний огонь и точная последовательность повторяемых слоёв из исходника."
+      ],
+      "title": "Лазанья с грибами и баклажанами",
+      "file": "recipes/blogger/lazanya-s-gribami-i-baklazhanami-786925.json",
+      "changedFields": [
+        "steps"
+      ],
+      "originalSha256": "4798fb59f62532c203a1e36dfb85b10633872d936323d5f914c2762fa31fb485",
+      "contentSha256": "5d3ec6a6e96851f7089a53c77c2f1a80577d57f28ebde035328d3713d6bd5fb7"
+    },
+    {
+      "id": "blogger-1878312322131950147",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлен источник. Количество воды до приготовления и размер ложки куркумы отсутствуют уже в оригинале; требуют уточнения."
+      ],
+      "title": "Кхади с рисом и мунг дал (Индия)",
+      "file": "recipes/blogger/khadi-s-risom-i-mung-dal-indiya-950147.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "791a3a44dac302a8cc8a783ed6d8ad6bde7f1f7ad3e601beaf65bb631606af6b",
+      "contentSha256": "43fea8d22cdd52b49ff14e26fba7156ab1593ba98242fd9a0126ec8053cc659b"
+    },
+    {
+      "id": "blogger-2163770924603255370",
+      "status": "needs-review",
+      "findings": [
+        "Удалён добавленный при оформлении шаг посыпания сыром, которого нет в старом тексте; сыр сохранён в ингредиентах."
+      ],
+      "title": "Броколи вкусно!",
+      "file": "recipes/blogger/brokoli-vkusno-255370.json",
+      "changedFields": [
+        "steps",
+        "notes"
+      ],
+      "originalSha256": "c9f9b911bb6c69b5e5e81fdefe94c029a01285734e50fa713f79205199bc08ee",
+      "contentSha256": "bf67216a57ee90be0040301964a50976e41a79e8744586557a2aec460569ba81"
+    },
+    {
+      "id": "blogger-2345293662417972799",
+      "status": "needs-review",
+      "findings": [
+        "Разделены ошибочно объединённые варианты: маринад на 3 кг относится к варке 5 минут; фрагмент на 5 кг/10 минут/9 банок не содержит полного состава маринада."
+      ],
+      "title": "ПЕРЕЦ МАРИНОВАННЫЙ",
+      "file": "recipes/blogger/perets-marinovannyy-972799.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "145032275998b6ef8089bb02e486ea5fbc17a2e113409df8a5ead2fac2ddb00c",
+      "contentSha256": "1c8651ee2b6e9c6ba68f974758fc34ec93b2e7c85aa68dc0d673b7a1a5afd404"
+    },
+    {
+      "id": "blogger-2457567769810862872",
+      "status": "matched",
+      "findings": [
+        "Полный исходный текст сохранён в sourceText и используется как fallback без потерь."
+      ],
+      "title": "Китайские баклажаны в чесночном соусе",
+      "file": "recipes/blogger/recipe-2457567769810862872-862872.json",
+      "changedFields": [],
+      "originalSha256": "3485bb77fb9bfd4c41c9601f2ddf69fd8589806db72d75ea77a8847e9ce06834",
+      "contentSha256": "dd84289640112bf20f527313025846885183a131957c7c4f3f74b632c962d34c"
+    },
+    {
+      "id": "blogger-2639315269594902025",
+      "status": "matched",
+      "findings": [],
+      "title": "Соус &quot;песто&quot;",
+      "file": "recipes/blogger/sous-quot-pesto-quot-902025.json",
+      "changedFields": [],
+      "originalSha256": "f18b440f70d291b983838a71eb1cfe11c406f2072a5e6820df909cb2c6af941c",
+      "contentSha256": "ede03edfb6cb48975b34d33175c3863ca0bf60d7a3fa7d3b751ef1d4af71bef7"
+    },
+    {
+      "id": "blogger-2734888010201778429",
+      "status": "matched",
+      "findings": [],
+      "title": "Беляши.",
+      "file": "recipes/blogger/belyashi-778429.json",
+      "changedFields": [],
+      "originalSha256": "4a4aa30abae35157db04ded080c34b5d91cfccb84e9a7ef2281af526c1d7d120",
+      "contentSha256": "47894926fe874913c55ea4cf0e662e4b33f0301e97a5fb6d72df25048d8656c5"
+    },
+    {
+      "id": "blogger-2742018578495633290",
+      "status": "matched",
+      "findings": [],
+      "title": "Палтус, филе, жаренный, скушанный.",
+      "file": "recipes/blogger/paltus-file-zharennyy-skushannyy-633290.json",
+      "changedFields": [],
+      "originalSha256": "8d0975467303e46a9a1aa1d02a3bbbde058ec6b92730ccf9ea2850f77e9908a2",
+      "contentSha256": "0a8cf86e42dd5c24ae1c817fd60c86a8b6d6a0db77843611c0918cd974a84d4e"
+    },
+    {
+      "id": "blogger-2823266676599562479",
+      "status": "corrected",
+      "findings": [
+        "Восстановлена пропущенная рекомендация по подаче."
+      ],
+      "title": "🍩 Безглютеновые пончики с йогуртом и миндальной мукой",
+      "file": "recipes/blogger/bezglyutenovye-ponchiki-s-yogurtom-i-mindalnoy-mukoy-562479.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "9d4d20fb1889abc0efbe4bc5753d51032bc3a5e35e9e15186aeab3157bca364d",
+      "contentSha256": "1e5533f5ade9a66b54bda1d081c7f6013b9a1e6ca000ec1c353e8d4ba74b57b7"
+    },
+    {
+      "id": "blogger-2951966239010012659",
+      "status": "matched",
+      "findings": [],
+      "title": "Свинное филе тушенное с яблоками и луком.",
+      "file": "recipes/blogger/svinnoe-file-tushennoe-s-yablokami-i-lukom-012659.json",
+      "changedFields": [],
+      "originalSha256": "9fa8b9410d44ac19d14af2544985ed1e94601d1264274793a5ceded458c7ec32",
+      "contentSha256": "115ce7b8d08d706466cbcd80648987c124570b57eee829a84f23943165d86eb8"
+    },
+    {
+      "id": "blogger-3078490412697036817",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлена ссылка; в исходнике отсутствует момент добавления бульона, количество рыбы и сливочного масла."
+      ],
+      "title": "Морская форель с соусом",
+      "file": "recipes/blogger/morskaya-forel-s-sousom-036817.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "7265b32c8975cf0a4ff0da1d9c911c56db8e5e60106d08c67ab016776a092550",
+      "contentSha256": "c9ec5c92069f235863b6fe83edf8a58ee06bf74e561ee7ebb576e0092249b627"
+    },
+    {
+      "id": "blogger-3078877142803264211",
+      "status": "needs-review",
+      "findings": [
+        "Обнаружена исходная неоднозначность: шпинат добавляется дважды без разделения количества. Сохранена, не исправлялась догадкой."
+      ],
+      "title": "Суп суп (Stracciatella Soup)",
+      "file": "recipes/blogger/sup-sup-stracciatella-soup-264211.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "4fcacf0836c49e66bf53e37dca524d1e3bc63a802b795b612f6254d1a560a486",
+      "contentSha256": "517d15530c4085c25bf68865670f2a7b34a6685c9cdd62f523735088cc237c71"
+    },
+    {
+      "id": "blogger-3099965726082456774",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все пропущенные числа ингредиентов непосредственно из исходного текста."
+      ],
+      "title": "Лосось с йогурто-укропным соусом",
+      "file": "recipes/blogger/losos-s-yogurto-ukropnym-sousom-456774.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "ac9a1917dc8ff7eb26407e8a0419023642d7aa88821a1ea9020c17421d5e75b2",
+      "contentSha256": "f191da1669c33ab84cf2e565b2c4fc493d489ada72cfaa71654f1e57f2313468"
+    },
+    {
+      "id": "blogger-3144502146149685721",
+      "status": "needs-review",
+      "findings": [
+        "В оригинале противоречивое указание «некипящая вода 100 градусов»; не заменено догадкой."
+      ],
+      "title": "Салат &quot;Цезарь&quot; с семгой(лосось)",
+      "file": "recipes/blogger/salat-quot-tsezar-quot-s-semgoy-losos-685721.json",
+      "changedFields": [],
+      "originalSha256": "ddf0bc23acc9e13aa380533642b9837b4212d86140b5a28dcd0f2234d7ac0ddf",
+      "contentSha256": "255e5cf2cc36379659d3816a07a8094caf8b6ff2c452017b91b2a963b6513021"
+    },
+    {
+      "id": "blogger-3371761762934128565",
+      "status": "matched",
+      "findings": [],
+      "title": "Плов",
+      "file": "recipes/blogger/plov-128565.json",
+      "changedFields": [],
+      "originalSha256": "6244f9993d259e77812e2edcd68181c2a6df25d4c7b0e45968d9060db7571eaf",
+      "contentSha256": "bfdc40f20952e2ee766e361b1bde763f526521c66efe3443e60191596b0bcade"
+    },
+    {
+      "id": "blogger-3500883000235621237",
+      "status": "needs-review",
+      "findings": [
+        "Исходное количество фарша 250 не имеет единицы измерения; не добавлена догадка о граммах.",
+        "В список ингредиентов добавлены продукты, явно названные в исходных шагах: Чёрный перец."
+      ],
+      "title": "Суп из говядины с капустой.",
+      "file": "recipes/blogger/sup-iz-govyadiny-s-kapustoy-621237.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "8794e86d55c9e79271f010b9e37d284beaa54655d7c1c8d4665d71bff30e3a91",
+      "contentSha256": "ba65041df9905c39aa6efa0de97b221efde7ec1e75b118704f534a286299befc"
+    },
+    {
+      "id": "blogger-3569840730429478890",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены 400 г муки, 400 г кипятка, 200 г крахмала и 5 чайных ложек масла."
+      ],
+      "title": "Безглютеновые пельмени",
+      "file": "recipes/blogger/bezglyutenovye-pelmeni-478890.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "97261af81f8297cc26cf7f8f1186cd6547b48547c9fb85586699637441ee1af2",
+      "contentSha256": "065eca497618e086aad821994213ba374f17a26aa22272dcc55a33975b667eab"
+    },
+    {
+      "id": "blogger-3702736372890679588",
+      "status": "corrected",
+      "findings": [
+        "Восстановлено назначение ингредиентов для бисквита, крема и глазури, особенно двух разных количеств сметаны."
+      ],
+      "title": "Торт пинчер",
+      "file": "recipes/blogger/tort-pincher-679588.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "dacdd3db839f8ac612b969b34bfbcadd8e8a3eeca535fae5a98200e75e1e9c0d",
+      "contentSha256": "f81d2e8893c211df5942d15b61dac2a2302ffb48e72c83084d74464a51def20d"
+    },
+    {
+      "id": "blogger-3767452922893520622",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все пропущенные числа ингредиентов непосредственно из исходного текста.",
+        "В список ингредиентов добавлены продукты, явно названные в исходных шагах: Апельсиновый ликёр — 20 г (по желанию)."
+      ],
+      "title": "Апельсиновое Parfe (мороженное) с тыквенными семечками, мёдом и орехами.",
+      "file": "recipes/blogger/apelsinovoe-parfe-morozhennoe-s-tykvennymi-semechkami-medom-i-orehami-520622.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "4609265d6b34fced4f9dd222536ef2e46ea554904348f5b49bd372f39755c871",
+      "contentSha256": "c7e5fd3c64d7339c1a105307d2da3336f927368f7a7e94990ea93e3e5b6638ab"
+    },
+    {
+      "id": "blogger-383509108464646669",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлена авторская оговорка о необходимости улучшения рецепта.",
+        "В исходнике две отличающиеся версии; сохранена русская адаптация, различия с английским источником обозначены."
+      ],
+      "title": "Рыба в томатно тамарином соусе",
+      "file": "recipes/blogger/ryba-v-tomatno-tamarinom-souse-646669.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "75eec9e0b644fc953eada313e384144d04adbf1d604697fb3df176df6746710d",
+      "contentSha256": "5c72ea2ad75ae178d243513d8b260cb771b6df7b4c9067520d90230dbf5fd0b6"
+    },
+    {
+      "id": "blogger-3887466679188792548",
+      "status": "matched",
+      "findings": [],
+      "title": "Запечённая картошка с сырным соусом и брокколи",
+      "file": "recipes/blogger/zapechennaya-kartoshka-s-syrnym-sousom-i-brokkoli-792548.json",
+      "changedFields": [],
+      "originalSha256": "1c610accdb7a009f15f292252b30345d4f7d4cadb11ddf3e015e6b1a60a2e096",
+      "contentSha256": "7e23c5714750452613eebc740812a180ce87013d48e3eaedef06955c3317bd80"
+    },
+    {
+      "id": "blogger-395089284597534279",
+      "status": "corrected",
+      "findings": [
+        "Удалено неподтверждённое уточнение «киноа»: исходник говорит только о лебеде."
+      ],
+      "title": "Салат с тунцом, рукколой, авокадо",
+      "file": "recipes/blogger/salat-s-tuntsom-rukkoloy-avokado-534279.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "aa8d50f9aa3ddcd8b2abad3c553f8b3d6eafaef6d4ae2c3e548e5d89f2464afb",
+      "contentSha256": "f9d7d91e90c3d13f15669a2f4ac5d0a825053a340bee110e49693eb76e902cc8"
+    },
+    {
+      "id": "blogger-4069193930290397304",
+      "status": "needs-review",
+      "findings": [
+        "Отмечена неоднозначность исходной записи «1-2 части»; действующее деление пополам соответствует последующей фразе об оставшейся половине."
+      ],
+      "title": "черничный торт",
+      "file": "recipes/blogger/chernichnyy-tort-397304.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "85da4befafbb7c07a552f3d6cc903856a9f56ed76ce3d2c8ef4c21accf64639e",
+      "contentSha256": "13c3be6902f3689a90cfb9eb1c0ea09d61943dbccbcc1bd17ad40dd23f76597f"
+    },
+    {
+      "id": "blogger-4205680018623210726",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат из свеклы №3",
+      "file": "recipes/blogger/salat-iz-svekly-3-210726.json",
+      "changedFields": [],
+      "originalSha256": "534f7e749a8bbd2a196859b799267e10b9d3b6ea412123927dac4b2a63f87747",
+      "contentSha256": "0c9e97afa4a0d12cb62287c469e52971521f86f3958f1859603898cf8977fed4"
+    },
+    {
+      "id": "blogger-4276992767352806576",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлена альтернатива времени загущения «2 минуты или пока загустеет». Лайм есть в исходных ингредиентах, но момент добавления не указан."
+      ],
+      "title": "Жаренный тофу и баклажан",
+      "file": "recipes/blogger/zharennyy-tofu-i-baklazhan-806576.json",
+      "changedFields": [
+        "steps"
+      ],
+      "originalSha256": "6c5a0252ce782788e2bb178a7e1b2f7a759d2ad24f97eeebea0b327c211871e3",
+      "contentSha256": "54b33865be15290f69e3dbcb673607a80f220c1cd4ac6e9209eb1d7274c31c14"
+    },
+    {
+      "id": "blogger-4380000463514273512",
+      "status": "needs-review",
+      "findings": [
+        "Мука из шага добавлена в список; отсутствие приготовления после сборки явно обозначено, параметры не придуманы."
+      ],
+      "title": "Гнезда кабачков с мясом",
+      "file": "recipes/blogger/gnezda-kabachkov-s-myasom-273512.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "5579e2d2803be303a0b3b756ebf85724fc59e1ebc4ad0d6c6c359f34e7af3ce8",
+      "contentSha256": "182fa768fd5c193ce980a2626fccf52b294e82151966fed899a9c84081ad55df"
+    },
+    {
+      "id": "blogger-4417254114713115430",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат с карамелизированным инжиром в бальзамическом уксусе, с Proscuitto, сыром Mozzarella и лимонно-медовой заправкой",
+      "file": "recipes/blogger/salat-s-karamelizirovannym-inzhirom-v-balzamicheskom-uksuse-s-proscuitto-syrom-mozzarella--115430.json",
+      "changedFields": [],
+      "originalSha256": "fbd94a53bf40ecbaed59a58aec9f1696c9c17b5b4cf1e3a20c31bb5f6d824588",
+      "contentSha256": "83f15203ac77d2491a4b9142b1ab0438d624a982b0c4655b9a62f66d532d6818"
+    },
+    {
+      "id": "blogger-4438995129920142335",
+      "status": "matched",
+      "findings": [],
+      "title": "Банановые маффины",
+      "file": "recipes/blogger/bananovye-maffiny-142335.json",
+      "changedFields": [],
+      "originalSha256": "6210724487bc9c5849acc4b13781baead6f3fb6bb05f9021b670d5a7f6c92960",
+      "contentSha256": "435e7938723e6ec0447b5117286ca07d267b873fc15febf3765695e99b458626"
+    },
+    {
+      "id": "blogger-449593556992165096",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все семь утраченных количеств ингредиентов из старого текста."
+      ],
+      "title": "Салат из свеклы и скумбрии",
+      "file": "recipes/blogger/salat-iz-svekly-i-skumbrii-165096.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "b766b0892fc898abdb00bb722b21b4d6f0125560e87bf18b83eeca47e6ba7450",
+      "contentSha256": "1e97a4483ac90759416df3a41d5ee3670a061b274fe1ec169bb0ea4d7f43ce2e"
+    },
+    {
+      "id": "blogger-4542473399683195554",
+      "status": "matched",
+      "findings": [],
+      "title": "Жареные грибы. Тестировалось на лисичках.",
+      "file": "recipes/blogger/zharenye-griby-testirovalos-na-lisichkah-195554.json",
+      "changedFields": [],
+      "originalSha256": "3d0e3cc3a81c4a063c469f976809306c730eae6c19a1c074eecbd0411c1a6de5",
+      "contentSha256": "16bc31ced56447cb9015afb3f3446f3b2792678b1cd1c4ed7f95f6e1a4806a38"
+    },
+    {
+      "id": "blogger-4613424506670301661",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все пропущенные числа ингредиентов непосредственно из исходного текста.",
+        "В список ингредиентов добавлены продукты, явно названные в исходных шагах: Вода или бульон — 1 стакан, затем горячая вода."
+      ],
+      "title": "Суп из лисичек с цветной капустой и беконом",
+      "file": "recipes/blogger/sup-iz-lisichek-s-tsvetnoy-kapustoy-i-bekonom-301661.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "42d37cdc239bfcd9778c7de278f8c1545122934234569111bf8a6a20f34c384f",
+      "contentSha256": "86d5dc345893fac560a161bb056198763733f7fe91627cbfd3915efc7437c09b"
+    },
+    {
+      "id": "blogger-4626685656866640459",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат с руккулой, тунцом и белыми бобами.",
+      "file": "recipes/blogger/salat-s-rukkuloy-tuntsom-i-belymi-bobami-640459.json",
+      "changedFields": [],
+      "originalSha256": "a122e5239f080615befdd52926fa365748766126b6468c1250f61fc101940aa1",
+      "contentSha256": "a26e3e10fad6431d564a97ec1c6e20360afce3927bb9873e5745b1f55f1c9c5e"
+    },
+    {
+      "id": "blogger-4716186334501239597",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлены авторские отличия количества масла и сахара от оригинала.",
+        "Убрана неподтверждённая единица мл для Grand Marnier: в исходнике только 125."
+      ],
+      "title": "Апельсиновые блинчики",
+      "file": "recipes/blogger/apelsinovye-blinchiki-239597.json",
+      "changedFields": [
+        "ingredients",
+        "steps",
+        "notes"
+      ],
+      "originalSha256": "65b0f2e5b1a952d82f438be6d5f9574fb1332e70ec423e28040818bcfb393dda",
+      "contentSha256": "877cd53c847ca53aba7b32625c47ff3f34bba40ddb0332b01866160686263287"
+    },
+    {
+      "id": "blogger-4739354494222385885",
+      "status": "corrected",
+      "findings": [
+        "Восстановлено указанное автором количество порций. Сохранено ранее согласованное исправление признака готовности креветок: непрозрачные."
+      ],
+      "title": "Креветки с пастой",
+      "file": "recipes/blogger/krevetki-s-pastoy-385885.json",
+      "changedFields": [
+        "intro"
+      ],
+      "originalSha256": "07d8a22187d3aa6f04f513ec4d6bef08ec26521e4b480afe12e417a06e4899fd",
+      "contentSha256": "104570babc77f40f5c0f277761974d42301c99af617a94a44faa53c1cb4ace54"
+    },
+    {
+      "id": "blogger-4908973369554766860",
+      "status": "needs-review",
+      "findings": [
+        "Убрана неподтверждённая замена мм на см и трактовка «перчинки» как хлопьев чили; необходима проверка автора."
+      ],
+      "title": "Баклажаны по итальянски",
+      "file": "recipes/blogger/baklazhany-po-italyanski-766860.json",
+      "changedFields": [
+        "ingredients",
+        "steps"
+      ],
+      "originalSha256": "134c0af7c1f9d87dc419ff01b628bf779c8ed16bcccb5bb4e90b8372b6d57b27",
+      "contentSha256": "f4af74e5bec088268f6de3cb6e2cc80a738d02b18ce956e052feab3c6f1991dd"
+    },
+    {
+      "id": "blogger-5002613607606961839",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлен пропущенный вариант дрожжей.",
+        "Восстановлено, что через 5–10 минут нужно вынуть нож хлебопечки.",
+        "Восстановлен совет автора о замене отсутствующего сахара жидкостью.",
+        "Противоречивые количества муки и тип дрожжей требуют уточнения."
+      ],
+      "title": "Классический хлеб для хлебопечки (без глютена)",
+      "file": "recipes/blogger/klassicheskiy-hleb-dlya-hlebopechki-bez-glyutena-961839.json",
+      "changedFields": [
+        "ingredients",
+        "steps",
+        "notes"
+      ],
+      "originalSha256": "236972e2add7518752967f55e19d16a98cc26137e596ca26221782837dcd0d09",
+      "contentSha256": "966b5d8d542dbb7369ca8f790d0050ff113d4390c467f464c5353396365578f8"
+    },
+    {
+      "id": "blogger-5008767228202662216",
+      "status": "matched",
+      "findings": [],
+      "title": "Черничный пирог",
+      "file": "recipes/blogger/chernichnyy-pirog-662216.json",
+      "changedFields": [],
+      "originalSha256": "e1ca2d31b12b13710d439345ece35d8960575bdce2e97af7302255bc95baea86",
+      "contentSha256": "4a2bc0669441defb2721ac6d560675124d8323cb9a317828f11729c9a812b795"
+    },
+    {
+      "id": "blogger-5070588831845255719",
+      "status": "needs-review",
+      "findings": [
+        "Исправлена подмена «полностью измельчить» на «целиком». Пропорция воды «2/3» в оригинале не объяснена."
+      ],
+      "title": "Жаренные баклажаны с квиноа, шпинат и фета",
+      "file": "recipes/blogger/zharennye-baklazhany-s-kvinoa-shpinat-i-feta-255719.json",
+      "changedFields": [
+        "steps"
+      ],
+      "originalSha256": "f50ed9ee0ce65de81cd58b5ba9762b92848be718c7b0ed0c51ebc7981ebd5edf",
+      "contentSha256": "75824960e6a3d52d9cbdea2cfcdf79cebe67b1de1cef9afecb7e72ae5be37a56"
+    },
+    {
+      "id": "blogger-5093893737448790047",
+      "status": "matched",
+      "findings": [],
+      "title": "Бутерброды с авокадо",
+      "file": "recipes/blogger/buterbrody-s-avokado-790047.json",
+      "changedFields": [],
+      "originalSha256": "444dda6aae3146b6fe63d6bc96686b4cb9e472acce1ca9565b7695f68ca2c483",
+      "contentSha256": "077a1acd36911ae5c610c77509def2326e3e08cdd720052c3cf222de52249fba"
+    },
+    {
+      "id": "blogger-5156263102918061293",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены указания о нарезке и относительных количествах начинок."
+      ],
+      "title": "Пицца из цветной капусты",
+      "file": "recipes/blogger/pitstsa-iz-tsvetnoy-kapusty-061293.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "6d4a8fd3d0c2b620d2dbd3671fcfb0d590df47f21441837dea7f8edcc7c70a4c",
+      "contentSha256": "dba65b76289a3fff84bc48af7f016e92eb7a36da5104e4afe9ee4d90e6b11746"
+    },
+    {
+      "id": "blogger-5253860175343593448",
+      "status": "corrected",
+      "findings": [
+        "Восстановлено потерянное указание не открывать духовку; сохранены обе стадии выпечки и обозначены ингредиенты крема."
+      ],
+      "title": "Безглютеновые эклеры",
+      "file": "recipes/blogger/bezglyutenovye-eklery-593448.json",
+      "changedFields": [
+        "ingredients",
+        "steps"
+      ],
+      "originalSha256": "1d62a1e071b4000f697732348e0fc7aaa17a3d8910342522ee4664c9331305ac",
+      "contentSha256": "6490fe92773e6d9612e6a6ce2d2605d3089475490cb514b5e7397f75c7be0146"
+    },
+    {
+      "id": "blogger-5267918453875936915",
+      "status": "corrected",
+      "findings": [
+        "Восстановлена оговорка «по вкусу» для чеснока."
+      ],
+      "title": "Салат с авокадо и помидорами",
+      "file": "recipes/blogger/salat-s-avokado-i-pomidorami-936915.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "b1accb8e50aa8e71bd47ba4cccedfa3b1b46be7a390630a367b8460bb75b33da",
+      "contentSha256": "53e4ee637c0553439381579c7a72ef876a4852205a0d54c1c948c835a99e3d19"
+    },
+    {
+      "id": "blogger-5429778820967026633",
+      "status": "corrected",
+      "findings": [
+        "Восстановлена авторская подсказка не пережаривать гренки."
+      ],
+      "title": "Салат слоенный, например \"Очарование\"",
+      "file": "recipes/blogger/salat-sloennyy-naprimer-ocharovanie-026633.json",
+      "changedFields": [
+        "steps"
+      ],
+      "originalSha256": "36f28cdbc77136b61c7021da81da72979e222b4838f3f13c68fc60bfe4c9b13e",
+      "contentSha256": "419cf70cddfa516d29ade941cdd0b78ff3327404d09de6eaec5d50313f2dce62"
+    },
+    {
+      "id": "blogger-548591204202059841",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены необязательность карри и замечание о корочке при доведении под крышкой."
+      ],
+      "title": "Куриное филе жареное в сухарях",
+      "file": "recipes/blogger/kurinoe-file-zharenoe-v-suharyah-059841.json",
+      "changedFields": [
+        "ingredients",
+        "steps",
+        "notes"
+      ],
+      "originalSha256": "228b6764dbb8d69bda9eec9c5b6b0bfa9a62900fe0208b6c831d38f5ced1c42c",
+      "contentSha256": "bf5114263ca8fb9f2e61d030a4425a978e649a549c49aceaddcb9340764982f2"
+    },
+    {
+      "id": "blogger-5530818321661664488",
+      "status": "needs-review",
+      "findings": [
+        "Оригинал называет апельсиновый компонент «соусом», а лимонный — «соусом» в списке и «соком» в шаге; апельсиновый компонент требует уточнения."
+      ],
+      "title": "Лосось на гриле со шпинатом",
+      "file": "recipes/blogger/losos-na-grile-so-shpinatom-664488.json",
+      "changedFields": [],
+      "originalSha256": "86ef25091f453573670b75a80e9704f2e69198dc1b6855c5aa16afb1423fa813",
+      "contentSha256": "9123a1d43a979250b77b77eaa026cc1b80a036196dbd0096fe21804a0022b759"
+    },
+    {
+      "id": "blogger-5539496934783857358",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлены утраченные количества: сахар 3 ст. л., кукурузная крупа 3 ст. л., ванилин 1 пакетик, яйца 3 шт.",
+        "Исходные противоречия крупы и использования желтков явно отмечены."
+      ],
+      "title": "Творожная запеканка",
+      "file": "recipes/blogger/tvorozhnaya-zapekanka-857358.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "f427a90da6af7d9b9f72be5951d0dbd2809ac86eca109d7279df3502988da858",
+      "contentSha256": "a61fd4935f2101e1ddb1d01bfdb1ad0d56a4924c75a19688d48c0e5d7b57f343"
+    },
+    {
+      "id": "blogger-5619650970685877781",
+      "status": "matched",
+      "findings": [],
+      "title": "Утиная грудка с яблоками и апельсинами",
+      "file": "recipes/blogger/utinaya-grudka-s-yablokami-i-apelsinami-877781.json",
+      "changedFields": [],
+      "originalSha256": "398cfb12cbc7188113f2f984792020dd6e0f72693e660c0428c387112e456d30",
+      "contentSha256": "134a8871efd2eb300aef55f3597b576cccd1cdee5cb01c2869d32f06018b6b35"
+    },
+    {
+      "id": "blogger-5628628983605316434",
+      "status": "corrected",
+      "findings": [
+        "Лук возвращён в ингредиенты; восстановлены 2 филе, 140 г горошка, 140 г сливок, 50 мл воды; добавлены присутствующие в шагах паста и перец без выдуманных количеств."
+      ],
+      "title": "Вермишель с лососем и горохом",
+      "file": "recipes/blogger/vermishel-s-lososem-i-gorohom-316434.json",
+      "changedFields": [
+        "intro",
+        "ingredients"
+      ],
+      "originalSha256": "701d7503adf641b92321bcaa56e139ff0468cf057bbc69c7183608ed153a2d78",
+      "contentSha256": "1990d11ae068d54ef61c5728bef95c35ecf2a274069b63c1dbcb25634a206b17"
+    },
+    {
+      "id": "blogger-5661778638729853597",
+      "status": "corrected",
+      "findings": [
+        "Восстановлен авторский совет о приготовлении перца партиями по 1,5 кг."
+      ],
+      "title": "Маринованный перец с мёдом и чесноком (на 1,5 кг)",
+      "file": "recipes/blogger/marinovannyy-perets-s-medom-i-chesnokom-na-1-5-kg-853597.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "021d0babd730235e023889189823a77cf7e045a6ccef8f466e380afe9dcd1a31",
+      "contentSha256": "fbbe2b0e8abc044321754ca491ce96eab13e1914ca0a6752f6d416962ddf02f2"
+    },
+    {
+      "id": "blogger-5899329398854773841",
+      "status": "corrected",
+      "findings": [
+        "Восстановлен пропущенный совет о зелени и лимонном соке.",
+        "В список ингредиентов добавлены продукты, явно названные в исходных шагах: Мускатный орех — щепотка, Чёрный перец и острый перец — по вкусу."
+      ],
+      "title": "Шпинатный соус для рыбы (хека)",
+      "file": "recipes/blogger/shpinatnyy-sous-dlya-ryby-heka-773841.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "c46081b5388c5601d8c4787e1035e04702f71c95bee9f02c8c3d7d37f2db4a51",
+      "contentSha256": "87f764e7f78d5773d2e23c68b4d803ee50311f421928435371de8b2313a63957"
+    },
+    {
+      "id": "blogger-6045686365473137492",
+      "status": "matched",
+      "findings": [],
+      "title": "Пирожки с начинкой",
+      "file": "recipes/blogger/pirozhki-s-nachinkoy-137492.json",
+      "changedFields": [],
+      "originalSha256": "57e8f94aef97cb233e4c8163e9d8ca088baa5cd2cdfae1d1a9a4f4f839a61fdb",
+      "contentSha256": "fd0cc27bb021f57f61063fbc6661516874386b9f76565c3e204132e988ec1d0d"
+    },
+    {
+      "id": "blogger-6257537603718893620",
+      "status": "matched",
+      "findings": [],
+      "title": "Вишневый пирог",
+      "file": "recipes/blogger/vishnevyy-pirog-893620.json",
+      "changedFields": [],
+      "originalSha256": "1a90ca61acc05c7a9c5bbd80a59474484c67d25e97fad753fe5d9de96225e832",
+      "contentSha256": "936c7b825401beb22d20b132799a5a330f887dc8675360ab2bda26ef6039e95b"
+    },
+    {
+      "id": "blogger-6259734902152549585",
+      "status": "corrected",
+      "findings": [
+        "В список ингредиентов добавлены продукты, явно названные в исходных шагах: Лавровый лист."
+      ],
+      "title": "Суп из фасоли",
+      "file": "recipes/blogger/sup-iz-fasoli-549585.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "5da89877d025d8cd18818afcafa3bb6a400b9d5eee16153d96a926572a379e64",
+      "contentSha256": "4513dc9abbfe26ac95adae768443d52dbabf687cd79d29e84d0ce2ee5f199199"
+    },
+    {
+      "id": "blogger-632057457696146798",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все пропущенные числа ингредиентов непосредственно из исходного текста."
+      ],
+      "title": "Блинчики с яблоками и тыквой без яиц и глютена",
+      "file": "recipes/blogger/blinchiki-s-yablokami-i-tykvoy-bez-yaits-i-glyutena-146798.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "8149ff9bcd9b3ad447dd9db2c98db31d38679eb58eea92186570c84165bf73e0",
+      "contentSha256": "e64c962da4dc96a0f7106e0d7e8fcf444a21a56a31650519eb0e00e2c0e2e032"
+    },
+    {
+      "id": "blogger-6368942443678720222",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат из печени трески.",
+      "file": "recipes/blogger/salat-iz-pecheni-treski-720222.json",
+      "changedFields": [],
+      "originalSha256": "f7b2a1a5f1ea8019f86e9fb6afb527bdd802014d7a456cc180ae1353c02f4f85",
+      "contentSha256": "95d8e2335dab226919804c9bd738542ca6712581eac46b22b985b21a8f2e510e"
+    },
+    {
+      "id": "blogger-6579429679007926771",
+      "status": "matched",
+      "findings": [],
+      "title": "Жаренный тунец",
+      "file": "recipes/blogger/zharennyy-tunets-926771.json",
+      "changedFields": [],
+      "originalSha256": "898b8b69ba5f0f30dd40c3b3c064c77f1e8671389448f71ccff5f14b6fdbfbb2",
+      "contentSha256": "f8f82d742a41e13b3e597bfb80bc4efd279be129709543aa8e06494ee6e2f879"
+    },
+    {
+      "id": "blogger-6658453560439846484",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат с авокадо и форелью",
+      "file": "recipes/blogger/salat-s-avokado-i-forelyu-846484.json",
+      "changedFields": [],
+      "originalSha256": "44432853ac9139462e34b31a7225e777202990386d27cabfcd316e21a3340d6a",
+      "contentSha256": "27a1d406451cfee2c978318641663a83c5e033b73593098a6ccddee128cb5f8d"
+    },
+    {
+      "id": "blogger-6737945404420255535",
+      "status": "corrected",
+      "findings": [
+        "Восстановлено масло для жарки начинки и соуса, пропущенное при сокращении ингредиентов."
+      ],
+      "title": "Перец, фаршированный рисом и овощами",
+      "file": "recipes/blogger/perets-farshirovannyy-risom-i-ovoschami-255535.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "b28e4854a00e68b0683f8dc8dee5ba3de6d70a38e84c73ad2d2263ea95f52095",
+      "contentSha256": "d42efdb596b780b46d012139966122ce208019e283bde00952ca7b76b55c2f41"
+    },
+    {
+      "id": "blogger-6743047663438978534",
+      "status": "corrected",
+      "findings": [
+        "Восстановлена авторская оговорка о возможности увеличить сахар."
+      ],
+      "title": "Сливовый пирог",
+      "file": "recipes/blogger/slivovyy-pirog-978534.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "972f292a1191f00b5294874fcf18bb1d848e66c4f38549846874a9db9898c3ae",
+      "contentSha256": "2c162ed05aa135b325ed6f448235a8f99b94d8c6280a4f149a6ce5a5d24e9e47"
+    },
+    {
+      "id": "blogger-6752345892337719243",
+      "status": "matched",
+      "findings": [],
+      "title": "Тост с авокадо и нутом на завтрак",
+      "file": "recipes/blogger/tost-s-avokado-i-nutom-na-zavtrak-719243.json",
+      "changedFields": [],
+      "originalSha256": "ac6612e13e1925597923daf44ec1b0701744f376233a7bda83662b7323ed0fab",
+      "contentSha256": "7383584159fab27cebaddfc4f98937c6d7f030f758436d94449a1d66a9c41196"
+    },
+    {
+      "id": "blogger-692049332890680732",
+      "status": "corrected",
+      "findings": [
+        "Восстановлено авторское предположение о перемешивании до духовки."
+      ],
+      "title": "Мачанка",
+      "file": "recipes/blogger/machanka-680732.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "c3cccb838f90e4174c2f187a40dbb9483e2e9237d0a5f4e44ecd5fb2d291ccff",
+      "contentSha256": "faacc3e298fabb8c3b2fad6cc7bb36f1c20c7a5a5b97b335ba29714d1d2ce726"
+    },
+    {
+      "id": "blogger-7078838119115331616",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат полезный, руккола + свекла",
+      "file": "recipes/blogger/salat-poleznyy-rukkola-svekla-331616.json",
+      "changedFields": [],
+      "originalSha256": "5e465a16271fa834ab0d26718028963811315dfe0d72b2894ab31190a0fdb828",
+      "contentSha256": "93358bb579b0433c077390dadb37c45b8a1eedf9316fa7d4f19abd39e2ee8ab9"
+    },
+    {
+      "id": "blogger-7117252193961242977",
+      "status": "matched",
+      "findings": [],
+      "title": "🍔 Бургер с козьим сыром и брусникой",
+      "file": "recipes/blogger/burger-s-kozim-syrom-i-brusnikoy-242977.json",
+      "changedFields": [],
+      "originalSha256": "bb85ab882497be838cbb4b80524ba168fe3000b678f259a8324c28c9a9749243",
+      "contentSha256": "2d37c83c2f6e037f0d393139de5e2449258a9f537aadd160ba970c9d8b6e586d"
+    },
+    {
+      "id": "blogger-717747444980191377",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены группы А, Б и С: без них нельзя однозначно выполнить шаги смешивания."
+      ],
+      "title": "Кабачковый пирог",
+      "file": "recipes/blogger/kabachkovyy-pirog-191377.json",
+      "changedFields": [
+        "intro",
+        "ingredients"
+      ],
+      "originalSha256": "ec971e52e218152859f59ac0dbf3462ca315cb821682d2ba673a96a6e222d478",
+      "contentSha256": "bc53a350b506fc6300aeac8f0d272de247175f1aeca1f28f0cb6004a8d2be565"
+    },
+    {
+      "id": "blogger-7194742123320694583",
+      "status": "matched",
+      "findings": [],
+      "title": "Запеченная паста (Conchiglioni rigati) c сыром Mozzarella, свежим базиликом.",
+      "file": "recipes/blogger/zapechennaya-pasta-conchiglioni-rigati-c-syrom-mozzarella-svezhim-bazilikom-694583.json",
+      "changedFields": [],
+      "originalSha256": "ab8449f771d40e6fcc9d6658f71a2bbb781ada9ed101e1c2a2ee7d09cb7996ed",
+      "contentSha256": "cf894a37a5dd1cec473290e424f96eeb706f0ee11e4e827d0e040fb79c8afb5c"
+    },
+    {
+      "id": "blogger-7324582137373706338",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлены исходные количества воды, пасты, лука, специй, моркови, чеснока, риса и картофеля. Термин «пароварка» и 10 минут оставлены как в оригинале, тип устройства требует уточнения."
+      ],
+      "title": "Харчо с орехами",
+      "file": "recipes/blogger/harcho-s-orehami-706338.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "e881c0cbf1cad81fd7819f630fcd129484854041af3aa66d49288f5d50260f94",
+      "contentSha256": "33e0ae48729f814852510f08e478191b108bec66870ab843bdb8ee1e82de2acc"
+    },
+    {
+      "id": "blogger-735536498470936607",
+      "status": "corrected",
+      "findings": [
+        "Восстановлен пропущенный шаг приготовления глазури и её необязательность."
+      ],
+      "title": "Миндальный Лимонный Кекс",
+      "file": "recipes/blogger/mindalnyy-limonnyy-keks-936607.json",
+      "changedFields": [
+        "ingredients",
+        "steps"
+      ],
+      "originalSha256": "75f107af3a9d12a9db467fbf4a605b8b2a13b94756b0ee14b286a99cc5e5798e",
+      "contentSha256": "39f0f4d6ae5fa520ae55f4e1ac915aa4a57f64f280b6202ca74b14b3f09daf04"
+    },
+    {
+      "id": "blogger-7404829374420165557",
+      "status": "corrected",
+      "findings": [
+        "Убрано безусловное требование влить 1 л кефира: восстановлено авторское уменьшение с разбавлением водой."
+      ],
+      "title": "Суп \"Холодник\"",
+      "file": "recipes/blogger/sup-holodnik-165557.json",
+      "changedFields": [
+        "steps"
+      ],
+      "originalSha256": "44e934eb6243018eaeab209891f6974743ef67d31ff1b54b44b8109a45241b66",
+      "contentSha256": "5496faa0d337d4e76ce3828a36f1eb8c1f11ef76a334714525250be4dafee490"
+    },
+    {
+      "id": "blogger-7523704298307642344",
+      "status": "needs-review",
+      "findings": [
+        "Восстановлены пропущенные числа, включая половины чайной ложки. Не исправлялись догадкой единица йогурта 100 мг и расхождение воды 160 мл/3/4 стакана."
+      ],
+      "title": "Сааг из свинины",
+      "file": "recipes/blogger/saag-iz-svininy-642344.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "5f94a44cc9ae4a1c4bb26c4c2b93637b76a66b81d8758c2151cf32c47ceab6cf",
+      "contentSha256": "3f8f16559149bfe1050378de06191048a8e8887ce1b688d2078b62f9b25752a4"
+    },
+    {
+      "id": "blogger-767835455573687210",
+      "status": "matched",
+      "findings": [],
+      "title": "Индейка с овощами в фольге",
+      "file": "recipes/blogger/indeyka-s-ovoschami-v-folge-687210.json",
+      "changedFields": [],
+      "originalSha256": "6fd63ce38112b4867cae0741c1b7eea32fd05784f2b6390aa26bf54204ae8abc",
+      "contentSha256": "da47ca0f7fc427cd9d36d66b2fa6796c96567ddb1b66dc1010896100750e76c9"
+    },
+    {
+      "id": "blogger-773200562493683335",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат под-шубой",
+      "file": "recipes/blogger/salat-pod-shuboy-683335.json",
+      "changedFields": [],
+      "originalSha256": "788b4cb2fb118705aa6c4b5a011213a1692d29983c4fa5bdb3cf520b4d7268b3",
+      "contentSha256": "45151e3e4295c34df6baff843912e64bd2cbfa12ac0c0ee3a5c7a07deeaf5a9a"
+    },
+    {
+      "id": "blogger-7750670184181847377",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат из свеклы номер 2 (с маринованным огурцом)",
+      "file": "recipes/blogger/salat-iz-svekly-nomer-2-s-marinovannym-ogurtsom-847377.json",
+      "changedFields": [],
+      "originalSha256": "056cdbaff39919a2ed9e91905e6f14e1074194f80e967505b76ce6be9223635e",
+      "contentSha256": "868d37118c582b789be3bf4b73c29a80ac198ad68d86f35079c39e9942e76eea"
+    },
+    {
+      "id": "blogger-7930980660920953773",
+      "status": "matched",
+      "findings": [],
+      "title": "Запечённые баклажаны с мятой, мёдом и фетой",
+      "file": "recipes/blogger/zapechennye-baklazhany-s-myatoy-medom-i-fetoy-953773.json",
+      "changedFields": [],
+      "originalSha256": "3a9a88634124d6f0c3d7ba739be30ef8c94ca3f89435e459d5c504348789c82f",
+      "contentSha256": "b59dbbe0b81d58448efe7a2f615c7fc038890200d5761fb542c935bb04efefc3"
+    },
+    {
+      "id": "blogger-7972123575849173774",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все пропущенные числа ингредиентов непосредственно из исходного текста.",
+        "В список ингредиентов добавлены продукты, явно названные в исходных шагах: Оливковое масло, чёрный перец."
+      ],
+      "title": "Лосось с фруктовым сальсо",
+      "file": "recipes/blogger/losos-s-fruktovym-salso-173774.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "b96a22f7fadc88c86c939e84ddc88bae6dc0e30aa6e7841f901b5ef7c5509f89",
+      "contentSha256": "0e2809834e3aa7244695739b34958072903631ae8e719594e629c0882d807eb3"
+    },
+    {
+      "id": "blogger-7974234175633555436",
+      "status": "matched",
+      "findings": [],
+      "title": "Варенье из брусники и нектаринов",
+      "file": "recipes/blogger/varene-iz-brusniki-i-nektarinov-555436.json",
+      "changedFields": [],
+      "originalSha256": "216ce74b1311cbe1bffec1e58f39bf1788b99b55381abbe59717ce46e4d42f3c",
+      "contentSha256": "2060c19e6a3267109a7751fd7c4f0aae4cb08f19f82db08a5d49ce7b9a2087cf"
+    },
+    {
+      "id": "blogger-8059850149567598174",
+      "status": "needs-review",
+      "findings": [
+        "Убрана неподтверждённая единица мл для бульона; значение 100 сохранено.",
+        "Масло 2 ч. л. из шага восстановлено в списке."
+      ],
+      "title": "Жаренные баклажаны с мясом на воке",
+      "file": "recipes/blogger/zharennye-baklazhany-s-myasom-na-voke-598174.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "f363fe0113b0ef5d2ad3a784616afba37699192a0acf9796615e5665445dcd16",
+      "contentSha256": "6d8f028550ec6bfba45d33ae3c44e3eb3e21de7db37d9b767a91fbc975e74e4f"
+    },
+    {
+      "id": "blogger-8140735523453347210",
+      "status": "corrected",
+      "findings": [
+        "Сверено с нижним старым текстом: восстановлены приготовление по две порции из четырёх, половина яиц/творога и четверти петрушки; яйца возвращены в сборку блюда."
+      ],
+      "title": "Картофель с перцем, творогом и сыром Лестер",
+      "file": "recipes/blogger/kartofel-s-pertsem-tvorogom-i-syrom-lester-347210.json",
+      "changedFields": [
+        "steps"
+      ],
+      "originalSha256": "0ff331636d4caa011b8197095ea21471fe3a882898de89808a5f4d7333dca159",
+      "contentSha256": "3bae9a03ea3a1100f3b61d5adb14306dc9d43e9a5e24b6ba254d3a9e264cfba6"
+    },
+    {
+      "id": "blogger-8159309910430586736",
+      "status": "matched",
+      "findings": [
+        "Полный исходный текст сохранён в sourceText и используется как fallback без потерь."
+      ],
+      "title": "Куриное филе с баклажанами под сырно-броккольной корочкой",
+      "file": "recipes/blogger/recipe-8159309910430586736-586736.json",
+      "changedFields": [],
+      "originalSha256": "15590db62c8bab15c5de74d798e10a245b76dd42b82e6868a39837cc2be8e7ee",
+      "contentSha256": "dd84289640112bf20f527313025846885183a131957c7c4f3f74b632c962d34c"
+    },
+    {
+      "id": "blogger-8165197205662590687",
+      "status": "corrected",
+      "findings": [
+        "Восстановлена рекомендация по подаче."
+      ],
+      "title": "Аджапсандали по-грузински",
+      "file": "recipes/blogger/adzhapsandali-po-gruzinski-590687.json",
+      "changedFields": [
+        "notes"
+      ],
+      "originalSha256": "399188d04d45b5aaacd900a23b5db552ae9ce9523d46369ab8616ba9c5c35e50",
+      "contentSha256": "f8bd668f56aa234899f542614ddd899f42abee01bcd7d3c3faeb8ca10c86fac1"
+    },
+    {
+      "id": "blogger-8173842980762706339",
+      "status": "matched",
+      "findings": [],
+      "title": "Салат из печени трески",
+      "file": "recipes/blogger/salat-iz-pecheni-treski-706339.json",
+      "changedFields": [],
+      "originalSha256": "48d18dc6dfb62991c166a3dfa7fab6c2eed3c09e0ec7653799e1cca5baecfa93",
+      "contentSha256": "3fcc035bbe389b38f6cef19ff5322f72c5e3c71164197d4d938440ae73bba194"
+    },
+    {
+      "id": "blogger-8175851430928468457",
+      "status": "corrected",
+      "findings": [
+        "Убрано распространение количества 6 шт. на филе: в оригинале 6 относится только к бёдрам."
+      ],
+      "title": "Запеченная курица с помидорами и перцем (рецепт Д.Оливера)",
+      "file": "recipes/blogger/zapechennaya-kuritsa-s-pomidorami-i-pertsem-retsept-d-olivera-468457.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "b9dbd46ab03d0bae49257df39db6ca0f286d18f538037872d35c955e48f52259",
+      "contentSha256": "bf45c26310a8a9d86c6ca5c3ea410ad1c6d2d5224e8b29d33d78812d3977c603"
+    },
+    {
+      "id": "blogger-8259513543417309904",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все потерянные начальные числа ингредиентов, включая рыбу 400 г, лук 1,5 шт., ананасовый сироп 0,5 стакана."
+      ],
+      "title": "Окунь в кляре в кисло-сладком соусе",
+      "file": "recipes/blogger/okun-v-klyare-v-kislo-sladkom-souse-309904.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "3e657ce08a6f3f8967f56d1e183f1f2b44c562b990e6086f8aee94af03626a0e",
+      "contentSha256": "dcac7b84f00f1f11888c6a036e05044b3296e3c8582c11d4dcc433e56d170fa3"
+    },
+    {
+      "id": "blogger-8325731395045263328",
+      "status": "corrected",
+      "findings": [
+        "Восстановлены все пропущенные числа ингредиентов непосредственно из исходного текста."
+      ],
+      "title": "Зеркальная паста с тигровыми креветками, томатной сальсой, чесноком и зеленью",
+      "file": "recipes/blogger/zerkalnaya-pasta-s-tigrovymi-krevetkami-tomatnoy-salsoy-chesnokom-i-zelenyu-263328.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "4cd4dd522d3c5a5e1c01256b5052dfe487a1932e663bbc8dc894a397a55a6112",
+      "contentSha256": "71b27c372236bd0e92b6160183c5241de01ab076fbeb5e8b74ac4c79b41f7e54"
+    },
+    {
+      "id": "blogger-835159785768014567",
+      "status": "needs-review",
+      "findings": [
+        "Убрано ложное приравнивание 2 стаканов рисовой муки к 100 г и аналогичные ошибки крахмалов. В исходной таблице противоречит сам себе расчёт тапиоки."
+      ],
+      "title": "Безглютеновая мука для выпечки (кексов)",
+      "file": "recipes/blogger/bezglyutenovaya-muka-dlya-vypechki-keksov-014567.json",
+      "changedFields": [
+        "ingredients",
+        "notes"
+      ],
+      "originalSha256": "e8b84fd6655095e87e4fb384dbf2d9d25b191ffec89cb714a190ee72eccc02b8",
+      "contentSha256": "cee4f75cd9d4f6228d739e14b6b4c8a9f08a09017a17fd2f0d0bb3758548bd97"
+    },
+    {
+      "id": "blogger-8486890088533995417",
+      "status": "matched",
+      "findings": [],
+      "title": "Капуста тушенная с ребрышками",
+      "file": "recipes/blogger/kapusta-tushennaya-s-rebryshkami-995417.json",
+      "changedFields": [],
+      "originalSha256": "6563714137735b1af9feca38a3057b77a675ae572da35db600a82cca90d50800",
+      "contentSha256": "0a8c71bf55b177f8c23676cb608cef6598e8f72d04698d2f6e8438332dcba2f5"
+    },
+    {
+      "id": "blogger-8519980486555864619",
+      "status": "matched",
+      "findings": [],
+      "title": "Капустные котлетки",
+      "file": "recipes/blogger/kapustnye-kotletki-864619.json",
+      "changedFields": [],
+      "originalSha256": "d9694aecc96b43869d20e1f13feab2b2562fee9bf9a1146873873892d1b9a54a",
+      "contentSha256": "061334aaac3818b790fe0e8a8e5fa7cf81514f423e8444f60560a8a215e30764"
+    },
+    {
+      "id": "blogger-8527891674517503803",
+      "status": "matched",
+      "findings": [],
+      "title": "Без-глютеновые чурросы",
+      "file": "recipes/blogger/bez-glyutenovye-churrosy-503803.json",
+      "changedFields": [],
+      "originalSha256": "fa2c7232e697014187f7ece9feb95873b5ffb63b638d167d983b55cea86d0a7e",
+      "contentSha256": "0ca7e07903eb312c1d2b8070f48940bf8b84467b72e6854793f812b5f70edcaa"
+    },
+    {
+      "id": "blogger-8533823673373207100",
+      "status": "matched",
+      "findings": [],
+      "title": "Суп из красной рыбы (лосось, форель). В процессе создания.",
+      "file": "recipes/blogger/sup-iz-krasnoy-ryby-losos-forel-v-protsesse-sozdaniya-207100.json",
+      "changedFields": [],
+      "originalSha256": "b5555c9a3656725f2e347f55aa4fd85439a93f029bf2bfffd8be8a315ddb2f38",
+      "contentSha256": "604a20225be02ba9ea565e60bcb2ad2292950977e14a1d36968727d61ba61ee5"
+    },
+    {
+      "id": "blogger-8557483729080958760",
+      "status": "corrected",
+      "findings": [
+        "Восстановлена принадлежность бальзамического уксуса и мёда к соусу, который добавляют отдельно."
+      ],
+      "title": "Кисло-сладкий кролик",
+      "file": "recipes/blogger/kislo-sladkiy-krolik-958760.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "31516497fa2983bef60c7d90bbedb2f52c99e5f2fad8136125c071b02c43e94a",
+      "contentSha256": "02768f36143de3e6ed5a210a3691b8d74e1ba3fff6293efa16e0b37412de6fe1"
+    },
+    {
+      "id": "blogger-8949241111389086846",
+      "status": "needs-review",
+      "findings": [
+        "Удалены выдуманные °F и диапазон 30–40 минут; сохранены исходные числа с явным указанием неоднозначности.",
+        "В список ингредиентов добавлены продукты, явно названные в исходных шагах: Масло для обжарки чеснока."
+      ],
+      "title": "Картошка, просто картошка",
+      "file": "recipes/blogger/kartoshka-prosto-kartoshka-086846.json",
+      "changedFields": [
+        "ingredients",
+        "steps",
+        "notes"
+      ],
+      "originalSha256": "3bd342f3bf37edb7db2f04f1e49425021adec1b67b22d2ecc20a77287242ea62",
+      "contentSha256": "421478cd997fe9473769f4b78a14bb86ab1ba4e55a53188baff044c29a9f207d"
+    },
+    {
+      "id": "blogger-9032234626701581334",
+      "status": "matched",
+      "findings": [],
+      "title": "Картофельные блины с слабосоленной форелью или лососем",
+      "file": "recipes/blogger/kartofelnye-bliny-s-slabosolennoy-forelyu-ili-lososem-581334.json",
+      "changedFields": [],
+      "originalSha256": "4fc5f70162e5f081a6030b294f4f9e53449e1fe21d19d11f2d63221437ebab82",
+      "contentSha256": "f2d21925054f3654f2c52f4e1e3c6571a1583e243990a151723272788cbb9873"
+    },
+    {
+      "id": "blogger-9104016487498673999",
+      "status": "corrected",
+      "findings": [
+        "Восстановлено уточнение о несладких консервированных ананасах."
+      ],
+      "title": "Салат куриный с ананасами",
+      "file": "recipes/blogger/salat-kurinyy-s-ananasami-673999.json",
+      "changedFields": [
+        "ingredients"
+      ],
+      "originalSha256": "e21486271792a968cea29f32371ae2a815713d2f3fb85d89a2ab1f185ac9094e",
+      "contentSha256": "678943cc2ce1c807db45bce6f2bd5c50f8b495a908c0545f1f72593871ef5c9a"
+    },
+    {
+      "id": "blogger-979183314085971546",
+      "status": "needs-review",
+      "findings": [
+        "В оригинале кунжутное масло есть в ингредиентах, но не указан момент добавления. Сохранено без догадки."
+      ],
+      "title": "Салат с манго, ростками фасоли и жареными орехами кешью",
+      "file": "recipes/blogger/salat-s-mango-rostkami-fasoli-i-zharenymi-orehami-keshyu-971546.json",
+      "changedFields": [],
+      "originalSha256": "66c719f49759dc165155457b09e4a75d842abc876505bb9aa281bc158d95fe63",
+      "contentSha256": "696f0f97687acb62182a7daf9996cf5f4fe5dd7eb92ada4fdbc4ac6c9cbaf925"
+    },
+    {
+      "id": "blogger-988906829929171197",
+      "status": "matched",
+      "findings": [],
+      "title": "Шоколадные маффины",
+      "file": "recipes/blogger/shokoladnye-maffiny-171197.json",
+      "changedFields": [],
+      "originalSha256": "b74bc16cc619567c768ca98dc50d594e0b22f9e3886680d8041b360af603eee5",
+      "contentSha256": "f62b3f5597a222a4d6e4acdd49da0cf3a0a55f77bb3ba67f000a6308ecdd8ae2"
+    }
+  ]
+}
