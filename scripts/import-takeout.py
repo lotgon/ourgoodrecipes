@@ -8,6 +8,7 @@ import hashlib
 import html
 from html.parser import HTMLParser
 import json
+import re
 from pathlib import Path
 import sys
 import urllib.parse
@@ -18,6 +19,19 @@ ROOT = Path(__file__).resolve().parent.parent
 BLOG = 'Рецепты для блюд с низким содержанием соли и глютена'
 BLOG_ID = '4333353184444059143'
 NS = {'a': 'http://www.w3.org/2005/Atom', 'b': 'http://schemas.google.com/blogger/2018'}
+DRAFT_MARKER = re.compile(r'^\s*[—–-]?\s*оригинальный\s+текст\s*\(черновик\)\s*[—–-]?\s*$', re.I | re.M)
+
+
+def single_recipe_text(text):
+    """Select one edition; never deduplicate individual ingredients or layers."""
+    parts = DRAFT_MARKER.split(text, maxsplit=1)
+    if len(parts) == 1:
+        return text
+    formatted, original = (part.strip() for part in parts)
+    # An incomplete redesign explicitly delegates to the original; use it whole.
+    if not formatted or 'см. оригинальный рецепт ниже' in formatted.casefold():
+        return original or formatted
+    return formatted
 
 
 class Text(HTMLParser):
@@ -96,6 +110,8 @@ def run(archive_path):
         missing_images = []
         text_fallbacks = []
         unpublished_ids = set()
+        removed_draft_tails = []
+        missing_method_ids = []
         for entry in feed.findall('a:entry', NS):
             kind = entry.findtext('b:type', namespaces=NS)
             status = entry.findtext('b:status', namespaces=NS)
@@ -108,7 +124,10 @@ def run(archive_path):
             raw = entry.findtext('a:content', default='', namespaces=NS)
             parsed = Text()
             parsed.feed(raw)
-            source_text = parsed.text()
+            full_text = parsed.text()
+            source_text = single_recipe_text(full_text)
+            if DRAFT_MARKER.search(full_text):
+                removed_draft_tails.append(post_id)
             title = html.unescape(entry.findtext('a:title', default='', namespaces=NS)).strip()
             if not title and source_text and len(source_text.splitlines()[0]) <= 120:
                 title = source_text.splitlines()[0]
@@ -139,7 +158,25 @@ def run(archive_path):
             recipe.setdefault('labels', [c.get('term') for c in entry.findall('a:category', NS)
                                          if c.get('term')])
             recipe['sourceText'] = source_text
-            if not recipe.get('steps') and source_text:
+            # Audited source contains only these three ingredients, no method.
+            if post_id == '9032234626701581334' and not recipe.get('steps'):
+                recipe['sourceText'] = ''
+                missing_method_ids.append(post_id)
+            # Restore quantities verified against the pre-redesign original.
+            if post_id == '8486890088533995417':
+                restored = []
+                for value in recipe.get('ingredients', []):
+                    value = {'г. нежирных ребрышек': '200–300 г. нежирных ребрышек',
+                             'ст.л. риса': '3 ст.л. риса'}.get(value, value)
+                    if value == 'капуста' and value in restored:
+                        continue
+                    restored.append(value)
+                recipe['ingredients'] = restored
+                # This sourceText is never displayed alongside structured steps.
+                recipe['sourceText'] = single_recipe_text(full_text).replace(
+                    'г. нежирных ребрышек', '200–300 г. нежирных ребрышек', 1).replace(
+                    'ст.л. риса', '3 ст.л. риса', 1)
+            if not recipe.get('steps') and recipe['sourceText']:
                 text_fallbacks.append(post_id)
             images = [p for p in recipe.get('images', []) if (ROOT / p).is_file()]
             had_images = bool(images)
@@ -176,6 +213,8 @@ def run(archive_path):
         report = {'archive': archive_path.name, 'sha256': hashlib.sha256(archive_path.read_bytes()).hexdigest(),
                   'blogId': BLOG_ID, 'entries': dict(counts), 'catalogCount': len(manifest),
                   'albumPhotosBackedUp': len(album), 'textFallbackPostIds': text_fallbacks,
+                  'removedDraftTailPostIds': removed_draft_tails,
+                  'missingMethodPostIds': missing_method_ids,
                   'missingImages': missing_images,
                   'policy': 'Existing curated fields preserved. Drafts, pages, comments and settings are in ignored local backup.'}
         write_json(ROOT / 'scripts/takeout-import-report.json', report)

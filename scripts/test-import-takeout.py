@@ -14,6 +14,16 @@ spec.loader.exec_module(importer)
 
 
 class ImportTest(unittest.TestCase):
+    def test_redesign_selects_one_complete_edition(self):
+        marker = '\n— оригинальный текст (черновик) —\n'
+        self.assertEqual(importer.single_recipe_text('New quantities and steps' + marker + 'Old recipe'),
+                         'New quantities and steps')
+        self.assertEqual(importer.single_recipe_text('см. оригинальный рецепт ниже' + marker + 'Original method'),
+                         'Original method')
+        self.assertEqual(importer.single_recipe_text(marker + 'Original only'), 'Original only')
+        layered = 'Mayonnaise\nPotatoes\nMayonnaise\nFish'
+        self.assertEqual(importer.single_recipe_text(layered), layered)
+
     def test_preservation_selection_and_repeatability(self):
         with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parent.parent) as tmp:
             importer.ROOT = root = Path(tmp)

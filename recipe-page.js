@@ -31,6 +31,14 @@
     return '<li>' + title + esc(step.text || step.description || ('Шаг ' + (index + 1))) + '</li>';
   }
 
+  function formatNote(note) {
+    if (typeof note === 'string') return '<li>' + esc(note) + '</li>';
+    if (!note) return '';
+    const heading = [note.label, note.text].filter(Boolean).join(': ');
+    const items = Array.isArray(note.items) ? note.items : [];
+    return '<li>' + esc(heading) + (items.length ? '<ul>' + items.map(formatNote).join('') + '</ul>' : '') + '</li>';
+  }
+
   function render(recipe) {
     const title = recipe.title || fallbackTitle;
     document.title = title + ' — Our Good Recipes';
@@ -38,6 +46,10 @@
     const steps = Array.isArray(recipe.steps) ? recipe.steps : [];
     const notes = Array.isArray(recipe.notes) ? recipe.notes : [];
     const description = recipe.description || recipe.intro || '';
+    let sourceText = typeof recipe.sourceText === 'string' ? recipe.sourceText.trim() : '';
+    const sourceLines = sourceText.split(/\r?\n/);
+    if (sourceLines[0].trim() === title.trim()) sourceText = sourceLines.slice(1).join('\n').trim();
+    const useSourceText = !steps.length && !!sourceText;
     const status = recipe.status === 'to-try' || recipe.status === 'Попробовать' ? 'Попробовать' : (recipe.status === 'imported' ? 'Из старого блога' : (recipe.status || ''));
     const images = (recipe.images || []).filter(path => typeof path === 'string' && /^images\/blogger\/[a-zA-Z0-9_./-]+$/.test(path) && !path.includes('..'));
 
@@ -46,14 +58,14 @@
         '<div class="recipe-page-heading">' +
           (status ? '<span class="recipe-page-status">' + esc(status) + '</span>' : '') +
           '<h1>' + esc(title) + '</h1>' +
-          (description ? '<p>' + esc(description) + '</p>' : '') +
+          (!useSourceText && description ? '<p>' + esc(description) + '</p>' : '') +
         '</div>' +
         images.map(path => '<img loading="lazy" style="max-width:100%;height:auto;border-radius:16px" src="../' + esc(path) + '" alt="' + esc(title) + '">').join('') +
         '<div class="recipe-grid">' +
-          (ingredients.length ? '<section class="panel ingredients"><h2>Ингредиенты</h2><ul>' + ingredients.map(formatIngredient).join('') + '</ul></section>' : '') +
-          '<section class="panel steps"' + (!ingredients.length ? ' style="grid-column:1 / -1"' : '') + '>' +
-            (!steps.length && recipe.sourceText ? '<h2>Исходный рецепт</h2><div style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(recipe.sourceText) + '</div>' : '<h2>Приготовление</h2><ol>' + steps.map(formatStep).join('') + '</ol>') +
-            (notes.length ? '<div class="recipe-page-notes"><h3>Заметки</h3><ul>' + notes.map(function(n){ return '<li>' + esc(typeof n === 'string' ? n : [n.label, n.text].filter(Boolean).join(': ')) + '</li>'; }).join('') + '</ul></div>' : '') +
+          (!useSourceText && ingredients.length ? '<section class="panel ingredients"><h2>Ингредиенты</h2><ul>' + ingredients.map(formatIngredient).join('') + '</ul></section>' : '') +
+          '<section class="panel steps"' + (useSourceText || !ingredients.length ? ' style="grid-column:1 / -1"' : '') + '>' +
+            (useSourceText ? '<h2>Исходный рецепт</h2><div style="white-space:pre-wrap;overflow-wrap:anywhere">' + esc(sourceText) + '</div>' : '<h2>Приготовление</h2>' + (steps.length ? '<ol>' + steps.map(formatStep).join('') + '</ol>' : '<p>Приготовление в исходной записи не указано.</p>')) +
+            (!useSourceText && notes.length ? '<div class="recipe-page-notes"><h3>Заметки</h3><ul>' + notes.map(formatNote).join('') + '</ul></div>' : '') +
           '</section>' +
         '</div>' +
       '</article>';
