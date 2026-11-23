@@ -53,7 +53,7 @@
     const useSourceText = !steps.length && !!sourceText;
     const originalLinks = (Array.isArray(recipe.originalLinks) ? recipe.originalLinks : []).filter(link => link && typeof link.url === 'string' && /^https?:\/\//i.test(link.url));
     const linksHtml = originalLinks.length ? '<nav aria-label="Ссылки из оригинала"><h3>Ссылки из оригинала</h3><ul>' + originalLinks.map(link => '<li><a href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer">' + esc(link.text || link.url) + '</a></li>').join('') + '</ul></nav>' : '';
-    const status = recipe.status === 'to-try' || recipe.status === 'Попробовать' ? 'Попробовать' : (recipe.status === 'imported' ? 'Из старого блога' : (recipe.status || ''));
+    const status = recipe.status === 'to-try' || recipe.status === 'Попробовать' ? 'Попробовать' : (recipe.status === 'tested' ? 'Приготовлено' : (recipe.status === 'imported' ? 'Из старого блога' : (recipe.status || '')));
     const images = (recipe.images || []).filter(path => typeof path === 'string' && /^images\/blogger\/[a-zA-Z0-9_./-]+$/.test(path) && !path.includes('..'));
 
     root.innerHTML =
